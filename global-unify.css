@@ -1,0 +1,197 @@
+/* Global Design Unification - Forces Homepage Design Across All Pages */
+
+/* CSS Variables - Match Homepage Exactly */
+:root {
+    --navy-primary: #0B1C2E;
+    --navy-dark: #081521;
+    --navy-darker: #05101A;
+    --text-white: #FFFFFF;
+    --text-light-gray: #B8C5D1;
+    --text-gray: #8B9AAB;
+    --accent-teal: #00B4FF;
+    --accent-teal-hover: #0099CC;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+    --section-padding: 80px 0;
+    --container-padding: 0 60px;
+}
+
+/* Force Global Styling */
+body,
+body.sports-tech-theme,
+.sports-tech-theme {
+    background: var(--navy-primary) !important;
+    color: var(--text-white) !important;
+    font-family: var(--font-body) !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Global Section Styling - Alternating Backgrounds */
+.section {
+    background: var(--navy-primary) !important;
+    padding: var(--section-padding) !important;
+    width: 100% !important;
+}
+
+.section:nth-child(even) {
+    background: var(--navy-dark) !important;
+}
+
+.section:nth-child(odd) {
+    background: var(--navy-primary) !important;
+}
+
+/* Container Consistency */
+.container {
+    max-width: 1400px !important;
+    margin: 0 auto !important;
+    padding: var(--container-padding) !important;
+}
+
+/* Typography - Exact Homepage Match */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary) !important;
+    color: var(--text-white) !important;
+    margin: 0 0 24px 0 !important;
+}
+
+h1 {
+    font-size: 56px !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+}
+
+h2 {
+    font-size: 40px !important;
+    font-weight: 600 !important;
+}
+
+h3 {
+    font-size: 28px !important;
+    font-weight: 600 !important;
+}
+
+p, span, div, li {
+    font-family: var(--font-body) !important;
+    color: var(--text-light-gray) !important;
+    font-size: 18px !important;
+    line-height: 1.6 !important;
+}
+
+/* Button Standardization - Exact Homepage Style */
+button, .btn, .btn-primary, .btn-secondary, .cta-btn, .back-btn, .load-more-btn {
+    font-family: var(--font-primary) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    border-radius: 8px !important;
+    padding: 16px 32px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    font-size: 16px !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+}
+
+.btn-primary, .cta-btn.primary, .cta-btn {
+    background: var(--accent-teal) !important;
+    color: var(--text-white) !important;
+}
+
+.btn-primary:hover, .cta-btn:hover {
+    background: var(--accent-teal-hover) !important;
+}
+
+.btn-secondary, .back-btn {
+    background: transparent !important;
+    color: var(--accent-teal) !important;
+    border: 2px solid var(--accent-teal) !important;
+}
+
+.btn-secondary:hover, .back-btn:hover {
+    background: var(--accent-teal) !important;
+    color: var(--text-white) !important;
+}
+
+/* Remove White Cards - Apply Flat Design */
+.card, .program-card, .stat-card, .review-card, .nil-stat-card, .problem-card, .use-case-card {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 12px !important;
+    padding: 24px !important;
+    backdrop-filter: blur(10px) !important;
+    color: var(--text-white) !important;
+}
+
+/* Override Any White Backgrounds */
+.white-bg, .bg-white, .card-white, .results-grid, .programs-grid {
+    background: transparent !important;
+    color: var(--text-white) !important;
+}
+
+/* Stats Styling */
+.stat-number, .stat-number-new {
+    font-family: var(--font-primary) !important;
+    font-weight: 800 !important;
+    font-size: 72px !important;
+    color: var(--accent-teal) !important;
+    line-height: 1 !important;
+}
+
+.stat-label, .stat-description {
+    font-family: var(--font-body) !important;
+    color: var(--text-light-gray) !important;
+    font-size: 16px !important;
+}
+
+/* Page-Specific Overrides */
+.search-results-container,
+.programs-main,
+.analytics-header,
+.review-header,
+.sport-selection-main {
+    background: var(--navy-primary) !important;
+    padding-top: 120px !important;
+    min-height: 100vh !important;
+}
+
+/* Form Styling */
+input, textarea, select {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: var(--text-white) !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    font-family: var(--font-body) !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--text-gray) !important;
+}
+
+/* Icon Consistency */
+.fas, .far, .fab, i {
+    color: var(--accent-teal) !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-container, .container {
+        padding: 0 20px !important;
+    }
+    
+    h1 {
+        font-size: 36px !important;
+    }
+    
+    h2 {
+        font-size: 28px !important;
+    }
+    
+    .section {
+        padding: 60px 0 !important;
+    }
+}

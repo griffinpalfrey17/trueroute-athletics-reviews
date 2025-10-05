@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIL Info - TrueRoute</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .nil-hero {
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .nil-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .nil-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .nil-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .nil-stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e1e8ed;
+            transition: transform 0.3s ease;
+        }
+
+        .nil-stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nil-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #4A90E2;
+            margin-bottom: 0.5rem;
+        }
+
+        .nil-stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Header Styling */
+        .site-header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .chart-section {
+            margin: 4rem 0;
+            padding: 2rem 0;
+        }
+
+        .chart-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .chart-section p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .insights-section {
+            margin: 4rem 0;
+            padding: 3rem 0;
+            background: #f8f9fa;
+        }
+
+        .insights-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #333;
+            text-align: center;
+        }
+
+        .insights-section p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .chart-controls {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .chart-dropdown {
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: 2px solid #4A90E2;
+            border-radius: 8px;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .chart-dropdown:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem auto;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 1000px;
+            min-height: 500px;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 400px;
+            width: 100%;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .insight-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-left: 4px solid #4A90E2;
+        }
+
+        .insight-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .insight-text {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .trend-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .trend-up {
+            color: #28a745;
+        }
+
+        @media (max-width: 768px) {
+            .nil-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nil-stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .chart-wrapper {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="sports-tech-theme">
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Athletic figure in motion -->
+                        <g transform="translate(10, 10)">
+                            <!-- Head -->
+                            <circle cx="25" cy="15" r="6" fill="#4A90E2"/>
+                            
+                            <!-- Body -->
+                            <rect x="22" y="21" width="6" height="15" rx="3" fill="#357ABD"/>
+                            
+                            <!-- Arms (in running motion) -->
+                            <path d="M22 25 L16 22 L12 28" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            <path d="M28 25 L34 28 L38 22" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Left Leg (back, bent) -->
+                            <path d="M24 36 L20 45 L18 52 L22 65" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Right Leg (forward, extended) -->
+                            <path d="M26 36 L30 45 L34 52 L40 62" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Cleats -->
+                            <ellipse cx="23" cy="66" rx="3" ry="1.5" fill="#1a365d"/>
+                            <ellipse cx="41" cy="63" rx="3" ry="1.5" fill="#1a365d"/>
+                        </g>
+                        
+                        <!-- Route Path -->
+                        <path d="M10 80 Q30 70, 50 75 Q70 80, 90 65" stroke="#4A90E2" stroke-width="2.5" fill="none" opacity="0.7" stroke-dasharray="3,2"/>
+                        <circle cx="90" cy="65" r="3" fill="#F39C12" stroke="white" stroke-width="1"/>
+                        
+                        <!-- Speed lines -->
+                        <path d="M15 45 L8 47 M12 50 L5 52 M18 55 L11 57" stroke="#4A90E2" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span>TrueRoute</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="nil-info.html" class="nav-link active">NIL Info</a>
+                <a href="write-review.html" class="nav-link">Write Review</a>
+                <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="nil-hero section">
+        <div class="container">
+            <h1>NIL Landscape Analysis</h1>
+            <p>Comprehensive insights into Name, Image, and Likeness deals across college athletics. Explore trends, top companies, and conference breakdowns based on disclosed data.</p>
+        </div>
+    </section>
+
+    <!-- Key Statistics -->
+    <section class="container">
+        <div class="nil-stats-grid">
+            <div class="nil-stat-card">
+                <div class="nil-stat-number">$847M</div>
+                <div class="nil-stat-label">Total NIL Disclosed</div>
+            </div>
+            <div class="nil-stat-card">
+                <div class="nil-stat-number">2,847</div>
+                <div class="nil-stat-label">Active NIL Deals</div>
+            </div>
+            <div class="nil-stat-card">
+                <div class="nil-stat-number">156</div>
+                <div class="nil-stat-label">Partner Companies</div>
+            </div>
+            <div class="nil-stat-card">
+                <div class="nil-stat-number">89%</div>
+                <div class="nil-stat-label">Growth This Year</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NIL Analytics Chart -->
+    <section class="chart-section">
+        <div class="container">
+            <h2>NIL Analytics Dashboard</h2>
+            <p>Explore NIL trends and distributions across different categories</p>
+            
+            <div class="chart-controls">
+                <select class="chart-dropdown" id="chartSelector">
+                    <option value="year">NIL by Year</option>
+                    <option value="sport">NIL by Sport</option>
+                    <option value="division">NIL by Division</option>
+                    <option value="conference">NIL by Conference</option>
+                    <option value="school">NIL by School</option>
+                </select>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <canvas id="nilChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Insights -->
+    <section class="insights-section">
+        <div class="container">
+            <h2>Key Insights</h2>
+            <p>Important trends and findings from our NIL data analysis</p>
+            
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-title">Football Dominates</div>
+                    <div class="insight-text">
+                        Football accounts for 52% of all disclosed NIL deals, with an average deal value of $47,000. 
+                        Top quarterbacks and skill position players command the highest premiums.
+                    </div>
+                    <div class="trend-indicator trend-up">
+                        ↗ 67% increase from last year
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-title">Basketball Rising</div>
+                    <div class="insight-text">
+                        Men's basketball NIL deals have grown 89% year-over-year, with social media influence 
+                        becoming a key factor in deal valuations.
+                    </div>
+                    <div class="trend-indicator trend-up">
+                        ↗ 89% increase from last year
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-title">Local Business Focus</div>
+                    <div class="insight-text">
+                        67% of NIL deals come from local businesses near campus, emphasizing the importance 
+                        of community connections for student-athletes.
+                    </div>
+                    <div class="trend-indicator trend-up">
+                        ↗ 23% increase from last year
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <div class="insight-title">Women's Sports Growth</div>
+                    <div class="insight-text">
+                        Women's sports NIL deals have increased 156% year-over-year, led by basketball, 
+                        gymnastics, and softball athletes.
+                    </div>
+                    <div class="trend-indicator trend-up">
+                        ↗ 156% increase from last year
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TrueRoute</h3>
+                    <p>Authentic insights into college athletics programs.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <a href="analytics.html">Analytics</a>
+                    <a href="nil-info.html">NIL Info</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <a href="sign-in.html">Sign In</a>
+                    <a href="sign-up.html">Sign Up</a>
+                    <a href="write-review.html">Write Review</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TrueRoute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Chart data for different categories
+        const chartData = {
+            year: {
+                type: 'line',
+                labels: ['2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: 'Total NIL Disclosed ($M)',
+                    data: [45, 156, 387, 847],
+                    borderColor: '#4A90E2',
+                    backgroundColor: 'rgba(74, 144, 226, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4
+                }],
+                title: 'NIL Growth Over Time'
+            },
+            sport: {
+                type: 'bar',
+                labels: ['Football', 'Men\'s Basketball', 'Women\'s Basketball', 'Baseball', 'Gymnastics', 'Soccer', 'Track & Field', 'Others'],
+                datasets: [{
+                    label: 'NIL Value ($M)',
+                    data: [441, 187, 89, 67, 34, 29, 23, 77],
+                    backgroundColor: [
+                        '#4A90E2', '#357ABD', '#2E6BA8', '#255C93',
+                        '#1C4D7E', '#133E69', '#0A2F54', '#01203F'
+                    ]
+                }],
+                title: 'NIL Distribution by Sport'
+            },
+            division: {
+                type: 'doughnut',
+                labels: ['Division I', 'Division II', 'Division III', 'NAIA', 'JUCO'],
+                datasets: [{
+                    data: [723, 89, 23, 8, 4],
+                    backgroundColor: [
+                        '#4A90E2', '#357ABD', '#2E6BA8', '#255C93', '#1C4D7E'
+                    ]
+                }],
+                title: 'NIL Distribution by Division'
+            },
+            conference: {
+                type: 'doughnut',
+                labels: ['SEC', 'Big Ten', 'Big 12', 'ACC', 'Pac-12', 'Big East', 'Others'],
+                datasets: [{
+                    data: [156, 134, 98, 87, 76, 45, 251],
+                    backgroundColor: [
+                        '#4A90E2', '#357ABD', '#2E6BA8', '#255C93',
+                        '#1C4D7E', '#133E69', '#0A2F54'
+                    ]
+                }],
+                title: 'NIL Distribution by Conference'
+            },
+            school: {
+                type: 'bar',
+                labels: ['Texas A&M', 'Alabama', 'Georgia', 'Ohio State', 'LSU', 'Texas', 'Oklahoma', 'USC'],
+                datasets: [{
+                    label: 'Total NIL Value ($M)',
+                    data: [47, 43, 39, 36, 34, 31, 28, 25],
+                    backgroundColor: [
+                        '#4A90E2', '#357ABD', '#2E6BA8', '#255C93',
+                        '#1C4D7E', '#133E69', '#0A2F54', '#01203F'
+                    ]
+                }],
+                title: 'Top Programs by NIL Value'
+            }
+        };
+
+        // Initialize chart
+        let nilChart;
+        const ctx = document.getElementById('nilChart').getContext('2d');
+        
+        function createChart(category) {
+            const data = chartData[category];
+            
+            // Destroy existing chart if it exists
+            if (nilChart) {
+                nilChart.destroy();
+            }
+            
+            nilChart = new Chart(ctx, {
+                type: data.type,
+                data: {
+                    labels: data.labels,
+                    datasets: data.datasets
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: data.title,
+                            font: {
+                                size: 18,
+                                weight: 'bold'
+                            },
+                            padding: 20
+                        },
+                        legend: {
+                            display: data.type === 'doughnut',
+                            position: 'bottom',
+                            labels: {
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    if (data.type === 'doughnut') {
+                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                        const percentage = ((context.parsed / total) * 100).toFixed(1);
+                                        return context.label + ': ' + percentage + '%';
+                                    } else {
+                                        return context.label + ': $' + context.parsed + 'M';
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    scales: data.type !== 'doughnut' ? {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value + 'M';
+                                }
+                            }
+                        }
+                    } : {}
+                }
+            });
+        }
+        
+        // Initialize with first chart
+        document.addEventListener('DOMContentLoaded', function() {
+            createChart('year');
+            
+            // Add event listener for dropdown
+            document.getElementById('chartSelector').addEventListener('change', function(e) {
+                createChart(e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,509 @@
+/* Homepage Redesign - Hudl-inspired Styling */
+
+/* Typography - Clean Sans-serif */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-navy: #1e3a8a;
+    --primary-blue: #3b82f6;
+    --highlight-color: #f59e0b;
+    --text-dark: #1f2937;
+    --text-gray: #6b7280;
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --border-light: #e5e7eb;
+    --success-green: #10b981;
+    --warning-red: #ef4444;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background: var(--bg-white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Hero Section - New Design */
+.hero-new {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-blue) 100%);
+    color: white;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-new::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-content-new {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.hero-tagline {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 48px;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-primary, .cta-secondary {
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    min-width: 160px;
+}
+
+.cta-primary {
+    background: var(--highlight-color);
+    color: white;
+}
+
+.cta-primary:hover {
+    background: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+}
+
+.cta-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Section Styling */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 64px;
+    color: var(--primary-navy);
+    letter-spacing: -0.01em;
+}
+
+/* Problem Section */
+.problem-section {
+    padding: 100px 0;
+    background: var(--bg-light);
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 48px;
+    margin-bottom: 80px;
+}
+
+.problem-card {
+    background: white;
+    padding: 48px 32px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.problem-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-navy));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.problem-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.problem-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--primary-navy);
+}
+
+.problem-card p {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.solution-statement {
+    text-align: center;
+    background: white;
+    padding: 48px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.solution-statement h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--primary-navy);
+    line-height: 1.4;
+}
+
+/* NIL Contributors Section */
+.nil-contributors {
+    padding: 100px 0;
+    background: white;
+}
+
+.nil-logos-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+}
+
+.nil-company {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.3s ease;
+}
+
+.nil-company:hover {
+    transform: translateY(-8px);
+}
+
+.company-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.company-logo:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.nil-company h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.nil-disclaimer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    font-style: italic;
+}
+
+/* Transfer Stats Section - New Design */
+.transfer-stats-new {
+    padding: 100px 0;
+    background: var(--bg-light);
+}
+
+.stats-grid-new {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 80px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    text-align: center;
+    max-width: 300px;
+}
+
+.stat-number-new {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.stat-description {
+    font-size: 1rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.active-stat .stat-number-new {
+    color: var(--primary-blue);
+}
+
+.live-indicator-new {
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--success-green);
+    font-weight: 600;
+    animation: pulse 2s infinite;
+}
+
+.transfer-cta {
+    text-align: center;
+}
+
+.transfer-data-btn {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.transfer-data-btn:hover {
+    background: var(--primary-navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Use Cases Section */
+.use-cases {
+    padding: 100px 0;
+    background: var(--bg-light);
+}
+
+.use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 48px;
+}
+
+.use-case-card {
+    background: white;
+    padding: 48px 32px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.use-case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.use-case-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--highlight-color), #d97706);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.use-case-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.use-case-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--primary-navy);
+}
+
+.use-case-card p {
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.use-case-btn {
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.use-case-btn:hover {
+    background: var(--primary-navy);
+    transform: translateY(-2px);
+}
+
+/* Footer CTA Section */
+.footer-cta {
+    padding: 80px 0;
+    background: var(--primary-navy);
+    color: white;
+    text-align: center;
+}
+
+.footer-cta h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+    line-height: 1.3;
+}
+
+.footer-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .problem-grid,
+    .stats-grid,
+    .use-cases-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .nil-logos-new {
+        gap: 40px;
+    }
+    
+    .stats-grid-new {
+        gap: 40px;
+    }
+    
+    .hero-cta-buttons,
+    .footer-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-primary,
+    .cta-secondary {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .hero-new {
+        padding: 80px 0 60px;
+    }
+    
+    .problem-section,
+    .nil-contributors,
+    .transfer-stats,
+    .use-cases {
+        padding: 60px 0;
+    }
+    
+    .footer-cta {
+        padding: 60px 0;
+    }
+    
+    .problem-card,
+    .use-case-card {
+        padding: 32px 24px;
+    }
+    
+    .stat-card {
+        padding: 32px 16px;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueRoute - College Athletics Reviews</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="enhanced-cards.css">
+    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                        <!-- Realistic Football Player Running Route -->
+                        <g transform="translate(20,10)">
+                            <!-- Head/Helmet -->
+                            <circle cx="30" cy="15" r="7" fill="#2C5AA0"/>
+                            <path d="M25 12 L35 12 M27 15 L33 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                            
+                            <!-- Torso -->
+                            <path d="M30 22 L28 45 L32 45 Z" fill="#4A90E2"/>
+                            <rect x="26" y="25" width="8" height="15" rx="2" fill="#357ABD"/>
+                            
+                            <!-- Left Arm (pumping back) -->
+                            <path d="M26 28 L18 32 L16 38" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Right Arm (forward with ball) -->
+                            <path d="M34 28 L42 25 L45 22" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Football in hand -->
+                            <ellipse cx="46" cy="20" rx="2.5" ry="4" fill="#8B4513" transform="rotate(25 46 20)"/>
+                            <path d="M44 20 L48 20" stroke="white" stroke-width="0.8"/>
+                            
+                            <!-- Left Leg (back, bent) -->
+                            <path d="M28 45 L26 55 L24 65" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Right Leg (forward, extended) -->
+                            <path d="M32 45 L36 55 L40 62" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Cleats -->
+                            <ellipse cx="23" cy="66" rx="3" ry="1.5" fill="#1a365d"/>
+                            <ellipse cx="41" cy="63" rx="3" ry="1.5" fill="#1a365d"/>
+                        </g>
+                        
+                        <!-- Route Path -->
+                        <path d="M10 80 Q30 70, 50 75 Q70 80, 90 65" stroke="#4A90E2" stroke-width="2.5" fill="none" opacity="0.7" stroke-dasharray="3,2"/>
+                        <circle cx="90" cy="65" r="3" fill="#F39C12" stroke="white" stroke-width="1"/>
+                        
+                        <!-- Speed lines -->
+                        <path d="M15 45 L8 47 M12 50 L5 52 M18 55 L11 57" stroke="#4A90E2" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="brand-text">TrueRoute</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="nil-info.html" class="nav-link">NIL Info</a>
+                <a href="write-review.html" class="nav-link">Write Review</a>
+                <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Find Your Perfect College Athletic Program</h1>
+            <p>Get honest, detailed reviews from former student-athletes about team culture, academic support, financial opportunities, and more.</p>
+            
+            <div class="hero-search-container">
+                <div class="search-box-modern">
+                    <div class="search-input-group">
+                        <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" id="schoolSearch" class="hero-search-input" placeholder="Search schools, programs, or locations..." autocomplete="off" style="background: white !important; color: black !important; border: none !important;" onkeypress="if(event.key==='Enter') handleSearchClick()">
+                        <button class="hero-search-btn" id="mainSearchBtn" onclick="handleSearchClick()">
+                            <span>Search</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div id="searchSuggestions" class="modern-suggestions"></div>
+                </div>
+                <div class="search-examples">
+                    <span class="example-label">Popular searches:</span>
+                    <div class="example-tags">
+                        <span class="example-tag">Stanford Football</span>
+                        <span class="example-tag">Duke Basketball</span>
+                        <span class="example-tag">California D1</span>
+                        <span class="example-tag">SEC Conference</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Problem + Value Proposition Section -->
+    <section class="problem-section section">
+        <div class="container">
+            <h2 class="section-title">The Problem: A Changing Landscape in College Athletics</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h3>Transparency</h3>
+                    <p>Recruits and families make $100K+ decisions with limited insights.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Limited Perspectives</h3>
+                    <p>Coaches and facilities only show part of the picture.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Transfer & NIL Era</h3>
+                    <p>Athletes face uncertainty with transfers and NIL changes.</p>
+                </div>
+            </div>
+            
+            <div class="solution-statement">
+                <h3>Our Solution: Learn from those who have been in the shoes you want to fill.</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- NIL Contributors Section -->
+    <section class="nil-contributors section">
+        <div class="container">
+            <h2 class="section-title">Top NIL Contributors by Conference and Sport</h2>
+            
+            <div class="nil-logos-new">
+                <div class="nil-company">
+                    <div class="company-logo nike-logo">
+                        <div class="logo-text">NIKE</div>
+                        <div class="logo-swoosh">✓</div>
+                    </div>
+                    <h3>Nike</h3>
+                </div>
+                
+                <div class="nil-company">
+                    <div class="company-logo gatorade-logo">
+                        <div class="logo-text gatorade-text">GATORADE</div>
+                        <div class="logo-lightning">⚡</div>
+                    </div>
+                    <h3>Gatorade</h3>
+                </div>
+                
+                <div class="nil-company">
+                    <div class="company-logo chevrolet-logo">
+                        <div class="logo-text chevrolet-text">CHEVROLET</div>
+                        <div class="logo-bowtie">◆</div>
+                    </div>
+                    <h3>Chevrolet</h3>
+                </div>
+            </div>
+            
+            <p class="nil-disclaimer">Data based on verified alumni reviews and public NIL reports.</p>
+        </div>
+    </section>
+
+    <!-- Transfer Data Section -->
+    <section class="transfer-stats-new section">
+        <div class="container">
+            <div class="stats-grid-new">
+                <div class="stat-item">
+                    <div class="stat-number-new">255%</div>
+                    <div class="stat-description">Increase in athletes entering the transfer portal since 2020</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number-new">12,000+</div>
+                    <div class="stat-description">Athletes in the NCAA transfer portal this year</div>
+                </div>
+                
+                <div class="stat-item active-stat">
+                    <div class="stat-number-new" id="activePortalCount">8,247</div>
+                    <div class="stat-description">Currently active in transfer portal</div>
+                    <div class="live-indicator-new">● LIVE</div>
+                </div>
+            </div>
+            
+            <div class="transfer-cta">
+                <button class="transfer-data-btn" onclick="window.location.href='transfer-data.html'">View Transfer Data</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience Use Cases Section -->
+    <section class="use-cases section">
+        <div class="container">
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Recruits</h3>
+                    <p>See what life is really like at each program.</p>
+                    <button class="use-case-btn" onclick="window.location.href='sport-selection.html'">Explore Programs</button>
+                </div>
+                
+                <div class="use-case-card">
+                    <div class="use-case-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Alumni</h3>
+                    <p>Share your story, help future athletes, and stay connected.</p>
+                    <button class="use-case-btn" onclick="window.location.href='write-review.html'">Share Your Story</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- School Profile Modal -->
+    <div id="schoolModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="schoolProfile">
+                <!-- School profile content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TrueRoute</h3>
+                    <p>Empowering student-athletes with honest, detailed program reviews and insights.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>For Athletes</h4>
+                    <ul>
+                        <li><a href="sport-selection.html">Browse Programs</a></li>
+                        <li><a href="write-review.html">Write Review</a></li>
+                        <li><a href="nil-info.html">NIL Information</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#guide">Review Guidelines</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TrueRoute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=3"></script>
+</body>
+</html>

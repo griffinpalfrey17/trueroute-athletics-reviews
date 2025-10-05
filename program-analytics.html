@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Program Analytics - TrueRoute</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="sports-tech-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="18" fill="#2c5aa0" stroke="#ffffff" stroke-width="2"/>
+                        <path d="M12 20 L18 14 L22 18 L28 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="18" cy="14" r="2" fill="white"/>
+                        <circle cx="22" cy="18" r="2" fill="white"/>
+                        <circle cx="28" cy="12" r="2" fill="white"/>
+                    </svg>
+                    <span>TrueRoute</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="sign-in.html" class="nav-btn">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Program Header -->
+    <section class="program-analytics-header">
+        <div class="container">
+            <div class="program-hero">
+                <div class="program-info">
+                    <div class="program-logo" id="programLogo">UA</div>
+                    <div class="program-details">
+                        <h1 id="programName">University of Alabama</h1>
+                        <p id="programSport">Football • SEC • Division I</p>
+                        <div class="program-badges">
+                            <span class="badge high-nil">High NIL</span>
+                            <span class="badge verified">Verified Data</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-quick-stats">
+                    <div class="quick-stat">
+                        <div class="stat-number" id="avgNIL">$45K</div>
+                        <div class="stat-label">Avg NIL Deal</div>
+                    </div>
+                    <div class="quick-stat">
+                        <div class="stat-number" id="scholarshipRate">78%</div>
+                        <div class="stat-label">Scholarship Rate</div>
+                    </div>
+                    <div class="quick-stat">
+                        <div class="stat-number" id="financialAidRate">65%</div>
+                        <div class="stat-label">Financial Aid</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Dashboard -->
+    <section class="program-analytics-dashboard">
+        <div class="container">
+            <div class="analytics-grid">
+                <!-- NIL Distribution -->
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-dollar-sign"></i> NIL Deal Distribution</h3>
+                        <div class="card-info">
+                            <i class="fas fa-info-circle" title="Based on reported deals from current and former athletes"></i>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="nilDistributionChart"></canvas>
+                    </div>
+                    <div class="distribution-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Median:</span>
+                            <span class="stat-value" id="nilMedian">$32K</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Top 10%:</span>
+                            <span class="stat-value" id="nilTop10">$125K+</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Athletes with NIL:</span>
+                            <span class="stat-value" id="nilParticipation">67%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scholarship Breakdown -->
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-graduation-cap"></i> Scholarship Breakdown</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="scholarshipChart"></canvas>
+                    </div>
+                    <div class="scholarship-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Full Scholarships:</span>
+                            <span class="detail-value">45%</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Partial Scholarships:</span>
+                            <span class="detail-value">33%</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Walk-ons:</span>
+                            <span class="detail-value">22%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Financial Aid Analysis -->
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-hand-holding-usd"></i> Financial Aid Analysis</h3>
+                    </div>
+                    <div class="aid-breakdown">
+                        <div class="aid-category">
+                            <div class="aid-header">
+                                <h4>Need-Based Aid</h4>
+                                <span class="aid-percentage">42%</span>
+                            </div>
+                            <div class="aid-bar">
+                                <div class="aid-fill" style="width: 42%"></div>
+                            </div>
+                            <p class="aid-description">Average: $18,500/year</p>
+                        </div>
+                        <div class="aid-category">
+                            <div class="aid-header">
+                                <h4>Merit-Based Aid</h4>
+                                <span class="aid-percentage">28%</span>
+                            </div>
+                            <div class="aid-bar">
+                                <div class="aid-fill merit" style="width: 28%"></div>
+                            </div>
+                            <p class="aid-description">Average: $12,300/year</p>
+                        </div>
+                        <div class="aid-category">
+                            <div class="aid-header">
+                                <h4>State/Federal Aid</h4>
+                                <span class="aid-percentage">35%</span>
+                            </div>
+                            <div class="aid-bar">
+                                <div class="aid-fill federal" style="width: 35%"></div>
+                            </div>
+                            <p class="aid-description">Average: $8,900/year</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yearly Trends -->
+                <div class="analytics-card full-width">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-line"></i> Financial Trends Over Time</h3>
+                        <div class="card-controls">
+                            <button class="trend-btn active" data-metric="nil">NIL</button>
+                            <button class="trend-btn" data-metric="scholarship">Scholarships</button>
+                            <button class="trend-btn" data-metric="aid">Financial Aid</button>
+                        </div>
+                    </div>
+                    <div class="chart-container large">
+                        <canvas id="trendsChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Comparison with Similar Programs -->
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-balance-scale"></i> Comparison with Similar Programs</h3>
+                    </div>
+                    <div class="comparison-list">
+                        <div class="comparison-item">
+                            <div class="comparison-school">
+                                <div class="school-logo">UG</div>
+                                <div class="school-info">
+                                    <h4>University of Georgia</h4>
+                                    <span>Football • SEC</span>
+                                </div>
+                            </div>
+                            <div class="comparison-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">NIL:</span>
+                                    <span class="metric-value higher">$52K</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Scholarship:</span>
+                                    <span class="metric-value similar">76%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comparison-item">
+                            <div class="comparison-school">
+                                <div class="school-logo">LS</div>
+                                <div class="school-info">
+                                    <h4>Louisiana State University</h4>
+                                    <span>Football • SEC</span>
+                                </div>
+                            </div>
+                            <div class="comparison-metrics">
+                                <div class="metric">
+                                    <span class="metric-label">NIL:</span>
+                                    <span class="metric-value lower">$38K</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="metric-label">Scholarship:</span>
+                                    <span class="metric-value higher">82%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Insights -->
+                <div class="analytics-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-lightbulb"></i> Key Insights</h3>
+                    </div>
+                    <div class="insights-list">
+                        <div class="insight-item positive">
+                            <div class="insight-icon">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Strong NIL Program</h4>
+                                <p>Above-average NIL opportunities with 67% athlete participation</p>
+                            </div>
+                        </div>
+                        <div class="insight-item neutral">
+                            <div class="insight-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Competitive Scholarships</h4>
+                                <p>78% scholarship rate is typical for top-tier SEC programs</p>
+                            </div>
+                        </div>
+                        <div class="insight-item positive">
+                            <div class="insight-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="insight-content">
+                                <h4>Excellent Financial Support</h4>
+                                <p>High financial aid availability with multiple funding sources</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="analytics-actions">
+                <button class="action-btn primary" onclick="window.history.back()">
+                    <i class="fas fa-arrow-left"></i>
+                    Back to Program
+                </button>
+                <button class="action-btn secondary" onclick="window.location.href='analytics.html'">
+                    <i class="fas fa-chart-bar"></i>
+                    View General Analytics
+                </button>
+                <button class="action-btn secondary" onclick="exportProgramData()">
+                    <i class="fas fa-download"></i>
+                    Export Data
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" fill="#2c5aa0" stroke="#ffffff" stroke-width="2"/>
+                            <path d="M12 20 L18 14 L22 18 L28 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="18" cy="14" r="2" fill="white"/>
+                            <circle cx="22" cy="18" r="2" fill="white"/>
+                            <circle cx="28" cy="12" r="2" fill="white"/>
+                        </svg>
+                        <span>TrueRoute</span>
+                    </div>
+                    <p>Transparency in college athletics through data-driven insights.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TrueRoute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="program-analytics.js"></script>
+</body>
+</html>

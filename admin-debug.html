@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Debug - TrueRoute</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .debug-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .debug-section {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        .debug-button {
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 0.5rem 0.5rem 0.5rem 0;
+        }
+        .debug-button.danger {
+            background: #ef4444;
+        }
+        .debug-output {
+            background: #f8fafc;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .user-info {
+            background: #f0f9ff;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-container">
+        <h1>TrueRoute Admin Debug Panel</h1>
+        <p>This page helps debug and fix account issues during development.</p>
+
+        <div class="debug-section">
+            <h2>Account Status</h2>
+            <button class="debug-button" onclick="showAllUsers()">Show All Users</button>
+            <button class="debug-button" onclick="showVerificationCodes()">Show Verification Codes</button>
+            <div id="accountStatus" class="debug-output"></div>
+        </div>
+
+        <div class="debug-section">
+            <h2>Fix Account Issues</h2>
+            <input type="email" id="emailInput" placeholder="Enter email address" style="padding: 0.5rem; margin-right: 0.5rem; width: 250px;">
+            <br><br>
+            <button class="debug-button" onclick="getVerificationCode()">Get Verification Code</button>
+            <button class="debug-button" onclick="forceVerifyEmail()">Force Verify Email</button>
+            <button class="debug-button" onclick="resendCode()">Resend Code</button>
+            <button class="debug-button danger" onclick="deleteUser()">Delete User Account</button>
+            <div id="fixResult" class="debug-output"></div>
+        </div>
+
+        <div class="debug-section">
+            <h2>Reset Everything</h2>
+            <button class="debug-button danger" onclick="clearAllData()">Clear All User Data</button>
+            <p style="color: #ef4444; font-size: 0.9rem;">⚠️ This will delete all accounts and verification codes</p>
+            <div id="resetResult" class="debug-output"></div>
+        </div>
+
+        <div class="debug-section">
+            <h2>Quick Actions</h2>
+            <button class="debug-button" onclick="goToSignUp()">Go to Sign Up</button>
+            <button class="debug-button" onclick="goToSignIn()">Go to Sign In</button>
+            <button class="debug-button" onclick="goToVerification()">Go to Email Verification</button>
+        </div>
+    </div>
+
+    <script src="user-manager.js"></script>
+    <script>
+        function showAllUsers() {
+            const users = window.userManager.getAllUsers();
+            const output = document.getElementById('accountStatus');
+            
+            if (users.length === 0) {
+                output.textContent = 'No users found.';
+                return;
+            }
+            
+            let result = `Found ${users.length} user(s):\n\n`;
+            users.forEach((user, index) => {
+                result += `User ${index + 1}:\n`;
+                result += `  Email: ${user.email}\n`;
+                result += `  Name: ${user.firstName} ${user.lastName}\n`;
+                result += `  Type: ${user.userType}\n`;
+                result += `  Email Verified: ${user.emailVerified}\n`;
+                result += `  Manual Verified: ${user.manualVerified}\n`;
+                result += `  Status: ${user.verificationStatus}\n`;
+                result += `  Created: ${user.createdAt}\n\n`;
+            });
+            
+            output.textContent = result;
+        }
+
+        function showVerificationCodes() {
+            const codes = JSON.parse(localStorage.getItem('trueroute_verification_codes') || '{}');
+            const output = document.getElementById('accountStatus');
+            
+            if (Object.keys(codes).length === 0) {
+                output.textContent = 'No verification codes found.';
+                return;
+            }
+            
+            let result = 'Verification Codes:\n\n';
+            Object.entries(codes).forEach(([email, data]) => {
+                result += `Email: ${email}\n`;
+                result += `  Code: ${data.code}\n`;
+                result += `  Expires: ${data.expiresAt}\n`;
+                result += `  Type: ${data.type}\n\n`;
+            });
+            
+            output.textContent = result;
+        }
+
+        function getVerificationCode() {
+            const email = document.getElementById('emailInput').value;
+            if (!email) {
+                alert('Please enter an email address');
+                return;
+            }
+            
+            const codes = JSON.parse(localStorage.getItem('trueroute_verification_codes') || '{}');
+            const userCode = codes[email];
+            const output = document.getElementById('fixResult');
+            
+            if (userCode) {
+                output.textContent = `Verification code for ${email}: ${userCode.code}\nExpires: ${userCode.expiresAt}`;
+                alert(`Verification code for ${email}: ${userCode.code}`);
+            } else {
+                output.textContent = `No verification code found for ${email}`;
+            }
+        }
+
+        async function forceVerifyEmail() {
+            const email = document.getElementById('emailInput').value;
+            if (!email) {
+                alert('Please enter an email address');
+                return;
+            }
+            
+            const output = document.getElementById('fixResult');
+            
+            try {
+                // Get user and manually verify them
+                const users = JSON.parse(localStorage.getItem('trueroute_users') || '{}');
+                const user = users[email.toLowerCase()];
+                
+                if (!user) {
+                    output.textContent = `No user found with email: ${email}`;
+                    return;
+                }
+                
+                // Force verify the user
+                user.emailVerified = true;
+                user.verificationStatus = window.userManager.needsManualVerification(user.userType) ? 'pending_manual' : 'verified';
+                
+                // Save updated user
+                localStorage.setItem('trueroute_users', JSON.stringify(users));
+                
+                // Clear verification code
+                const codes = JSON.parse(localStorage.getItem('trueroute_verification_codes') || '{}');
+                delete codes[email];
+                localStorage.setItem('trueroute_verification_codes', JSON.stringify(codes));
+                
+                output.textContent = `Successfully verified email for ${email}!\nStatus: ${user.verificationStatus}`;
+                alert(`Email verified for ${email}! You can now sign in.`);
+                
+            } catch (error) {
+                output.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        async function resendCode() {
+            const email = document.getElementById('emailInput').value;
+            if (!email) {
+                alert('Please enter an email address');
+                return;
+            }
+            
+            const output = document.getElementById('fixResult');
+            
+            try {
+                const result = await window.userManager.resendVerificationCode(email);
+                output.textContent = `Resent verification code to ${email}`;
+                alert(result.message);
+            } catch (error) {
+                output.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        function deleteUser() {
+            const email = document.getElementById('emailInput').value;
+            if (!email) {
+                alert('Please enter an email address');
+                return;
+            }
+            
+            if (!confirm(`Are you sure you want to delete the account for ${email}?`)) {
+                return;
+            }
+            
+            const output = document.getElementById('fixResult');
+            
+            // Remove user
+            const users = JSON.parse(localStorage.getItem('trueroute_users') || '{}');
+            delete users[email.toLowerCase()];
+            localStorage.setItem('trueroute_users', JSON.stringify(users));
+            
+            // Remove verification code
+            const codes = JSON.parse(localStorage.getItem('trueroute_verification_codes') || '{}');
+            delete codes[email];
+            localStorage.setItem('trueroute_verification_codes', JSON.stringify(codes));
+            
+            output.textContent = `Deleted account for ${email}. You can now create a new account.`;
+            alert(`Account deleted for ${email}. You can now sign up again.`);
+        }
+
+        function clearAllData() {
+            if (!confirm('Are you sure you want to delete ALL user data? This cannot be undone.')) {
+                return;
+            }
+            
+            localStorage.removeItem('trueroute_users');
+            localStorage.removeItem('trueroute_verification_codes');
+            localStorage.removeItem('trueroute_current_user');
+            
+            const output = document.getElementById('resetResult');
+            output.textContent = 'All user data cleared. You can start fresh now.';
+            alert('All data cleared! You can now create new accounts.');
+        }
+
+        function goToSignUp() {
+            window.location.href = 'sign-up.html';
+        }
+
+        function goToSignIn() {
+            window.location.href = 'sign-in.html';
+        }
+
+        function goToVerification() {
+            const email = document.getElementById('emailInput').value;
+            if (email) {
+                window.location.href = `verify-email.html?email=${encodeURIComponent(email)}`;
+            } else {
+                alert('Please enter an email address first');
+            }
+        }
+
+        // Auto-load user data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showAllUsers();
+        });
+    </script>
+</body>
+</html>

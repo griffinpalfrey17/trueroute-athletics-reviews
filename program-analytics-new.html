@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Stanford Baseball - TrueRoute</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="sports-tech-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="#2C5AA0">
+                        <!-- Football player silhouette -->
+                        <ellipse cx="20" cy="35" rx="3" ry="2" opacity="0.3"/>
+                        <rect x="18" y="20" width="4" height="15" rx="2"/>
+                        <rect x="16" y="18" width="8" height="4" rx="2"/>
+                        <circle cx="20" cy="12" r="4"/>
+                        <rect x="22" y="16" width="6" height="3" rx="1.5"/>
+                        <ellipse cx="26" cy="17" rx="2" ry="1" fill="#4A90E2"/>
+                        <!-- Route trail -->
+                        <path d="M8 30 Q15 25 20 20 T32 15" stroke="#357ABD" stroke-width="2" fill="none" stroke-dasharray="3,2"/>
+                        <circle cx="32" cy="15" r="2" fill="#357ABD"/>
+                    </g>
+                </svg>
+                <span class="logo-text">TrueRoute</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="write-review.html">Write Review</a>
+                <a href="sign-in.html" class="sign-in-btn">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Analytics Header -->
+    <section class="analytics-header section">
+        <div class="container">
+            <div class="analytics-hero">
+                <h1 id="programName">Stanford Baseball Analytics</h1>
+                <p>Comprehensive analysis of program performance, NIL opportunities, and student-athlete reviews</p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Tab Navigation -->
+    <section class="tab-navigation section">
+        <div class="container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="insights" onclick="switchTab('insights', this)">
+                    <i class="fas fa-chart-pie"></i>
+                    Overview
+                </button>
+                <button class="tab-btn" data-tab="financial" onclick="switchTab('financial', this)">
+                    <i class="fas fa-dollar-sign"></i>
+                    Financial Breakdown
+                </button>
+                <button class="tab-btn" data-tab="reviews" onclick="switchTab('reviews', this)">
+                    <i class="fas fa-comments"></i>
+                    Reviews
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Content -->
+    <section class="analytics-dashboard section">
+        <div class="container">
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="insights-tab">
+                <div class="overview-container">
+                    <div class="section-header-centered">
+                        <h2>Program Overview</h2>
+                        <p>Comprehensive analysis of Stanford Baseball's performance across all review categories</p>
+                    </div>
+                    
+                    <div class="category-cards-grid">
+                        <!-- Team Culture -->
+                        <div class="category-card">
+                            <div class="card-header">
+                                <h3>Team Culture</h3>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <div class="card-score">4.3</div>
+                            <div class="card-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Team Unity</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="86"></div>
+                                    </div>
+                                    <span class="metric-value">86%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Leadership Quality</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="90"></div>
+                                    </div>
+                                    <span class="metric-value">90%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Player Support</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill yellow" data-percentage="82"></div>
+                                    </div>
+                                    <span class="metric-value">82%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coaching Quality -->
+                        <div class="category-card">
+                            <div class="card-header">
+                                <h3>Coaching Quality</h3>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                            <div class="card-score">4.5</div>
+                            <div class="card-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Technical Expertise</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="95"></div>
+                                    </div>
+                                    <span class="metric-value">95%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Player Development</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="88"></div>
+                                    </div>
+                                    <span class="metric-value">88%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Communication</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="92"></div>
+                                    </div>
+                                    <span class="metric-value">92%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Facilities -->
+                        <div class="category-card">
+                            <div class="card-header">
+                                <h3>Facilities</h3>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="card-score">4.8</div>
+                            <div class="card-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Equipment Quality</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="96"></div>
+                                    </div>
+                                    <span class="metric-value">96%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Stadium/Field</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="98"></div>
+                                    </div>
+                                    <span class="metric-value">98%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Training Facilities</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="94"></div>
+                                    </div>
+                                    <span class="metric-value">94%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Academic Support -->
+                        <div class="category-card">
+                            <div class="card-header">
+                                <h3>Academic Support</h3>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="card-score">4.7</div>
+                            <div class="card-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Tutoring Access</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="92"></div>
+                                    </div>
+                                    <span class="metric-value">92%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Study Resources</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="95"></div>
+                                    </div>
+                                    <span class="metric-value">95%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Academic Advisors</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="90"></div>
+                                    </div>
+                                    <span class="metric-value">90%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Work-Life Balance -->
+                        <div class="category-card">
+                            <div class="card-header">
+                                <h3>Work-Life Balance</h3>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="card-score">3.5</div>
+                            <div class="card-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Schedule Flexibility</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill red" data-percentage="68"></div>
+                                    </div>
+                                    <span class="metric-value">68%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Free Time</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill yellow" data-percentage="72"></div>
+                                    </div>
+                                    <span class="metric-value">72%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Stress Management</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill yellow" data-percentage="70"></div>
+                                    </div>
+                                    <span class="metric-value">70%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recruitment Experience -->
+                        <div class="category-card">
+                            <div class="card-header">
+                                <h3>Recruitment Experience</h3>
+                                <div class="stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                            <div class="card-score">4.1</div>
+                            <div class="card-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-label">Communication</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="85"></div>
+                                    </div>
+                                    <span class="metric-value">85%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Transparency</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill yellow" data-percentage="78"></div>
+                                    </div>
+                                    <span class="metric-value">78%</span>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-label">Visit Experience</span>
+                                    <div class="metric-bar">
+                                        <div class="metric-fill green" data-percentage="88"></div>
+                                    </div>
+                                    <span class="metric-value">88%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Breakdown Tab -->
+            <div class="tab-content" id="financial-tab">
+                <!-- Financial Stats Cards -->
+                <div class="financial-stats-grid">
+                    <div class="financial-stat-card scholarship">
+                        <div class="card-content">
+                            <div class="card-label">AVERAGE SCHOLARSHIP</div>
+                            <div class="card-value">68%</div>
+                            <div class="card-subtitle">Athletic scholarships</div>
+                        </div>
+                    </div>
+                    
+                    <div class="financial-stat-card nil">
+                        <div class="card-content">
+                            <div class="card-label">AVERAGE NIL VALUE</div>
+                            <div class="card-value">$18,500</div>
+                            <div class="card-subtitle">Per student-athlete</div>
+                        </div>
+                    </div>
+                    
+                    <div class="financial-stat-card aid">
+                        <div class="card-content">
+                            <div class="card-label">FINANCIAL AID</div>
+                            <div class="card-value">42%</div>
+                            <div class="card-subtitle">Receive additional aid</div>
+                        </div>
+                    </div>
+                    
+                    <div class="financial-stat-card total">
+                        <div class="card-content">
+                            <div class="card-label">TOTAL SUPPORT</div>
+                            <div class="card-value">$52,000</div>
+                            <div class="card-subtitle">Average per athlete</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="financial-charts">
+                    <div class="charts-grid">
+                        <!-- Scholarship Types Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Scholarship Distribution</h3>
+                                <p class="chart-subtitle">Breakdown of athletic scholarship awards</p>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="scholarshipTypesChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- NIL Value Distribution Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>NIL Value Distribution</h3>
+                                <p class="chart-subtitle">Average NIL deal values by category</p>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="nilValueChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Financial Aid Types Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Financial Aid Types</h3>
+                                <p class="chart-subtitle">Distribution of additional financial support</p>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="aidTypesChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Total Support Breakdown Chart -->
+                        <div class="chart-card">
+                            <div class="chart-header">
+                                <h3>Average Total Support</h3>
+                                <p class="chart-subtitle">Complete financial support per student-athlete</p>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="totalSupportChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-content" id="reviews-tab">
+                <div class="section-header">
+                    <h2>💬 Student-Athlete Reviews</h2>
+                    <p>Authentic feedback and experiences from current and former Stanford Baseball players</p>
+                </div>
+                
+                <!-- Reviews Layout: Left Sidebar + Right Feed -->
+                <div class="reviews-layout">
+                    <!-- Left Sidebar - Filters -->
+                    <div class="reviews-sidebar">
+                        <div class="filter-section">
+                            <h3>Sort Reviews</h3>
+                            <div class="filter-options">
+                                <label class="filter-option">
+                                    <input type="radio" name="sort" value="recent" checked>
+                                    <span class="checkmark"></span>
+                                    Most Recent
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="sort" value="helpful">
+                                    <span class="checkmark"></span>
+                                    Most Helpful
+                                </label>
+                                <label class="filter-option">
+                                    <input type="radio" name="sort" value="relevant">
+                                    <span class="checkmark"></span>
+                                    Most Relevant
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <h3>Filter by Position</h3>
+                            <select class="filter-select" id="positionFilter">
+                                <option value="">All Positions</option>
+                                <option value="pitcher">Pitcher</option>
+                                <option value="catcher">Catcher</option>
+                                <option value="infielder">Infielder</option>
+                                <option value="outfielder">Outfielder</option>
+                            </select>
+                        </div>
+
+                        <div class="filter-section">
+                            <h3>Filter by Rating</h3>
+                            <div class="rating-filters">
+                                <label class="filter-option">
+                                    <input type="checkbox" value="5">
+                                    <span class="checkmark"></span>
+                                    <span class="stars">★★★★★</span> (5 stars)
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="4">
+                                    <span class="checkmark"></span>
+                                    <span class="stars">★★★★☆</span> (4 stars)
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="3">
+                                    <span class="checkmark"></span>
+                                    <span class="stars">★★★☆☆</span> (3 stars)
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="2">
+                                    <span class="checkmark"></span>
+                                    <span class="stars">★★☆☆☆</span> (2 stars)
+                                </label>
+                                <label class="filter-option">
+                                    <input type="checkbox" value="1">
+                                    <span class="checkmark"></span>
+                                    <span class="stars">★☆☆☆☆</span> (1 star)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-actions">
+                            <button class="btn-secondary" id="clearFilters">Clear All Filters</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Content - Reviews Feed -->
+                    <div class="reviews-feed">
+                        <div class="reviews-feed-header">
+                            <div class="feed-info">
+                                <span class="results-count">Showing 127 reviews</span>
+                            </div>
+                            <button class="btn-primary write-review-btn">
+                                <i class="fas fa-plus"></i>
+                                Write a Review
+                            </button>
+                        </div>
+                        
+                        <!-- Review Posts -->
+                        <div class="review-posts">
+                            <!-- Review 1 -->
+                            <div class="review-post">
+                                <div class="review-post-header">
+                                    <div class="reviewer-avatar">FP</div>
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-meta">
+                                            <span class="reviewer-title">Former Pitcher</span>
+                                            <span class="review-period">2019-2023</span>
+                                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                                        </div>
+                                        <div class="review-timestamp">2 weeks ago</div>
+                                    </div>
+                                    <div class="review-rating-display">
+                                        <div class="rating-stars">★★★★☆</div>
+                                        <span class="rating-score">4.2</span>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="review-title">Great program with amazing facilities</h3>
+                                
+                                <div class="review-content">
+                                    <p>Stanford Baseball provided an incredible experience both athletically and academically. The coaching staff was supportive and the facilities are world-class. The academic support was outstanding and really helped balance the demanding schedule.</p>
+                                </div>
+                                
+                                <div class="review-categories-grid">
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Culture</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">4.5</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Academic</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">4.8</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Coaching</div>
+                                        <div class="category-stars">★★★★☆</div>
+                                        <div class="category-score">4.0</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Facilities</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">4.7</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Work-Life</div>
+                                        <div class="category-stars">★★★☆☆</div>
+                                        <div class="category-score">3.8</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Financial</div>
+                                        <div class="category-stars">★★★★☆</div>
+                                        <div class="category-score">4.2</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-financial-info">
+                                    <div class="financial-badge scholarship">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>75% Athletic Scholarship</span>
+                                    </div>
+                                    <div class="financial-badge nil">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>$15,000 NIL (Local Sports Store)</span>
+                                    </div>
+                                    <div class="financial-badge aid">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                        <span>25% Academic Aid</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-actions">
+                                    <button class="action-btn helpful">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        <span>Helpful (12)</span>
+                                    </button>
+                                    <button class="action-btn reply">
+                                        <i class="fas fa-reply"></i>
+                                        <span>Reply</span>
+                                    </button>
+                                    <button class="action-btn share">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </button>
+                                    <button class="action-btn report">
+                                        <i class="fas fa-flag"></i>
+                                        <span>Report</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Review 2 -->
+                            <div class="review-post">
+                                <div class="review-post-header">
+                                    <div class="reviewer-avatar">FC</div>
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-meta">
+                                            <span class="reviewer-title">Former Catcher</span>
+                                            <span class="review-period">2018-2022</span>
+                                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                                        </div>
+                                        <div class="review-timestamp">1 month ago</div>
+                                    </div>
+                                    <div class="review-rating-display">
+                                        <div class="rating-stars">★★★☆☆</div>
+                                        <span class="rating-score">3.8</span>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="review-title">Solid program but demanding schedule</h3>
+                                
+                                <div class="review-content">
+                                    <p>The baseball program at Stanford is competitive and well-organized. Coaches know their stuff and the team culture is generally positive. However, the time commitment is intense and can be challenging to balance with academics, especially during season.</p>
+                                </div>
+                                
+                                <div class="review-categories-grid">
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Culture</div>
+                                        <div class="category-stars">★★★★☆</div>
+                                        <div class="category-score">4.0</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Academic</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">5.0</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Coaching</div>
+                                        <div class="category-stars">★★★★☆</div>
+                                        <div class="category-score">4.2</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Facilities</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">4.8</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Work-Life</div>
+                                        <div class="category-stars">★★☆☆☆</div>
+                                        <div class="category-score">2.0</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Financial</div>
+                                        <div class="category-stars">★★★☆☆</div>
+                                        <div class="category-score">3.8</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-financial-info">
+                                    <div class="financial-badge scholarship">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>50% Athletic Scholarship</span>
+                                    </div>
+                                    <div class="financial-badge nil">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>$8,500 NIL Deals</span>
+                                    </div>
+                                    <div class="financial-badge aid">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                        <span>15% Need-based Aid</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-actions">
+                                    <button class="action-btn helpful">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        <span>Helpful (8)</span>
+                                    </button>
+                                    <button class="action-btn reply">
+                                        <i class="fas fa-reply"></i>
+                                        <span>Reply</span>
+                                    </button>
+                                    <button class="action-btn share">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </button>
+                                    <button class="action-btn report">
+                                        <i class="fas fa-flag"></i>
+                                        <span>Report</span>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Review 3 -->
+                            <div class="review-post">
+                                <div class="review-post-header">
+                                    <div class="reviewer-avatar">FO</div>
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-meta">
+                                            <span class="reviewer-title">Former Outfielder</span>
+                                            <span class="review-period">2020-2024</span>
+                                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                                        </div>
+                                        <div class="review-timestamp">3 days ago</div>
+                                    </div>
+                                    <div class="review-rating-display">
+                                        <div class="rating-stars">★★★★★</div>
+                                        <span class="rating-score">4.8</span>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="review-title">Exceeded expectations in every way</h3>
+                                
+                                <div class="review-content">
+                                    <p>Coming from a small town, I wasn't sure what to expect from a D1 program. Stanford Baseball not only met but exceeded my expectations. The support system is incredible, from academic tutoring to mental health resources. The NIL opportunities were a nice bonus too.</p>
+                                </div>
+                                
+                                <div class="review-categories-grid">
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Culture</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">4.9</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Academic</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">4.9</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Coaching</div>
+                                        <div class="category-stars">★★★★☆</div>
+                                        <div class="category-score">4.4</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Facilities</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">4.9</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Work-Life</div>
+                                        <div class="category-stars">★★★★☆</div>
+                                        <div class="category-score">4.1</div>
+                                    </div>
+                                    <div class="category-rating-item">
+                                        <div class="category-name">Financial</div>
+                                        <div class="category-stars">★★★★★</div>
+                                        <div class="category-score">4.8</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-financial-info">
+                                    <div class="financial-badge scholarship">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>85% Athletic Scholarship</span>
+                                    </div>
+                                    <div class="financial-badge nil">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>$22,000 NIL Deals</span>
+                                    </div>
+                                    <div class="financial-badge aid">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                        <span>10% Academic Aid</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="review-actions">
+                                    <button class="action-btn helpful">
+                                        <i class="fas fa-thumbs-up"></i>
+                                        <span>Helpful (15)</span>
+                                    </button>
+                                    <button class="action-btn reply">
+                                        <i class="fas fa-reply"></i>
+                                        <span>Reply</span>
+                                    </button>
+                                    <button class="action-btn share">
+                                        <i class="fas fa-share"></i>
+                                        <span>Share</span>
+                                    </button>
+                                    <button class="action-btn report">
+                                        <i class="fas fa-flag"></i>
+                                        <span>Report</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <svg width="32" height="32" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#2c5aa0">
+                                <ellipse cx="20" cy="35" rx="3" ry="2" opacity="0.3"/>
+                                <rect x="18" y="20" width="4" height="15" rx="2"/>
+                                <rect x="16" y="18" width="8" height="4" rx="2"/>
+                                <circle cx="20" cy="12" r="4"/>
+                                <rect x="22" y="16" width="6" height="3" rx="1.5"/>
+                                <ellipse cx="26" cy="17" rx="2" ry="1" fill="#4A90E2"/>
+                                <path d="M8 30 Q15 25 20 20 T32 15" stroke="#357ABD" stroke-width="2" fill="none" stroke-dasharray="3,2"/>
+                                <circle cx="32" cy="15" r="2" fill="#357ABD"/>
+                            </g>
+                        </svg>
+                        <span>TrueRoute</span>
+                    </div>
+                    <p>Transparency in college athletics through data-driven insights.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Analytics</h4>
+                    <ul>
+                        <li><a href="#nil-data">NIL Data</a></li>
+                        <li><a href="#company-spending">Company Spending</a></li>
+                        <li><a href="#program-rankings">Program Rankings</a></li>
+                        <li><a href="#market-trends">Market Trends</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#api">API Access</a></li>
+                        <li><a href="#reports">Custom Reports</a></li>
+                        <li><a href="#methodology">Methodology</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TrueRoute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Inline tab switching function for immediate functionality
+        function switchTab(tabName, clickedButton) {
+            // Remove active class from all buttons
+            const allButtons = document.querySelectorAll('.tab-btn');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            clickedButton.classList.add('active');
+            
+            // Hide all tab contents
+            const allContents = document.querySelectorAll('.tab-content');
+            allContents.forEach(content => content.classList.remove('active'));
+            
+            // Show the selected tab content
+            const targetContent = document.getElementById(tabName + '-tab');
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+            
+            console.log('Switched to tab:', tabName);
+            
+            // Initialize charts when financial tab is opened
+            if (tabName === 'financial') {
+                setTimeout(initializeFinancialCharts, 100);
+            }
+        }
+
+        // Initialize financial charts
+        function initializeFinancialCharts() {
+            // Scholarship Types Chart (Pie Chart)
+            const scholarshipCtx = document.getElementById('scholarshipTypesChart');
+            if (scholarshipCtx && !scholarshipCtx.chart) {
+                scholarshipCtx.chart = new Chart(scholarshipCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['Full Scholarship', 'Partial Scholarship', 'Academic Merit', 'Walk-On'],
+                        datasets: [{
+                            data: [25, 43, 20, 12],
+                            backgroundColor: [
+                                '#2c5aa0',
+                                '#4A90E2',
+                                '#87CEEB',
+                                '#B0C4DE'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label + ': ' + context.parsed + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // NIL Value Distribution Chart (Bar Chart)
+            const nilCtx = document.getElementById('nilValueChart');
+            if (nilCtx && !nilCtx.chart) {
+                nilCtx.chart = new Chart(nilCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Social Media', 'Local Business', 'Apparel', 'Autographs', 'Camps/Clinics'],
+                        datasets: [{
+                            label: 'Average Deal Value ($)',
+                            data: [2500, 8500, 12000, 1500, 3200],
+                            backgroundColor: '#4A90E2',
+                            borderColor: '#2c5aa0',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value.toLocaleString();
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'Average: $' + context.parsed.y.toLocaleString();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Financial Aid Types Chart (Doughnut Chart)
+            const aidCtx = document.getElementById('aidTypesChart');
+            if (aidCtx && !aidCtx.chart) {
+                aidCtx.chart = new Chart(aidCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Need-Based Aid', 'Academic Scholarships', 'Work-Study', 'External Scholarships'],
+                        datasets: [{
+                            data: [35, 28, 22, 15],
+                            backgroundColor: [
+                                '#2c5aa0',
+                                '#4A90E2',
+                                '#87CEEB',
+                                '#B0C4DE'
+                            ],
+                            borderWidth: 2,
+                            borderColor: '#ffffff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '50%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20,
+                                    usePointStyle: true
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label + ': ' + context.parsed + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Total Support Breakdown Chart (Horizontal Bar Chart)
+            const supportCtx = document.getElementById('totalSupportChart');
+            if (supportCtx && !supportCtx.chart) {
+                supportCtx.chart = new Chart(supportCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Athletic Scholarship', 'NIL Earnings', 'Academic Aid', 'Work-Study', 'Family Contribution'],
+                        datasets: [{
+                            label: 'Average Amount ($)',
+                            data: [35000, 18500, 12000, 4500, 15000],
+                            backgroundColor: [
+                                '#2c5aa0',
+                                '#4A90E2',
+                                '#87CEEB',
+                                '#B0C4DE',
+                                '#D3D3D3'
+                            ],
+                            borderColor: '#2c5aa0',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + value.toLocaleString();
+                                    }
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.label + ': $' + context.parsed.x.toLocaleString();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        // Initialize page with dynamic content based on URL parameters
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const programName = urlParams.get('program') || 'Stanford University';
+            const sport = urlParams.get('sport') || 'baseball';
+            const gender = urlParams.get('gender') || 'male';
+            
+            // Update page content dynamically
+            updatePageContent(programName, sport, gender);
+            
+            const financialTab = document.getElementById('financial-tab');
+            if (financialTab && financialTab.classList.contains('active')) {
+                setTimeout(initializeFinancialCharts, 100);
+            }
+            
+            // Initialize progress bars with animation
+            initializeProgressBars();
+        });
+        
+        // Update page content based on program parameters
+        function updatePageContent(programName, sport, gender) {
+            const genderText = gender === 'male' ? "Men's" : "Women's";
+            const sportName = sport.charAt(0).toUpperCase() + sport.slice(1);
+            
+            // Update page title and header
+            document.getElementById('pageTitle').textContent = `${programName} ${sportName} - TrueRoute`;
+            document.getElementById('programName').textContent = `${programName} ${sportName} Analytics`;
+            
+            // Update overview section description
+            const overviewDesc = document.querySelector('.section-header-centered p');
+            if (overviewDesc) {
+                overviewDesc.textContent = `Comprehensive analysis of ${programName} ${sportName}'s performance across all review categories`;
+            }
+            
+            // Generate and update sport-specific reviews
+            updateReviewsSection(programName, sport, gender);
+        }
+        
+        // Update reviews section with sport-specific content
+        function updateReviewsSection(programName, sport, gender) {
+            const reviewsContainer = document.querySelector('#reviews-tab .reviews-container');
+            if (!reviewsContainer) return;
+            
+            // Get sport-specific positions and review content
+            const sportData = getSportSpecificData(sport, gender);
+            
+            // Generate sport-specific reviews
+            const reviews = generateSportSpecificReviews(programName, sport, gender, sportData);
+            
+            // Update reviews container with new content
+            reviewsContainer.innerHTML = `
+                <div class="reviews-header">
+                    <h2>Student-Athlete Reviews</h2>
+                    <p>Real feedback from current and former ${gender === 'male' ? 'male' : 'female'} ${sport} players at ${programName}</p>
+                </div>
+                <div class="reviews-list">
+                    ${reviews.map(review => `
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="reviewer-info">
+                                    <div class="reviewer-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="reviewer-details">
+                                        <h4>${review.name}</h4>
+                                        <span class="reviewer-position">${review.position} • ${review.year}</span>
+                                    </div>
+                                </div>
+                                <div class="review-rating">
+                                    ${generateStars(review.rating)}
+                                    <span class="rating-number">${review.rating}</span>
+                                </div>
+                            </div>
+                            <div class="review-content">
+                                <p>${review.content}</p>
+                            </div>
+                            <div class="review-categories">
+                                ${review.categories.map(cat => `
+                                    <div class="category-rating">
+                                        <span class="category-name">${cat.name}</span>
+                                        <div class="category-stars">${generateStars(cat.rating)}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+        
+        // Get sport-specific data (positions, terminology, etc.)
+        function getSportSpecificData(sport, gender) {
+            const sportData = {
+                basketball: {
+                    positions: ['Point Guard (PG)', 'Shooting Guard (SG)', 'Small Forward (SF)', 'Power Forward (PF)', 'Center (C)'],
+                    terminology: ['court', 'practice', 'games', 'season', 'tournament', 'conference play'],
+                    skills: ['shooting', 'ball handling', 'defense', 'rebounding', 'court vision']
+                },
+                football: {
+                    positions: ['Quarterback (QB)', 'Running Back (RB)', 'Wide Receiver (WR)', 'Tight End (TE)', 'Offensive Line (OL)', 'Defensive Line (DL)', 'Linebacker (LB)', 'Cornerback (CB)', 'Safety (S)'],
+                    terminology: ['field', 'practice', 'games', 'season', 'playoffs', 'bowl games'],
+                    skills: ['passing', 'rushing', 'blocking', 'tackling', 'coverage']
+                },
+                soccer: {
+                    positions: ['Goalkeeper (GK)', 'Defender (DEF)', 'Midfielder (MID)', 'Forward (FWD)', 'Winger (W)', 'Striker (ST)'],
+                    terminology: ['field', 'training', 'matches', 'season', 'tournament', 'league play'],
+                    skills: ['passing', 'dribbling', 'shooting', 'defending', 'fitness']
+                },
+                baseball: {
+                    positions: ['Pitcher (P)', 'Catcher (C)', 'First Base (1B)', 'Second Base (2B)', 'Third Base (3B)', 'Shortstop (SS)', 'Left Field (LF)', 'Center Field (CF)', 'Right Field (RF)'],
+                    terminology: ['field', 'practice', 'games', 'season', 'playoffs', 'conference tournament'],
+                    skills: ['hitting', 'pitching', 'fielding', 'base running', 'game strategy']
+                }
+            };
+            
+            return sportData[sport] || sportData.basketball;
+        }
+        
+        // Generate sport-specific reviews
+        function generateSportSpecificReviews(programName, sport, gender, sportData) {
+            const reviewTemplates = [
+                {
+                    name: "Alex M.",
+                    year: "Senior",
+                    rating: 4.5,
+                    content: `Great program with excellent coaching staff. The facilities are top-notch and the team culture is really supportive. Coach really helped develop my ${sportData.skills[0]} and ${sportData.skills[1]} throughout my time here.`,
+                    categories: [
+                        { name: "Coaching", rating: 4.8 },
+                        { name: "Facilities", rating: 4.3 },
+                        { name: "Team Culture", rating: 4.6 }
+                    ]
+                },
+                {
+                    name: "Jordan T.",
+                    year: "Junior",
+                    rating: 4.2,
+                    content: `The academic support is incredible here. Balancing ${sport} and studies can be tough, but the staff really helps you succeed in both. The ${sportData.terminology[0]} facilities could use some updates though.`,
+                    categories: [
+                        { name: "Academic Support", rating: 4.7 },
+                        { name: "Facilities", rating: 3.8 },
+                        { name: "Work-Life Balance", rating: 4.1 }
+                    ]
+                },
+                {
+                    name: "Casey R.",
+                    year: "Sophomore",
+                    rating: 4.7,
+                    content: `Love being part of this program! The coaching is phenomenal and really focuses on developing each player's ${sportData.skills[2]} and ${sportData.skills[3]}. Great team chemistry and competitive environment.`,
+                    categories: [
+                        { name: "Coaching", rating: 4.9 },
+                        { name: "Team Culture", rating: 4.8 },
+                        { name: "Competition Level", rating: 4.5 }
+                    ]
+                }
+            ];
+            
+            // Assign random positions to reviewers
+            return reviewTemplates.map((review, index) => ({
+                ...review,
+                position: sportData.positions[index % sportData.positions.length]
+            }));
+        }
+        
+        // Generate star rating HTML
+        function generateStars(rating) {
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            let starsHTML = '';
+            
+            for (let i = 0; i < fullStars; i++) {
+                starsHTML += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                starsHTML += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                starsHTML += '<i class="far fa-star"></i>';
+            }
+            
+            return starsHTML;
+        }
+
+        // Initialize progress bars with proper widths and animation
+        function initializeProgressBars() {
+            const progressBars = document.querySelectorAll('.metric-fill');
+            
+            progressBars.forEach(bar => {
+                const percentage = bar.getAttribute('data-percentage');
+                if (percentage) {
+                    // Start with 0 width
+                    bar.style.width = '0%';
+                    
+                    // Animate to target width after a short delay
+                    setTimeout(() => {
+                        bar.style.width = percentage + '%';
+                    }, 200);
+                }
+            });
+        }
+    </script>
+    
+    <script>
+    // Generate program-specific reviews directly in HTML
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Generating dynamic reviews...');
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const program = urlParams.get('program') || urlParams.get('school') || 'Stanford University';
+        const sport = urlParams.get('sport') || 'basketball';
+        const gender = urlParams.get('gender') || 'male';
+        
+        console.log('Program:', program, 'Sport:', sport);
+        
+        // Sport-specific positions
+        const sportPositions = {
+            'basketball': ['Point Guard', 'Shooting Guard', 'Small Forward', 'Power Forward', 'Center'],
+            'football': ['Quarterback', 'Running Back', 'Wide Receiver', 'Linebacker', 'Defensive Back'],
+            'baseball': ['Pitcher', 'Catcher', 'Infielder', 'Outfielder'],
+            'soccer': ['Forward', 'Midfielder', 'Defender', 'Goalkeeper'],
+            'volleyball': ['Outside Hitter', 'Middle Blocker', 'Setter', 'Libero'],
+            'tennis': ['Singles Player', 'Doubles Specialist'],
+            'track': ['Sprinter', 'Distance Runner', 'Jumper', 'Thrower'],
+            'swimming': ['Freestyle', 'Backstroke', 'Breaststroke', 'Butterfly'],
+            'golf': ['Player'],
+            'softball': ['Pitcher', 'Catcher', 'Infielder', 'Outfielder']
+        };
+        
+        const positions = sportPositions[sport.toLowerCase()] || ['Player'];
+        const schoolName = program.replace('University of ', '').replace(' University', '');
+        const sportName = sport.charAt(0).toUpperCase() + sport.slice(1);
+        
+        // Update header description
+        const headerDescription = document.querySelector('#reviews-tab .section-header p');
+        if (headerDescription) {
+            headerDescription.textContent = `Authentic feedback and experiences from current and former ${schoolName} ${sportName} players`;
+        }
+        
+        // Update position filter
+        const positionFilter = document.getElementById('positionFilter');
+        if (positionFilter) {
+            const optionsHTML = '<option value="">All Positions</option>' + 
+                positions.map(position => `<option value="${position.toLowerCase()}">${position}</option>`).join('');
+            positionFilter.innerHTML = optionsHTML;
+        }
+        
+        // Generate reviews
+        const reviewsContainer = document.querySelector('.review-posts');
+        if (reviewsContainer) {
+            const reviewsHTML = `
+                <div class="review-post">
+                    <div class="review-post-header">
+                        <div class="reviewer-avatar">${positions[0].split(' ').map(w => w[0]).join('').substring(0,2)}</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-meta">
+                                <span class="reviewer-title">Former ${positions[0]}</span>
+                                <span class="review-period">2020-2024</span>
+                                <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <div class="review-timestamp">3 weeks ago</div>
+                        </div>
+                        <div class="review-rating-display">
+                            <div class="rating-stars">★★★★☆</div>
+                            <span class="rating-score">4.5</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="review-title">Outstanding ${sportName} program with top-tier coaching</h3>
+                    
+                    <div class="review-content">
+                        <p>${program}'s ${sportName} program exceeded all my expectations. The coaching staff is incredibly knowledgeable and supportive, and the team culture is fantastic. The facilities are world-class and the academic support helped me maintain my GPA while competing at the highest level.</p>
+                    </div>
+                    
+                    <div class="review-categories-grid">
+                        <div class="category-rating-item">
+                            <div class="category-name">Culture</div>
+                            <div class="category-stars">★★★★★</div>
+                            <div class="category-score">4.7</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Academic</div>
+                            <div class="category-stars">★★★★★</div>
+                            <div class="category-score">4.8</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Coaching</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.6</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Facilities</div>
+                            <div class="category-stars">★★★★★</div>
+                            <div class="category-score">4.9</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Work-Life</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.0</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Financial</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.3</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-financial-info">
+                        <div class="financial-badge scholarship">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>80% Athletic Scholarship</span>
+                        </div>
+                        <div class="financial-badge nil">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>$22,000 NIL (Local Dealership)</span>
+                        </div>
+                        <div class="financial-badge aid">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <span>15% Academic Aid</span>
+                        </div>
+                    </div>
+                    
+                    <div class="review-actions">
+                        <button class="action-btn helpful">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>Helpful (18)</span>
+                        </button>
+                        <button class="action-btn reply">
+                            <i class="fas fa-reply"></i>
+                            <span>Reply</span>
+                        </button>
+                        <button class="action-btn share">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </button>
+                        <button class="action-btn report">
+                            <i class="fas fa-flag"></i>
+                            <span>Report</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="review-post">
+                    <div class="review-post-header">
+                        <div class="reviewer-avatar">${(positions[1] || positions[0]).split(' ').map(w => w[0]).join('').substring(0,2)}</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-meta">
+                                <span class="reviewer-title">Former ${positions[1] || positions[0]}</span>
+                                <span class="review-period">2019-2023</span>
+                                <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <div class="review-timestamp">2 months ago</div>
+                        </div>
+                        <div class="review-rating-display">
+                            <div class="rating-stars">★★★★☆</div>
+                            <span class="rating-score">4.1</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="review-title">Great experience but demanding schedule</h3>
+                    
+                    <div class="review-content">
+                        <p>Playing ${sportName} at ${program} was challenging but rewarding. The competition level is intense and the time commitment is significant. However, the coaching staff really cares about player development both on and off the field. The academic resources are excellent.</p>
+                    </div>
+                    
+                    <div class="review-categories-grid">
+                        <div class="category-rating-item">
+                            <div class="category-name">Culture</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.2</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Academic</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.5</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Coaching</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.3</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Facilities</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.4</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Work-Life</div>
+                            <div class="category-stars">★★★☆☆</div>
+                            <div class="category-score">3.2</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Financial</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.0</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-financial-info">
+                        <div class="financial-badge scholarship">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>60% Athletic Scholarship</span>
+                        </div>
+                        <div class="financial-badge nil">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>$8,500 NIL (Apparel Deal)</span>
+                        </div>
+                        <div class="financial-badge aid">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <span>25% Need-based Aid</span>
+                        </div>
+                    </div>
+                    
+                    <div class="review-actions">
+                        <button class="action-btn helpful">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>Helpful (12)</span>
+                        </button>
+                        <button class="action-btn reply">
+                            <i class="fas fa-reply"></i>
+                            <span>Reply</span>
+                        </button>
+                        <button class="action-btn share">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </button>
+                        <button class="action-btn report">
+                            <i class="fas fa-flag"></i>
+                            <span>Report</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="review-post">
+                    <div class="review-post-header">
+                        <div class="reviewer-avatar">${(positions[2] || positions[0]).split(' ').map(w => w[0]).join('').substring(0,2)}</div>
+                        <div class="reviewer-info">
+                            <div class="reviewer-meta">
+                                <span class="reviewer-title">Former ${positions[2] || positions[0]}</span>
+                                <span class="review-period">2021-2024</span>
+                                <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
+                            </div>
+                            <div class="review-timestamp">1 month ago</div>
+                        </div>
+                        <div class="review-rating-display">
+                            <div class="rating-stars">★★★☆☆</div>
+                            <span class="rating-score">3.8</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="review-title">Solid program with room for improvement</h3>
+                    
+                    <div class="review-content">
+                        <p>${program} has a good ${sportName} program overall. The facilities are decent and most coaches are helpful. The team chemistry varies by year but generally positive. Academic support is available but you need to be proactive about using it.</p>
+                    </div>
+                    
+                    <div class="review-categories-grid">
+                        <div class="category-rating-item">
+                            <div class="category-name">Culture</div>
+                            <div class="category-stars">★★★☆☆</div>
+                            <div class="category-score">3.9</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Academic</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.1</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Coaching</div>
+                            <div class="category-stars">★★★☆☆</div>
+                            <div class="category-score">3.7</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Facilities</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.0</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Work-Life</div>
+                            <div class="category-stars">★★★☆☆</div>
+                            <div class="category-score">3.5</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Financial</div>
+                            <div class="category-stars">★★★☆☆</div>
+                            <div class="category-score">3.6</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-financial-info">
+                        <div class="financial-badge scholarship">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>45% Athletic Scholarship</span>
+                        </div>
+                        <div class="financial-badge nil">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>$3,200 NIL (Social Media)</span>
+                        </div>
+                        <div class="financial-badge aid">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <span>No Additional Aid</span>
+                        </div>
+                    </div>
+                    
+                    <div class="review-actions">
+                        <button class="action-btn helpful">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>Helpful (8)</span>
+                        </button>
+                        <button class="action-btn reply">
+                            <i class="fas fa-reply"></i>
+                            <span>Reply</span>
+                        </button>
+                        <button class="action-btn share">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </button>
+                        <button class="action-btn report">
+                            <i class="fas fa-flag"></i>
+                            <span>Report</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            reviewsContainer.innerHTML = reviewsHTML;
+            console.log('Reviews updated successfully');
+        }
+    });
+    </script>
+</body>
+</html>

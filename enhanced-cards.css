@@ -1,0 +1,288 @@
+/* Enhanced School Cards and List View Styles */
+
+/* Enhanced School Cards */
+.school-card.enhanced {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-fast);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.school-card.enhanced:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+    border-color: var(--border-focus);
+}
+
+.school-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.school-card-header h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.school-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-1);
+}
+
+.school-rating .stars {
+    font-size: var(--font-size-sm);
+    color: var(--color-warning);
+}
+
+.school-rating .rating-number {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.school-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-secondary);
+}
+
+.info-item i {
+    width: 16px;
+    color: var(--color-tertiary);
+    font-size: var(--font-size-sm);
+}
+
+.info-item.scholarship-info {
+    color: var(--color-success);
+    font-weight: 600;
+}
+
+.info-item.scholarship-info i {
+    color: var(--color-success);
+}
+
+.school-actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: auto;
+}
+
+.school-actions .btn-secondary,
+.school-actions .btn-primary {
+    flex: 1;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    border: none;
+}
+
+.btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--color-secondary);
+    border: 1px solid var(--border-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--border-secondary);
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: var(--color-accent);
+    color: white;
+    border: 1px solid var(--color-accent);
+}
+
+.btn-primary:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+/* List View Styles */
+.schools-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.school-list-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+}
+
+.school-list-item:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-focus);
+}
+
+.list-item-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+}
+
+.list-item-main {
+    flex: 1;
+}
+
+.list-item-main h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: 0 0 var(--space-2) 0;
+}
+
+.list-item-details {
+    display: flex;
+    gap: var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--color-tertiary);
+}
+
+.list-item-details span {
+    position: relative;
+}
+
+.list-item-details span:not(:last-child)::after {
+    content: '•';
+    margin-left: var(--space-4);
+    color: var(--color-tertiary);
+}
+
+.list-item-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    min-width: 80px;
+}
+
+.list-item-rating .stars {
+    font-size: var(--font-size-sm);
+    color: var(--color-warning);
+}
+
+.list-item-rating .rating-number {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+.list-item-actions {
+    display: flex;
+    gap: var(--space-3);
+    min-width: 200px;
+}
+
+.list-item-actions button {
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: none;
+    flex: 1;
+}
+
+/* No Results Styling */
+.no-results {
+    text-align: center;
+    padding: var(--space-12) var(--space-6);
+    color: var(--color-tertiary);
+}
+
+.no-results h3 {
+    font-size: var(--font-size-xl);
+    color: var(--color-secondary);
+    margin: var(--space-4) 0 var(--space-2) 0;
+}
+
+.no-results p {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-6);
+}
+
+/* Mobile Responsiveness for Enhanced Cards */
+@media (max-width: 768px) {
+    .school-card.enhanced {
+        padding: var(--space-4);
+    }
+    
+    .school-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+    
+    .school-rating {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: var(--space-2);
+    }
+    
+    .school-actions {
+        flex-direction: column;
+    }
+    
+    .list-item-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+    
+    .list-item-details {
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+    
+    .list-item-details span:not(:last-child)::after {
+        display: none;
+    }
+    
+    .list-item-actions {
+        width: 100%;
+        min-width: auto;
+    }
+    
+    .list-item-rating {
+        align-self: flex-end;
+        min-width: auto;
+    }
+}

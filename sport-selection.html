@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Sport - TrueRoute</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <style>
+        /* Force blue styling for sport selection page */
+        .gender-icon {
+            background: linear-gradient(135deg, #4A90E2, #357ABD) !important;
+        }
+        .sport-icon {
+            background: linear-gradient(135deg, #4A90E2, #357ABD) !important;
+        }
+        .sport-card:hover {
+            border-color: #4A90E2 !important;
+        }
+        .sport-card:hover h3 {
+            color: #4A90E2 !important;
+        }
+        .sport-card:hover .sport-icon {
+            box-shadow: 0 8px 24px rgba(74, 144, 226, 0.4) !important;
+        }
+        .sport-card::before {
+            background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent) !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body class="sports-tech-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">TrueRoute</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link">About</a>
+                <a href="#" class="nav-link nav-cta">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sport Selection Content -->
+    <main class="sport-selection-main section">
+        <div class="container">
+            <!-- Back Button -->
+            <div class="back-navigation">
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+
+            <!-- Gender Selection Section -->
+            <section id="genderSelection" class="gender-selection section">
+                <div class="selection-header">
+                    <h1>Choose Your Gender</h1>
+                    <p>Select your gender to see relevant sports programs</p>
+                </div>
+                
+                <div class="gender-options">
+                    <button class="gender-btn" data-gender="male">
+                        <div class="gender-icon">
+                            <i class="fas fa-mars"></i>
+                        </div>
+                        <h3>Male</h3>
+                        <p>Men's athletics programs</p>
+                    </button>
+                    
+                    <button class="gender-btn" data-gender="female">
+                        <div class="gender-icon">
+                            <i class="fas fa-venus"></i>
+                        </div>
+                        <h3>Female</h3>
+                        <p>Women's athletics programs</p>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Sport Selection Section -->
+            <section id="sportSelection" class="sport-selection section" style="display: none;">
+                <div class="selection-header">
+                    <h1 id="sportSelectionTitle">Choose Your Sport</h1>
+                    <p id="sportSelectionSubtitle">Select the sport you're interested in</p>
+                    <button id="changeGenderBtn" class="change-gender-btn">
+                        <i class="fas fa-edit"></i> Change Gender
+                    </button>
+                </div>
+                
+                <div id="sportsList" class="sports-list">
+                    <!-- Sports will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TrueRoute</h3>
+                    <p>Discover the truth about college athletics programs through authentic reviews and data-driven insights.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TrueRoute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="sport-selection.js"></script>
+</body>
+</html>

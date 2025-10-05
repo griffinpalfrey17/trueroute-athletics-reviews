@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email - TrueRoute</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body class="sports-tech-theme">
+    <!-- Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="logo-icon" width="40" height="40" viewBox="0 0 40 40">
+                    <!-- Football player running a route -->
+                    <g fill="#2C5AA0">
+                        <!-- Player body -->
+                        <ellipse cx="20" cy="25" rx="3" ry="8"/>
+                        <!-- Head/helmet -->
+                        <circle cx="20" cy="12" r="4"/>
+                        <!-- Arms -->
+                        <ellipse cx="16" cy="20" rx="1.5" ry="4" transform="rotate(-20 16 20)"/>
+                        <ellipse cx="24" cy="18" rx="1.5" ry="4" transform="rotate(30 24 18)"/>
+                        <!-- Legs -->
+                        <ellipse cx="18" cy="32" rx="1.5" ry="5" transform="rotate(-15 18 32)"/>
+                        <ellipse cx="22" cy="33" rx="1.5" ry="5" transform="rotate(15 22 33)"/>
+                        <!-- Football -->
+                        <ellipse cx="28" cy="15" rx="2" ry="3" fill="#8B4513"/>
+                    </g>
+                    <!-- Route trail -->
+                    <path d="M8 35 Q15 25 20 12 Q25 8 32 10" stroke="#4A90E2" stroke-width="2" fill="none" stroke-dasharray="3,2"/>
+                    <!-- Route endpoint -->
+                    <circle cx="32" cy="10" r="2" fill="#357ABD"/>
+                </svg>
+                <span class="brand-text">TrueRoute</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="sign-in.html" class="nav-cta">Sign In</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="auth-container">
+        <div class="auth-card verification-card">
+            <div class="auth-header">
+                <div class="verification-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </div>
+                <h1>Check Your Email</h1>
+                <p>We've sent a verification code to <strong id="userEmail"></strong></p>
+                <p class="verification-subtitle">Enter the 6-digit code below to verify your account</p>
+            </div>
+
+            <form class="auth-form" id="verificationForm">
+                <!-- Verification Code Input -->
+                <div class="form-group">
+                    <label for="verificationCode">Verification Code</label>
+                    <input type="text" id="verificationCode" name="verificationCode" required 
+                           maxlength="6" placeholder="Enter 6-digit code" autocomplete="one-time-code">
+                    <div class="field-error" id="verificationCodeError"></div>
+                </div>
+
+                <button type="submit" class="auth-submit-btn">
+                    Verify Email Address
+                </button>
+
+                <div class="verification-actions">
+                    <p>Didn't receive the code?</p>
+                    <button type="button" class="resend-btn" id="resendBtn">
+                        Resend Code
+                    </button>
+                    <button type="button" class="resend-btn" id="showCodeBtn" style="margin-left: 10px;">
+                        Show My Code (Demo)
+                    </button>
+                    <div class="resend-timer" id="resendTimer" style="display: none;">
+                        Resend available in <span id="countdown">60</span>s
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <p>Wrong email? <a href="sign-up.html">Sign up again</a></p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Side Panel with Next Steps -->
+        <div class="auth-benefits">
+            <div class="benefits-content">
+                <h2>What's Next?</h2>
+                <div class="next-steps">
+                    <div class="next-step">
+                        <div class="step-icon">✅</div>
+                        <div class="step-content">
+                            <h3>Email Verification</h3>
+                            <p>Complete this step to verify your .edu email address</p>
+                        </div>
+                    </div>
+                    <div class="next-step" id="manualVerificationStep" style="display: none;">
+                        <div class="step-icon">📋</div>
+                        <div class="step-content">
+                            <h3>Identity Verification</h3>
+                            <p>Additional verification required for current/former student-athletes</p>
+                        </div>
+                    </div>
+                    <div class="next-step">
+                        <div class="step-icon">🚀</div>
+                        <div class="step-content">
+                            <h3>Start Exploring</h3>
+                            <p>Access reviews, analytics, and NIL opportunities</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="verification-tips">
+                    <h3>Tips</h3>
+                    <div class="tip-item">
+                        <span class="tip-icon">💡</span>
+                        <span>Check your spam folder if you don't see the email</span>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-icon">⏰</span>
+                        <span>Verification codes expire after 30 minutes</span>
+                    </div>
+                    <div class="tip-item">
+                        <span class="tip-icon">🔒</span>
+                        <span>Your .edu email confirms your college connection</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="user-manager.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        // Email verification page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeEmailVerification();
+        });
+
+        function initializeEmailVerification() {
+            // Get email from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            
+            if (email) {
+                document.getElementById('userEmail').textContent = email;
+            } else {
+                // Redirect to sign up if no email provided
+                window.location.href = 'sign-up.html';
+                return;
+            }
+
+            // Setup form submission
+            const form = document.getElementById('verificationForm');
+            form.addEventListener('submit', handleEmailVerification);
+
+            // Setup resend functionality
+            const resendBtn = document.getElementById('resendBtn');
+            resendBtn.addEventListener('click', handleResendCode);
+            
+            // Setup show code functionality (for demo)
+            const showCodeBtn = document.getElementById('showCodeBtn');
+            showCodeBtn.addEventListener('click', handleShowCode);
+
+            // Auto-format verification code input
+            const codeInput = document.getElementById('verificationCode');
+            codeInput.addEventListener('input', function(e) {
+                // Remove non-alphanumeric characters and convert to uppercase
+                e.target.value = e.target.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+            });
+        }
+
+        async function handleEmailVerification(e) {
+            e.preventDefault();
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            const code = document.getElementById('verificationCode').value;
+            
+            if (!code || code.length !== 6) {
+                showError('verificationCodeError', 'Please enter a valid 6-digit code');
+                return;
+            }
+
+            const submitBtn = document.querySelector('.auth-submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Verifying...';
+            submitBtn.disabled = true;
+
+            try {
+                const result = await window.userManager.verifyEmail(email, code);
+                
+                if (result.success) {
+                    alert(result.message);
+                    
+                    if (result.needsManualVerification) {
+                        // Redirect to manual verification page
+                        window.location.href = 'manual-verification.html';
+                    } else {
+                        // Redirect to welcome/onboarding page
+                        window.location.href = 'welcome.html';
+                    }
+                }
+            } catch (error) {
+                showError('verificationCodeError', error.message);
+                
+                // Reset button
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        async function handleResendCode() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            
+            const resendBtn = document.getElementById('resendBtn');
+            const resendTimer = document.getElementById('resendTimer');
+            const countdown = document.getElementById('countdown');
+            
+            try {
+                const result = await window.userManager.resendVerificationCode(email);
+                
+                if (result.success) {
+                    alert(result.message);
+                    
+                    // Start countdown timer
+                    resendBtn.style.display = 'none';
+                    resendTimer.style.display = 'block';
+                    
+                    let timeLeft = 60;
+                    const timer = setInterval(() => {
+                        timeLeft--;
+                        countdown.textContent = timeLeft;
+                        
+                        if (timeLeft <= 0) {
+                            clearInterval(timer);
+                            resendBtn.style.display = 'block';
+                            resendTimer.style.display = 'none';
+                        }
+                    }, 1000);
+                }
+            } catch (error) {
+                alert('Error: ' + error.message);
+            }
+        }
+
+        function handleShowCode() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email');
+            
+            // Get verification codes from localStorage
+            const verificationCodes = JSON.parse(localStorage.getItem('trueroute_verification_codes') || '{}');
+            const userCode = verificationCodes[email];
+            
+            if (userCode && userCode.code) {
+                alert(`Your verification code is: ${userCode.code}\n\nThis is shown for demo purposes. In a real app, this would be sent via email.`);
+            } else {
+                alert('No verification code found. Please try resending the code.');
+            }
+        }
+
+        function showError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.classList.add('show');
+            }
+        }
+    </script>
+</body>
+</html>
