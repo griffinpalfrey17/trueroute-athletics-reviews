@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrueRoute - College Athletics Reviews</title>
-    <link rel="stylesheet" href="styles.css?v=3">
-    <link rel="stylesheet" href="enhanced-cards.css">
-    <link rel="stylesheet" href="homepage-sports-tech.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/core/design-system-enhanced.css">
+    <link rel="stylesheet" href="assets/css/_legacy/styles.css">
+    <link rel="stylesheet" href="assets/css/pages/homepage-sports-tech.css">
+    <link rel="stylesheet" href="navigation-fix.css">
+    <link rel="stylesheet" href="ui-enhancements.css">
+    <link rel="stylesheet" href="modern-landscape.css">
 </head>
 <body>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -59,8 +62,10 @@
                 <span class="brand-text">TrueRoute</span>
             </div>
             <nav class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
+                <a href="index.html" class="nav-link">Home</a>
                 <a href="nil-info.html" class="nav-link">NIL Info</a>
+                <a href="transfer-data.html" class="nav-link">Transfers</a>
+                <a href="modern-landscape.html" class="nav-link">Modern Landscape</a>
                 <a href="write-review.html" class="nav-link">Write Review</a>
                 <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
             </nav>
@@ -72,34 +77,37 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section - Modern Landscape Style -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Find Your Perfect College Athletic Program</h1>
             <p>Get honest, detailed reviews from former student-athletes about team culture, academic support, financial opportunities, and more.</p>
             
-            <div class="hero-search-container">
-                <div class="search-box-modern">
-                    <div class="search-input-group">
-                        <div class="search-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        <input type="text" id="schoolSearch" class="hero-search-input" placeholder="Search schools, programs, or locations..." autocomplete="off" style="background: white !important; color: black !important; border: none !important;" onkeypress="if(event.key==='Enter') handleSearchClick()">
-                        <button class="hero-search-btn" id="mainSearchBtn" onclick="handleSearchClick()">
-                            <span>Search</span>
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
-                    </div>
-                    <div id="searchSuggestions" class="modern-suggestions"></div>
+            <div class="landscape-stats">
+                <div class="stat-highlight">
+                    <span class="stat-number">60+</span>
+                    <span class="stat-label">Schools with detailed program reviews</span>
                 </div>
-                <div class="search-examples">
-                    <span class="example-label">Popular searches:</span>
-                    <div class="example-tags">
-                        <span class="example-tag">Stanford Football</span>
-                        <span class="example-tag">Duke Basketball</span>
-                        <span class="example-tag">California D1</span>
-                        <span class="example-tag">SEC Conference</span>
-                    </div>
+                <div class="stat-highlight">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Sports covered across all divisions</span>
+                </div>
+                <div class="stat-highlight">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">Verified alumni reviews</span>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <div class="cta-buttons">
+                    <a href="sport-selection.html" class="cta-btn primary">
+                        <i class="fas fa-search"></i>
+                        Search Programs
+                    </a>
+                    <a href="write-review.html" class="cta-btn secondary">
+                        <i class="fas fa-plus"></i>
+                        Write Review
+                    </a>
                 </div>
             </div>
         </div>
@@ -107,125 +115,148 @@
 
 
 
-    <!-- Problem + Value Proposition Section -->
+    <!-- Problem + Value Proposition Section - Modern Landscape Style -->
     <section class="problem-section section">
         <div class="container">
             <h2 class="section-title">The Problem: A Changing Landscape in College Athletics</h2>
             
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-eye-slash"></i>
+            <div class="story-grid">
+                <div class="story-card">
+                    <div class="story-header">
+                        <h3>Transparency Crisis</h3>
+                        <div class="story-stat">$100K+</div>
+                        <div class="story-stat-label">Average decision value</div>
                     </div>
-                    <h3>Transparency</h3>
-                    <p>Recruits and families make $100K+ decisions with limited insights.</p>
+                    <div class="story-content">
+                        <p>Recruits and families make life-changing financial decisions with limited insights into program realities.</p>
+                        <div class="story-anecdote">
+                            "I wish I knew about the team culture before committing. The facilities tour didn't show me what daily life was really like."
+                            <span class="anecdote-source">- Former D1 Basketball Player</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-puzzle-piece"></i>
+                <div class="story-card">
+                    <div class="story-header">
+                        <h3>Transfer & NIL Era</h3>
+                        <div class="story-stat">255%</div>
+                        <div class="story-stat-label">Portal increase since 2020</div>
                     </div>
-                    <h3>Limited Perspectives</h3>
-                    <p>Coaches and facilities only show part of the picture.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <i class="fas fa-exchange-alt"></i>
+                    <div class="story-content">
+                        <p>Athletes face unprecedented uncertainty with new transfer rules and NIL opportunities changing the game.</p>
+                        <div class="story-anecdote">
+                            "The NIL landscape changes so fast. I needed real data from athletes who've been through it."
+                            <span class="anecdote-source">- Current D1 Football Player</span>
+                        </div>
                     </div>
-                    <h3>Transfer & NIL Era</h3>
-                    <p>Athletes face uncertainty with transfers and NIL changes.</p>
                 </div>
             </div>
             
-            <div class="solution-statement">
-                <h3>Our Solution: Learn from those who have been in the shoes you want to fill.</h3>
+            <div class="cta-section" style="padding: 60px 0;">
+                <div class="cta-content">
+                    <h2>Our Solution</h2>
+                    <p>Learn from those who have been in the shoes you want to fill. Get honest, detailed insights from former student-athletes.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- NIL Contributors Section -->
+    <!-- NIL Contributors Section - Modern Landscape Style -->
     <section class="nil-contributors section">
         <div class="container">
             <h2 class="section-title">Top NIL Contributors by Conference and Sport</h2>
             
-            <div class="nil-logos-new">
-                <div class="nil-company">
-                    <div class="company-logo nike-logo">
-                        <div class="logo-text">NIKE</div>
-                        <div class="logo-swoosh">✓</div>
+            <div class="necessity-grid">
+                <div class="necessity-card">
+                    <div class="necessity-icon">
+                        <i class="fab fa-nike"></i>
                     </div>
                     <h3>Nike</h3>
+                    <p>Leading athletic apparel sponsor across major college programs with exclusive partnerships.</p>
                 </div>
                 
-                <div class="nil-company">
-                    <div class="company-logo gatorade-logo">
-                        <div class="logo-text gatorade-text">GATORADE</div>
-                        <div class="logo-lightning">⚡</div>
+                <div class="necessity-card">
+                    <div class="necessity-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Gatorade</h3>
+                    <p>Sports drink giant providing NIL opportunities for top-performing student-athletes.</p>
                 </div>
                 
-                <div class="nil-company">
-                    <div class="company-logo chevrolet-logo">
-                        <div class="logo-text chevrolet-text">CHEVROLET</div>
-                        <div class="logo-bowtie">◆</div>
+                <div class="necessity-card">
+                    <div class="necessity-icon">
+                        <i class="fas fa-car"></i>
                     </div>
                     <h3>Chevrolet</h3>
+                    <p>Automotive sponsor offering vehicle partnerships and promotional opportunities.</p>
                 </div>
             </div>
             
-            <p class="nil-disclaimer">Data based on verified alumni reviews and public NIL reports.</p>
+            <div class="text-center" style="margin-top: 40px;">
+                <p style="color: #94a3b8; font-size: 0.9rem;">Data based on verified alumni reviews and public NIL reports.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Transfer Data Section -->
+    <!-- Transfer Data Section - Modern Landscape Style -->
     <section class="transfer-stats-new section">
         <div class="container">
-            <div class="stats-grid-new">
-                <div class="stat-item">
-                    <div class="stat-number-new">255%</div>
-                    <div class="stat-description">Increase in athletes entering the transfer portal since 2020</div>
+            <div class="landscape-stats">
+                <div class="stat-highlight">
+                    <span class="stat-number">255%</span>
+                    <span class="stat-label">Increase in athletes entering the transfer portal since 2020</span>
                 </div>
                 
-                <div class="stat-item">
-                    <div class="stat-number-new">12,000+</div>
-                    <div class="stat-description">Athletes in the NCAA transfer portal this year</div>
+                <div class="stat-highlight">
+                    <span class="stat-number">12,000+</span>
+                    <span class="stat-label">Athletes in the NCAA transfer portal this year</span>
                 </div>
                 
-                <div class="stat-item active-stat">
-                    <div class="stat-number-new" id="activePortalCount">8,247</div>
-                    <div class="stat-description">Currently active in transfer portal</div>
-                    <div class="live-indicator-new">● LIVE</div>
+                <div class="stat-highlight">
+                    <span class="stat-number" id="activePortalCount">8,247</span>
+                    <span class="stat-label">Currently active in transfer portal</span>
                 </div>
             </div>
             
-            <div class="transfer-cta">
-                <button class="transfer-data-btn" onclick="window.location.href='transfer-data.html'">View Transfer Data</button>
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="transfer-data.html" class="cta-btn primary">View Transfer Data</a>
             </div>
         </div>
     </section>
 
-    <!-- Audience Use Cases Section -->
+    <!-- Audience Use Cases Section - Modern Landscape Style -->
     <section class="use-cases section">
         <div class="container">
-            <div class="use-cases-grid">
-                <div class="use-case-card">
-                    <div class="use-case-icon">
+            <div class="intersection-grid">
+                <div class="intersection-card">
+                    <div class="intersection-icon">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3>Recruits</h3>
                     <p>See what life is really like at each program.</p>
-                    <button class="use-case-btn" onclick="window.location.href='sport-selection.html'">Explore Programs</button>
+                    <div class="intersection-example">
+                        <strong>Perfect For:</strong>
+                        High school athletes making $100K+ college decisions
+                    </div>
                 </div>
                 
-                <div class="use-case-card">
-                    <div class="use-case-icon">
+                <div class="intersection-card">
+                    <div class="intersection-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3>Alumni</h3>
                     <p>Share your story, help future athletes, and stay connected.</p>
-                    <button class="use-case-btn" onclick="window.location.href='write-review.html'">Share Your Story</button>
+                    <div class="intersection-example">
+                        <strong>Impact:</strong>
+                        Help the next generation make informed choices
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 50px;">
+                <div class="cta-buttons">
+                    <a href="sport-selection.html" class="cta-btn primary">Explore Programs</a>
+                    <a href="write-review.html" class="cta-btn secondary">Share Your Story</a>
                 </div>
             </div>
         </div>
@@ -275,6 +306,7 @@
         </div>
     </footer>
 
+    <script src="detailed-reviews-data.js"></script>
     <script src="script.js?v=3"></script>
 </body>
 </html>

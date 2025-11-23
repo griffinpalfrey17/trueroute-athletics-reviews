@@ -1,0 +1,96 @@
+/* FINAL NAVY OVERRIDE - Loads last, overrides everything */
+
+/* Force navy background on everything */
+html,
+body,
+* {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+}
+
+/* Remove ALL hover effects - no exceptions */
+*:hover,
+*:focus,
+*:active,
+*:visited {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: inherit !important;
+}
+
+/* Ensure text is visible */
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF !important;
+}
+
+p, span, div, a, label, li, td, th {
+    color: #E2E8F0 !important;
+}
+
+/* Only allow minimal borders on inputs */
+input,
+textarea,
+select {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #FFFFFF !important;
+}
+
+/* Buttons */
+button,
+.btn {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+button:hover,
+.btn:hover {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+/* Remove all other backgrounds and effects */
+.card,
+.section,
+.container,
+.box,
+.panel,
+.modal,
+.form-section,
+.rating-category,
+.overview-category,
+.gender-btn,
+.sport-card,
+.browse-card,
+.school-card {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Remove all hover effects on these elements */
+.card:hover,
+.section:hover,
+.container:hover,
+.box:hover,
+.panel:hover,
+.modal:hover,
+.form-section:hover,
+.rating-category:hover,
+.overview-category:hover,
+.gender-btn:hover,
+.sport-card:hover,
+.browse-card:hover,
+.school-card:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+    backdrop-filter: none !important;
+}

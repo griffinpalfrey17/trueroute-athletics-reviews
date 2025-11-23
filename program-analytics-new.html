@@ -3,38 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="pageTitle">Stanford Baseball - TrueRoute</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <link rel="stylesheet" href="assets/css/core/design-system-enhanced.css">
+    <link rel="stylesheet" href="assets/css/_legacy/styles.css">
+    <link rel="stylesheet" href="assets/css/pages/homepage-sports-tech.css">
+    <link rel="stylesheet" href="assets/css/pages/program-pages-fix.css">
+    <link rel="stylesheet" href="unified-navy-theme.css">
+    <link rel="stylesheet" href="navigation-fix.css">
+    <link rel="stylesheet" href="ui-enhancements.css">
+    <link rel="stylesheet" href="modern-landscape.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Tab Content Switching */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Header Positioning */
+        .analytics-header {
+            padding-top: 140px !important;
+            padding-bottom: 40px !important;
+        }
+        
+        /* Reviews Sidebar - Light Blue */
+        #reviews-tab .reviews-container > div:first-child {
+            background: rgba(125, 211, 252, 0.9) !important;
+        }
+        
+        /* Metric Stars */
+        .metric-stars {
+            color: #FCD34D !important;
+            font-size: 0.9rem !important;
+            margin: 0 1rem !important;
+            text-shadow: 0 0 2px rgba(252, 211, 77, 0.5) !important;
+        }
+        
+        /* Hide metric bars - use stars instead */
+        .metric-bar {
+            display: none !important;
+        }
+        
+        .stars i {
+            color: #FFD700 !important;
+            font-size: 1.4rem !important;
+            margin: 0 0.2rem !important;
+            text-shadow: 0 0 4px rgba(255, 215, 0, 0.6) !important;
+            display: inline-block !important;
+        }
+        
+        /* Category cards grid */
+        .category-cards-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+            gap: 2rem !important;
+            margin: 2rem 0 !important;
+        }
+        
+        
+        /* Financial tab complete redesign */
+        #financial-tab h3 {
+            color: #FFFFFF !important;
+            font-size: 1.8rem !important;
+            font-weight: 700 !important;
+            margin-bottom: 0.5rem !important;
+        }
+        
+        #financial-tab .stat-number-new,
+        .financial-stat-card .card-value {
+            display: block !important;
+            color: #38BDF8 !important;
+            font-size: 4rem !important;
+            margin: 1rem 0 !important;
+            font-family: 'Montserrat', sans-serif !important;
+            line-height: 1 !important;
+        }
+        
+        .nil-hero-stat-label, .nil-stat-label {
+            color: #ffffff !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            display: block;
+            opacity: 0.9;
+        }
+
+        /* Force Modern Landscape background color everywhere */
+        body, html, main, section, .container, div {
+            background: #1A2B3C !important;
+        }
+
+        /* ELIMINATE ALL NAVY BOXES/CARDS SITE-WIDE */
+        .program-card, .stat-card, .comparison-table tr, .comparison-row, .program-row,
+        .card, .review-card, .analytics-card, .financial-card, .overview-card,
+        .team-culture-card, .coaching-card, .rating-card, .scholarship-card,
+        .nil-card, .filter-card, .sidebar-card, .content-card, .info-card,
+        .stats-card, .performance-card, .breakdown-card, .distribution-card,
+        .category-card, .section-card, .detail-card, .summary-card,
+        [class*="card"], [class*="box"], [class*="panel"], [class*="container"],
+        .chart-container, .rating-container, .filter-container, .review-container,
+        .team-culture-environment, .coaching-player-development,
+        .scholarship-distribution, .nil-value-distribution, .financial-aid-types,
+        .filter-sort, .basketball-position, .minimum-rating,
+        .university-card, .program-overview-card {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            transition: none !important;
+            backdrop-filter: none !important;
+        }
+
+        /* Remove ALL hover effects */
+        .program-card:hover, .stat-card:hover, .card:hover, .review-card:hover,
+        .analytics-card:hover, .financial-card:hover, .overview-card:hover,
+        [class*="card"]:hover, [class*="box"]:hover, [class*="panel"]:hover,
+        [class*="container"]:hover {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            transform: none !important;
+            backdrop-filter: none !important;
+        }
+        
+        /* Reviews Tab - Consistent Formatting */
+        #reviews-tab .review-post,
+        #reviews-tab .review-card,
+        #reviews-tab [class*="review"] {
+            background: transparent !important;
+            border: 2px solid rgba(56, 189, 248, 0.4) !important;
+            border-radius: 16px !important;
+            padding: 2rem !important;
+            margin-bottom: 2rem !important;
+            box-shadow: none !important;
+        }
+        
+        /* Review text colors for transparent backgrounds */
+        #reviews-tab .review-post h3,
+        #reviews-tab .review-post .review-title,
+        #reviews-tab .reviewer-title,
+        #reviews-tab .reviewer-name {
+            color: #FFFFFF !important;
+            font-weight: 700 !important;
+        }
+        
+        #reviews-tab .review-post p,
+        #reviews-tab .review-content p {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        /* Category rating boxes in reviews */
+        #reviews-tab .category-rating-item,
+        #reviews-tab .review-categories-grid > div {
+            background: #0B1C2E !important;
+            border: 2px solid #38BDF8 !important;
+            border-radius: 12px !important;
+            padding: 1rem !important;
+            text-align: center !important;
+            margin: 0.5rem !important;
+        }
+        
+        #reviews-tab .category-name {
+            color: #FFFFFF !important;
+            font-weight: 600 !important;
+        }
+        
+        #reviews-tab .category-stars,
+        #reviews-tab .rating-stars {
+            color: #FFD700 !important;
+        }
+        
+        #reviews-tab .category-score,
+        #reviews-tab .rating-score {
+            color: #38BDF8 !important;
+            font-weight: 700 !important;
+        }
+    </style>
 </head>
 <body class="sports-tech-theme">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                    <g fill="#2C5AA0">
-                        <!-- Football player silhouette -->
-                        <ellipse cx="20" cy="35" rx="3" ry="2" opacity="0.3"/>
-                        <rect x="18" y="20" width="4" height="15" rx="2"/>
-                        <rect x="16" y="18" width="8" height="4" rx="2"/>
-                        <circle cx="20" cy="12" r="4"/>
-                        <rect x="22" y="16" width="6" height="3" rx="1.5"/>
-                        <ellipse cx="26" cy="17" rx="2" ry="1" fill="#4A90E2"/>
-                        <!-- Route trail -->
-                        <path d="M8 30 Q15 25 20 20 T32 15" stroke="#357ABD" stroke-width="2" fill="none" stroke-dasharray="3,2"/>
-                        <circle cx="32" cy="15" r="2" fill="#357ABD"/>
-                    </g>
-                </svg>
-                <span class="logo-text">TrueRoute</span>
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                        <!-- Realistic Football Player Running Route -->
+                        <g transform="translate(20,10)">
+                            <!-- Head/Helmet -->
+                            <circle cx="30" cy="15" r="7" fill="#2C5AA0"/>
+                            <path d="M25 12 L35 12 M27 15 L33 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                            
+                            <!-- Torso -->
+                            <path d="M30 22 L28 45 L32 45 Z" fill="#4A90E2"/>
+                            <rect x="26" y="25" width="8" height="15" rx="2" fill="#357ABD"/>
+                            
+                            <!-- Left Arm (pumping back) -->
+                            <path d="M26 28 L18 32 L16 38" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Right Arm (forward with ball) -->
+                            <path d="M34 28 L42 25 L45 22" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Football in hand -->
+                            <ellipse cx="46" cy="20" rx="2.5" ry="4" fill="#8B4513" transform="rotate(25 46 20)"/>
+                            <path d="M44 20 L48 20" stroke="white" stroke-width="0.8"/>
+                            
+                            <!-- Left Leg (back, bent) -->
+                            <path d="M28 45 L26 55 L24 65" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Right Leg (forward, extended) -->
+                            <path d="M32 45 L36 55 L40 62" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Cleats -->
+                            <ellipse cx="23" cy="66" rx="3" ry="1.5" fill="#1a365d"/>
+                            <ellipse cx="41" cy="63" rx="3" ry="1.5" fill="#1a365d"/>
+                        </g>
+                        
+                        <!-- Route Path -->
+                        <path d="M10 80 Q30 70, 50 75 Q70 80, 90 65" stroke="#4A90E2" stroke-width="2.5" fill="none" opacity="0.7" stroke-dasharray="3,2"/>
+                        <circle cx="90" cy="65" r="3" fill="#F39C12" stroke="white" stroke-width="1"/>
+                        
+                        <!-- Speed lines -->
+                        <path d="M15 45 L8 47 M12 50 L5 52 M18 55 L11 57" stroke="#4A90E2" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="brand-text">TrueRoute</span>
             </div>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="write-review.html">Write Review</a>
-                <a href="sign-in.html" class="sign-in-btn">Sign In</a>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="nil-info.html" class="nav-link">NIL Info</a>
+                <a href="transfer-data.html" class="nav-link">Transfers</a>
+                <a href="modern-landscape.html" class="nav-link">Modern Landscape</a>
+                <a href="write-review.html" class="nav-link">Write Review</a>
+                <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </nav>
@@ -85,10 +292,10 @@
                     </div>
                     
                     <div class="category-cards-grid">
-                        <!-- Team Culture -->
+                        <!-- Team Culture & Environment -->
                         <div class="category-card">
                             <div class="card-header">
-                                <h3>Team Culture</h3>
+                                <h3>Team Culture & Environment</h3>
                                 <div class="stars">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -123,10 +330,10 @@
                             </div>
                         </div>
 
-                        <!-- Coaching Quality -->
+                        <!-- Coaching & Player Development -->
                         <div class="category-card">
                             <div class="card-header">
-                                <h3>Coaching Quality</h3>
+                                <h3>Coaching & Player Development</h3>
                                 <div class="stars">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -161,10 +368,10 @@
                             </div>
                         </div>
 
-                        <!-- Facilities -->
+                        <!-- Facilities & Travel Experience -->
                         <div class="category-card">
                             <div class="card-header">
-                                <h3>Facilities</h3>
+                                <h3>Facilities & Travel Experience</h3>
                                 <div class="stars">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -405,220 +612,490 @@
 
             <!-- Reviews Tab -->
             <div class="tab-content" id="reviews-tab">
-                <div class="section-header">
-                    <h2>💬 Student-Athlete Reviews</h2>
-                    <p>Authentic feedback and experiences from current and former Stanford Baseball players</p>
+                <!-- Header -->
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <div>
+                        <h2 style="color: #FFFFFF; font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem;">Student-Athlete Reviews</h2>
+                        <p style="color: rgba(255, 255, 255, 0.8);">Showing 127 reviews</p>
+                    </div>
+                    <a href="write-review.html" style="background: #38BDF8; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                        <i class="fas fa-plus"></i> Write Review
+                    </a>
                 </div>
-                
-                <!-- Reviews Layout: Left Sidebar + Right Feed -->
-                <div class="reviews-layout">
-                    <!-- Left Sidebar - Filters -->
-                    <div class="reviews-sidebar">
-                        <div class="filter-section">
-                            <h3>Sort Reviews</h3>
-                            <div class="filter-options">
-                                <label class="filter-option">
-                                    <input type="radio" name="sort" value="recent" checked>
-                                    <span class="checkmark"></span>
-                                    Most Recent
+
+                <!-- Main Layout: Sidebar + Reviews -->
+                <div style="display: grid; grid-template-columns: 300px 1fr; gap: 2rem; margin-top: 2rem;">
+                    <!-- Left Sidebar -->
+                    <div style="background: #7DD3FC !important; border: 2px solid #38BDF8 !important; border-radius: 12px; padding: 1.5rem; height: fit-content; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);">
+                        <h3 style="color: #0B1C2E; font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem;">Filter & Sort</h3>
+                        
+                        <!-- Position Filter -->
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: #0B1C2E; font-weight: 700; margin-bottom: 1rem;">Basketball Position</h4>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Point Guard (12)
                                 </label>
-                                <label class="filter-option">
-                                    <input type="radio" name="sort" value="helpful">
-                                    <span class="checkmark"></span>
-                                    Most Helpful
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Shooting Guard (18)
                                 </label>
-                                <label class="filter-option">
-                                    <input type="radio" name="sort" value="relevant">
-                                    <span class="checkmark"></span>
-                                    Most Relevant
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Small Forward (15)
+                                </label>
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Power Forward (9)
+                                </label>
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Center (7)
                                 </label>
                             </div>
                         </div>
 
-                        <div class="filter-section">
-                            <h3>Filter by Position</h3>
-                            <select class="filter-select" id="positionFilter">
-                                <option value="">All Positions</option>
-                                <option value="pitcher">Pitcher</option>
-                                <option value="catcher">Catcher</option>
-                                <option value="infielder">Infielder</option>
-                                <option value="outfielder">Outfielder</option>
-                            </select>
-                        </div>
-
-                        <div class="filter-section">
-                            <h3>Filter by Rating</h3>
-                            <div class="rating-filters">
-                                <label class="filter-option">
-                                    <input type="checkbox" value="5">
-                                    <span class="checkmark"></span>
-                                    <span class="stars">★★★★★</span> (5 stars)
+                        <!-- Rating Filter -->
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: #0B1C2E; font-weight: 700; margin-bottom: 1rem;">Minimum Rating</h4>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="radio" name="rating" value="5" style="accent-color: #38BDF8;">
+                                    ★★★★★ 5 Stars (8)
                                 </label>
-                                <label class="filter-option">
-                                    <input type="checkbox" value="4">
-                                    <span class="checkmark"></span>
-                                    <span class="stars">★★★★☆</span> (4 stars)
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="radio" name="rating" value="4" style="accent-color: #38BDF8;">
+                                    ★★★★☆ 4+ Stars (23)
                                 </label>
-                                <label class="filter-option">
-                                    <input type="checkbox" value="3">
-                                    <span class="checkmark"></span>
-                                    <span class="stars">★★★☆☆</span> (3 stars)
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="radio" name="rating" value="3" style="accent-color: #38BDF8;">
+                                    ★★★☆☆ 3+ Stars (41)
                                 </label>
-                                <label class="filter-option">
-                                    <input type="checkbox" value="2">
-                                    <span class="checkmark"></span>
-                                    <span class="stars">★★☆☆☆</span> (2 stars)
-                                </label>
-                                <label class="filter-option">
-                                    <input type="checkbox" value="1">
-                                    <span class="checkmark"></span>
-                                    <span class="stars">★☆☆☆☆</span> (1 star)
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="radio" name="rating" value="all" checked style="accent-color: #38BDF8;">
+                                    All Ratings (61)
                                 </label>
                             </div>
                         </div>
 
-                        <div class="filter-actions">
-                            <button class="btn-secondary" id="clearFilters">Clear All Filters</button>
+                        <!-- Class Year Filter -->
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: #0B1C2E; font-weight: 700; margin-bottom: 1rem;">Class Year</h4>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Class of 2024 (14)
+                                </label>
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Class of 2023 (19)
+                                </label>
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Class of 2022 (16)
+                                </label>
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Class of 2021 (12)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Financial Filter -->
+                        <div style="margin-bottom: 2rem;">
+                            <h4 style="color: #0B1C2E; font-weight: 700; margin-bottom: 1rem;">Financial Support</h4>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Full Scholarships (11)
+                                </label>
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Partial Scholarships (28)
+                                </label>
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    NIL Opportunities (35)
+                                </label>
+                                <label style="color: #0B1C2E; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="accent-color: #38BDF8;">
+                                    Academic Aid (22)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Clear Filters Button -->
+                        <button style="background: #38BDF8; color: white; border: none; border-radius: 8px; padding: 0.75rem 1.5rem; font-weight: 600; cursor: pointer; width: 100%; margin-top: 1rem;">
+                            Clear All Filters
+                        </button>
+                    </div>
+
+                    <!-- Right: Reviews Feed -->
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        
+                        <!-- Review Card 1 -->
+                        <div style="background: transparent !important; border: 2px solid rgba(56, 189, 248, 0.4) !important; border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1); margin-bottom: 2rem;">
+                            <!-- Header with Avatar and Overall Rating -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 55px; height: 55px; background: linear-gradient(135deg, #4A90E2, #357ABD); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                                        <i class="fas fa-user" style="color: white; font-size: 1.2rem;"></i>
+                                    </div>
+                                    <div>
+                                        <div style="color: #FFFFFF; font-weight: 700; font-size: 1.1rem;">Former Forward</div>
+                                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Class of 2024 • 3 weeks ago</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="text-align: center;">
+                                        <div style="color: #FFD700; font-size: 2rem; margin-bottom: 0.5rem;">★★★★★</div>
+                                        <div style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">4.8 Stars</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review Title and Content -->
+                            <div style="background: rgba(255, 255, 255, 0.1) !important; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                                <h3 style="color: #FFFFFF; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">"Outstanding program with top-tier coaching and support"</h3>
+                                <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6; margin: 0;">Duke's Soccer program exceeded all my expectations. The coaching staff is incredibly knowledgeable and supportive, team culture is fantastic. Facilities are world-class and academic support helped me maintain my GPA while competing at the highest level.</p>
+                            </div>
+
+                            <!-- Visual Category Ratings -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-chalkboard-teacher"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Coaching Quality</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★★</div>
+                                </div>
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-dumbbell"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Facilities</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★★</div>
+                                </div>
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-users"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Team Culture</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★☆</div>
+                                </div>
+                            </div>
+
+                            <!-- Financial Highlights with Save Button -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="display: flex; gap: 1rem;">
+                                    <div style="background: linear-gradient(135deg, #22C55E, #16A34A); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        High NIL Opportunities
+                                    </div>
+                                    <div style="background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        Scholarships Available
+                                    </div>
+                                </div>
+                                <button style="background: rgba(56, 189, 248, 0.2); border: 2px solid #38BDF8; border-radius: 12px; padding: 1rem 1.5rem; color: #FFFFFF; cursor: pointer; display: flex; align-items: center; gap: 0.75rem; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease;">
+                                    <i class="fas fa-bookmark" style="font-size: 1.2rem;"></i>
+                                    Save Review
+                                </button>
+                            </div>
+
+                            <!-- Actions -->
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; gap: 1rem;">
+                                    <button style="background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                                        <i class="fas fa-thumbs-up"></i> 23 helpful
+                                    </button>
+                                    <button style="background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                                        <i class="fas fa-reply"></i> Reply
+                                    </button>
+                                </div>
+                                <div style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem;">Verified Student-Athlete</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Review Card 2 -->
+                        <div style="background: transparent !important; border: 2px solid rgba(56, 189, 248, 0.4) !important; border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1); margin-bottom: 2rem;">
+                            <!-- Header with Avatar and Overall Rating -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 55px; height: 55px; background: linear-gradient(135deg, #4A90E2, #357ABD); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                                        <i class="fas fa-user" style="color: white; font-size: 1.2rem;"></i>
+                                    </div>
+                                    <div>
+                                        <div style="color: #FFFFFF; font-weight: 700; font-size: 1.1rem;">Former Point Guard</div>
+                                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Class of 2023 • 1 month ago</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="text-align: center;">
+                                        <div style="color: #FFD700; font-size: 2rem; margin-bottom: 0.5rem;">★★★★☆</div>
+                                        <div style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">4.2 Stars</div>
+                                    </div>
+                                    <button style="background: none; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 8px; padding: 0.5rem; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-bookmark"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Review Title and Content -->
+                            <div style="background: rgba(255, 255, 255, 0.1) !important; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                                <h3 style="color: #FFFFFF; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">"Great experience but demanding schedule"</h3>
+                                <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6; margin: 0;">Playing at University of Kentucky was challenging but rewarding. The competition level is intense and the time commitment is significant. However, the coaching staff really cares about player development both on and off the court.</p>
+                            </div>
+
+                            <!-- Visual Category Ratings -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-chalkboard-teacher"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Coaching Quality</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★☆</div>
+                                </div>
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-graduation-cap"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Academics</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★★</div>
+                                </div>
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-users"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Team Culture</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★☆☆</div>
+                                </div>
+                            </div>
+
+                            <!-- Financial Highlights -->
+                            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    Partial NIL Opportunities
+                                </div>
+                                <div style="background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    Academic Support
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; gap: 1rem;">
+                                    <button style="background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                                        <i class="fas fa-thumbs-up"></i> 15 helpful
+                                    </button>
+                                    <button style="background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                                        <i class="fas fa-reply"></i> Reply
+                                    </button>
+                                </div>
+                                <div style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem;">Verified Student-Athlete</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Review Card 3 -->
+                        <div style="background: transparent !important; border: 2px solid rgba(56, 189, 248, 0.4) !important; border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1); margin-bottom: 2rem;">
+                            <!-- Header with Avatar and Overall Rating -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 55px; height: 55px; background: linear-gradient(135deg, #4A90E2, #357ABD); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                                        <i class="fas fa-user" style="color: white; font-size: 1.2rem;"></i>
+                                    </div>
+                                    <div>
+                                        <div style="color: #FFFFFF; font-weight: 700; font-size: 1.1rem;">Former Center</div>
+                                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Class of 2022 • 2 months ago</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="text-align: center;">
+                                        <div style="color: #FFD700; font-size: 2rem; margin-bottom: 0.5rem;">★★★★★</div>
+                                        <div style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">4.9 Stars</div>
+                                    </div>
+                                    <button style="background: none; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 8px; padding: 0.5rem; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-bookmark"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Review Title and Content -->
+                            <div style="background: rgba(255, 255, 255, 0.1) !important; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                                <h3 style="color: #FFFFFF; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">"Incredible development and team atmosphere"</h3>
+                                <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6; margin: 0;">The development I experienced both on and off the court was phenomenal. The coaching staff really invests in each player's growth, and the team atmosphere is like a family. Great preparation for both professional basketball and life after sports.</p>
+                            </div>
+
+                            <!-- Visual Category Ratings -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-chalkboard-teacher"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Coaching Quality</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★★</div>
+                                </div>
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-dumbbell"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Facilities</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★★</div>
+                                </div>
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-users"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Team Culture</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★★</div>
+                                </div>
+                            </div>
+
+                            <!-- Financial Highlights -->
+                            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="background: linear-gradient(135deg, #22C55E, #16A34A); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    Excellent NIL Opportunities
+                                </div>
+                                <div style="background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    Full Scholarships Available
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; gap: 1rem;">
+                                    <button style="background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                                        <i class="fas fa-thumbs-up"></i> 31 helpful
+                                    </button>
+                                    <button style="background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                                        <i class="fas fa-reply"></i> Reply
+                                    </button>
+                                </div>
+                                <div style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem;">Verified Student-Athlete</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Review Card 4 -->
+                        <div style="background: transparent !important; border: 2px solid rgba(56, 189, 248, 0.4) !important; border-radius: 16px; padding: 2.5rem; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1); margin-bottom: 2rem;">
+                            <!-- Header with Avatar and Overall Rating -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="width: 55px; height: 55px; background: linear-gradient(135deg, #4A90E2, #357ABD); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);">
+                                        <i class="fas fa-user" style="color: white; font-size: 1.2rem;"></i>
+                                    </div>
+                                    <div>
+                                        <div style="color: #FFFFFF; font-weight: 700; font-size: 1.1rem;">Former Shooting Guard</div>
+                                        <div style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Class of 2021 • 4 months ago</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    <div style="text-align: center;">
+                                        <div style="color: #FFD700; font-size: 2rem; margin-bottom: 0.5rem;">★★★☆☆</div>
+                                        <div style="color: #FFFFFF; font-size: 1.2rem; font-weight: 700;">3.6 Stars</div>
+                                    </div>
+                                    <button style="background: none; border: 2px solid rgba(255, 255, 255, 0.3); border-radius: 8px; padding: 0.5rem; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                                        <i class="fas fa-bookmark"></i>
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Review Title and Content -->
+                            <div style="background: rgba(255, 255, 255, 0.1) !important; border-radius: 12px; padding: 1.5rem; margin-bottom: 2rem;">
+                                <h3 style="color: #FFFFFF; font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; line-height: 1.3;">"Mixed experience - great facilities, tough culture"</h3>
+                                <p style="color: rgba(255, 255, 255, 0.9); font-size: 1rem; line-height: 1.6; margin: 0;">The facilities at UK are absolutely top-notch and the coaching is solid. However, the team culture can be quite intense and competitive in ways that aren't always positive. Academic support is decent but could be better organized.</p>
+                            </div>
+
+                            <!-- Visual Category Ratings -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-chalkboard-teacher"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Coaching Quality</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★☆</div>
+                                </div>
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-dumbbell"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Facilities</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★★★★</div>
+                                </div>
+                                <div style="background: #0B1C2E !important; border: 2px solid #38BDF8; border-radius: 12px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 12px rgba(11, 28, 46, 0.3);">
+                                    <div style="color: #38BDF8; font-size: 1.5rem; margin-bottom: 0.5rem;"><i class="fas fa-users"></i></div>
+                                    <div style="color: #FFFFFF; font-weight: 600; margin-bottom: 0.5rem;">Team Culture</div>
+                                    <div style="color: #FFD700; font-size: 1.1rem;">★★☆☆☆</div>
+                                </div>
+                            </div>
+
+                            <!-- Financial Highlights -->
+                            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                                <div style="background: linear-gradient(135deg, #F59E0B, #D97706); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);">
+                                    <i class="fas fa-dollar-sign"></i>
+                                    Limited NIL Opportunities
+                                </div>
+                                <div style="background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; padding: 0.75rem 1.5rem; border-radius: 12px; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    Partial Scholarships
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="display: flex; gap: 1rem;">
+                                    <button style="background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                                        <i class="fas fa-thumbs-up"></i> 8 helpful
+                                    </button>
+                                    <button style="background: none; border: none; color: rgba(255, 255, 255, 0.7); cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
+                                        <i class="fas fa-reply"></i> Reply
+                                    </button>
+                                </div>
+                                <div style="color: rgba(255, 255, 255, 0.6); font-size: 0.8rem;">Verified Student-Athlete</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Breakdown Tab -->
+            <div class="tab-content" id="financial-tab">
+                <!-- Financial Stats Cards -->
+                <div class="financial-stats-grid">
+                    <div class="financial-stat-card scholarship">
+                        <div class="card-content">
+                            <div class="card-label">AVERAGE SCHOLARSHIP</div>
+                            <div class="stat-number-new">68%</div>
+                            <div class="card-subtitle">Athletic scholarships</div>
                         </div>
                     </div>
                     
-                    <!-- Right Content - Reviews Feed -->
-                    <div class="reviews-feed">
-                        <div class="reviews-feed-header">
-                            <div class="feed-info">
-                                <span class="results-count">Showing 127 reviews</span>
-                            </div>
-                            <button class="btn-primary write-review-btn">
-                                <i class="fas fa-plus"></i>
-                                Write a Review
-                            </button>
+                    <div class="financial-stat-card nil">
+                        <div class="card-content">
+                            <div class="card-label">AVERAGE NIL VALUE</div>
+                            <div class="stat-number-new">$18,500</div>
+                            <div class="card-subtitle">Per student-athlete</div>
                         </div>
-                        
-                        <!-- Review Posts -->
-                        <div class="review-posts">
-                            <!-- Review 1 -->
-                            <div class="review-post">
-                                <div class="review-post-header">
-                                    <div class="reviewer-avatar">FP</div>
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-meta">
-                                            <span class="reviewer-title">Former Pitcher</span>
-                                            <span class="review-period">2019-2023</span>
-                                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
-                                        </div>
-                                        <div class="review-timestamp">2 weeks ago</div>
-                                    </div>
-                                    <div class="review-rating-display">
-                                        <div class="rating-stars">★★★★☆</div>
-                                        <span class="rating-score">4.2</span>
-                                    </div>
-                                </div>
-                                
-                                <h3 class="review-title">Great program with amazing facilities</h3>
-                                
-                                <div class="review-content">
-                                    <p>Stanford Baseball provided an incredible experience both athletically and academically. The coaching staff was supportive and the facilities are world-class. The academic support was outstanding and really helped balance the demanding schedule.</p>
-                                </div>
-                                
-                                <div class="review-categories-grid">
-                                    <div class="category-rating-item">
-                                        <div class="category-name">Culture</div>
-                                        <div class="category-stars">★★★★★</div>
-                                        <div class="category-score">4.5</div>
-                                    </div>
-                                    <div class="category-rating-item">
-                                        <div class="category-name">Academic</div>
-                                        <div class="category-stars">★★★★★</div>
-                                        <div class="category-score">4.8</div>
-                                    </div>
-                                    <div class="category-rating-item">
-                                        <div class="category-name">Coaching</div>
-                                        <div class="category-stars">★★★★☆</div>
-                                        <div class="category-score">4.0</div>
-                                    </div>
-                                    <div class="category-rating-item">
-                                        <div class="category-name">Facilities</div>
-                                        <div class="category-stars">★★★★★</div>
-                                        <div class="category-score">4.7</div>
-                                    </div>
-                                    <div class="category-rating-item">
-                                        <div class="category-name">Work-Life</div>
-                                        <div class="category-stars">★★★☆☆</div>
-                                        <div class="category-score">3.8</div>
-                                    </div>
-                                    <div class="category-rating-item">
-                                        <div class="category-name">Financial</div>
-                                        <div class="category-stars">★★★★☆</div>
-                                        <div class="category-score">4.2</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="review-financial-info">
-                                    <div class="financial-badge scholarship">
-                                        <i class="fas fa-graduation-cap"></i>
-                                        <span>75% Athletic Scholarship</span>
-                                    </div>
-                                    <div class="financial-badge nil">
-                                        <i class="fas fa-dollar-sign"></i>
-                                        <span>$15,000 NIL (Local Sports Store)</span>
-                                    </div>
-                                    <div class="financial-badge aid">
-                                        <i class="fas fa-hand-holding-usd"></i>
-                                        <span>25% Academic Aid</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="review-actions">
-                                    <button class="action-btn helpful">
-                                        <i class="fas fa-thumbs-up"></i>
-                                        <span>Helpful (12)</span>
-                                    </button>
-                                    <button class="action-btn reply">
-                                        <i class="fas fa-reply"></i>
-                                        <span>Reply</span>
-                                    </button>
-                                    <button class="action-btn share">
-                                        <i class="fas fa-share"></i>
-                                        <span>Share</span>
-                                    </button>
-                                    <button class="action-btn report">
-                                        <i class="fas fa-flag"></i>
-                                        <span>Report</span>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <!-- Review 2 -->
-                            <div class="review-post">
-                                <div class="review-post-header">
-                                    <div class="reviewer-avatar">FC</div>
-                                    <div class="reviewer-info">
-                                        <div class="reviewer-meta">
-                                            <span class="reviewer-title">Former Catcher</span>
-                                            <span class="review-period">2018-2022</span>
-                                            <span class="verified-badge"><i class="fas fa-check-circle"></i> Verified</span>
-                                        </div>
-                                        <div class="review-timestamp">1 month ago</div>
-                                    </div>
-                                    <div class="review-rating-display">
-                                        <div class="rating-stars">★★★☆☆</div>
-                                        <span class="rating-score">3.8</span>
-                                    </div>
-                                </div>
-                                
-                                <h3 class="review-title">Solid program but demanding schedule</h3>
-                                
-                                <div class="review-content">
-                                    <p>The baseball program at Stanford is competitive and well-organized. Coaches know their stuff and the team culture is generally positive. However, the time commitment is intense and can be challenging to balance with academics, especially during season.</p>
-                                </div>
-                                
-                                <div class="review-categories-grid">
-                                    <div class="category-rating-item">
-                                        <div class="category-name">Culture</div>
-                                        <div class="category-stars">★★★★☆</div>
-                                        <div class="category-score">4.0</div>
-                                    </div>
-                                    <div class="category-rating-item">
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="financial-charts">
+                    <div class="charts-grid">
+                        <div class="category-rating-item">
+                            <div class="category-name">Culture</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.0</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Academic</div>
+                            <div class="category-stars">★★★★★</div>
+                            <div class="category-score">5.0</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Coaching</div>
+                            <div class="category-stars">★★★★☆</div>
+                            <div class="category-score">4.2</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Facilities</div>
+                            <div class="category-stars">★★★★★</div>
+                            <div class="category-score">4.8</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Work-Life</div>
+                            <div class="category-stars">★★☆☆☆</div>
+                            <div class="category-score">2.0</div>
+                        </div>
+                        <div class="category-rating-item">
+                            <div class="category-name">Financial</div>
+                            <div class="category-stars">★★★☆☆</div>
+                            <div class="category-score">3.8</div>
                                         <div class="category-name">Academic</div>
                                         <div class="category-stars">★★★★★</div>
                                         <div class="category-score">5.0</div>
@@ -826,8 +1303,8 @@
         </div>
     </footer>
 
-    <script src="analytics.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="detailed-reviews-data.js"></script>
+    <script src="assets/js/pages/analytics.js"></script>
     <script>
         // Inline tab switching function for immediate functionality
         function switchTab(tabName, clickedButton) {
@@ -1245,9 +1722,43 @@
     </script>
     
     <script>
+    // Add stars to metric items
+    function addStarsToMetrics() {
+        const metricItems = document.querySelectorAll('.metric-item');
+        metricItems.forEach(item => {
+            const metricFill = item.querySelector('.metric-fill');
+            const metricValue = item.querySelector('.metric-value');
+            
+            if (metricFill && metricValue) {
+                const percentage = parseInt(metricFill.getAttribute('data-percentage')) || 0;
+                const stars = Math.round(percentage / 20); // Convert percentage to 5-star scale
+                
+                // Create stars element
+                const starsElement = document.createElement('span');
+                starsElement.className = 'metric-stars';
+                
+                let starsHTML = '';
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= stars) {
+                        starsHTML += '★';
+                    } else {
+                        starsHTML += '☆';
+                    }
+                }
+                starsElement.innerHTML = starsHTML;
+                
+                // Insert stars before the metric value
+                metricValue.parentNode.insertBefore(starsElement, metricValue);
+            }
+        });
+    }
+    
     // Generate program-specific reviews directly in HTML
     document.addEventListener('DOMContentLoaded', function() {
         console.log('Generating dynamic reviews...');
+        
+        // Add stars to all metric items
+        addStarsToMetrics();
         
         const urlParams = new URLSearchParams(window.location.search);
         const program = urlParams.get('program') || urlParams.get('school') || 'Stanford University';

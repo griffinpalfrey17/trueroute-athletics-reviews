@@ -815,6 +815,373 @@ const schoolsData = [
         nilOpportunities: "Low",
         scholarshipAvailability: "Partial"
     },
+    // High-Profile Programs for Investor Demo
+    {
+        id: 100,
+        name: "University of Notre Dame",
+        location: "Notre Dame, IN",
+        division: "D1",
+        conference: "Independent",
+        overallRating: 4.5,
+        reviewCount: 198,
+        sports: ["Football", "Basketball", "Soccer", "Lacrosse", "Tennis"],
+        ratings: { culture: 4.6, academic: 4.8, burnout: 4.0, financial: 4.2, facilities: 4.4 },
+        sportData: {
+            "Football": { rating: 4.6, reviews: 89, culture: 4.5, academic: 4.8, burnout: 3.8, financial: 4.4, facilities: 4.5 },
+            "Basketball": { rating: 4.3, reviews: 56, culture: 4.6, academic: 4.8, burnout: 4.1, financial: 4.0, facilities: 4.3 },
+            "Soccer": { rating: 4.4, reviews: 34, culture: 4.7, academic: 4.9, burnout: 4.2, financial: 3.9, facilities: 4.2 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Full and Partial"
+    },
+    {
+        id: 101,
+        name: "Michigan State University",
+        location: "East Lansing, MI",
+        division: "D1",
+        conference: "Big Ten",
+        overallRating: 4.1,
+        reviewCount: 187,
+        sports: ["Football", "Basketball", "Hockey", "Wrestling", "Soccer"],
+        ratings: { culture: 4.0, academic: 4.0, burnout: 3.6, financial: 4.1, facilities: 4.2 },
+        sportData: {
+            "Basketball": { rating: 4.3, reviews: 78, culture: 4.1, academic: 4.0, burnout: 3.5, financial: 4.2, facilities: 4.3 },
+            "Football": { rating: 3.9, reviews: 67, culture: 3.9, academic: 4.0, burnout: 3.4, financial: 4.0, facilities: 4.1 },
+            "Hockey": { rating: 4.2, reviews: 28, culture: 4.2, academic: 4.1, burnout: 3.8, financial: 3.9, facilities: 4.3 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Full and Partial"
+    },
+    {
+        id: 102,
+        name: "University of Virginia",
+        location: "Charlottesville, VA",
+        division: "D1",
+        conference: "ACC",
+        overallRating: 4.4,
+        reviewCount: 156,
+        sports: ["Basketball", "Football", "Lacrosse", "Soccer", "Tennis"],
+        ratings: { culture: 4.3, academic: 4.7, burnout: 4.1, financial: 3.9, facilities: 4.2 },
+        sportData: {
+            "Basketball": { rating: 4.5, reviews: 67, culture: 4.2, academic: 4.6, burnout: 4.0, financial: 4.1, facilities: 4.3 },
+            "Lacrosse": { rating: 4.6, reviews: 45, culture: 4.4, academic: 4.8, burnout: 4.2, financial: 3.8, facilities: 4.4 },
+            "Soccer": { rating: 4.3, reviews: 28, culture: 4.4, academic: 4.7, burnout: 4.3, financial: 3.7, facilities: 4.1 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Partial"
+    },
+    {
+        id: 103,
+        name: "University of California, Berkeley",
+        location: "Berkeley, CA",
+        division: "D1",
+        conference: "Pac-12",
+        overallRating: 4.2,
+        reviewCount: 178,
+        sports: ["Football", "Basketball", "Swimming", "Water Polo", "Rugby"],
+        ratings: { culture: 4.1, academic: 4.6, burnout: 3.8, financial: 3.7, facilities: 4.1 },
+        sportData: {
+            "Swimming": { rating: 4.4, reviews: 56, culture: 4.2, academic: 4.7, burnout: 4.0, financial: 3.8, facilities: 4.3 },
+            "Football": { rating: 4.0, reviews: 67, culture: 4.0, academic: 4.5, burnout: 3.6, financial: 3.8, facilities: 4.0 },
+            "Water Polo": { rating: 4.3, reviews: 34, culture: 4.1, academic: 4.6, burnout: 4.1, financial: 3.6, facilities: 4.2 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Partial"
+    },
+    {
+        id: 104,
+        name: "University of Connecticut",
+        location: "Storrs, CT",
+        division: "D1",
+        conference: "Big East",
+        overallRating: 4.3,
+        reviewCount: 167,
+        sports: ["Basketball", "Soccer", "Field Hockey", "Baseball"],
+        ratings: { culture: 4.2, academic: 4.1, burnout: 3.9, financial: 4.0, facilities: 4.1 },
+        sportData: {
+            "Basketball": { rating: 4.7, reviews: 89, culture: 4.4, academic: 4.0, burnout: 3.7, financial: 4.3, facilities: 4.4 },
+            "Soccer": { rating: 4.1, reviews: 45, culture: 4.1, academic: 4.2, burnout: 4.0, financial: 3.8, facilities: 3.9 },
+            "Field Hockey": { rating: 4.2, reviews: 23, culture: 4.3, academic: 4.1, burnout: 4.1, financial: 3.7, facilities: 4.0 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Full and Partial"
+    },
+    {
+        id: 105,
+        name: "Wake Forest University",
+        location: "Winston-Salem, NC",
+        division: "D1",
+        conference: "ACC",
+        overallRating: 4.1,
+        reviewCount: 134,
+        sports: ["Basketball", "Football", "Soccer", "Golf", "Tennis"],
+        ratings: { culture: 4.2, academic: 4.5, burnout: 4.0, financial: 3.6, facilities: 3.9 },
+        sportData: {
+            "Basketball": { rating: 4.0, reviews: 56, culture: 4.1, academic: 4.4, burnout: 3.9, financial: 3.8, facilities: 4.0 },
+            "Soccer": { rating: 4.3, reviews: 34, culture: 4.3, academic: 4.6, burnout: 4.1, financial: 3.5, facilities: 3.9 },
+            "Golf": { rating: 4.2, reviews: 28, culture: 4.2, academic: 4.5, burnout: 4.2, financial: 3.4, facilities: 3.8 }
+        },
+        nilOpportunities: "Low",
+        scholarshipAvailability: "Partial"
+    },
+    {
+        id: 106,
+        name: "Vanderbilt University",
+        location: "Nashville, TN",
+        division: "D1",
+        conference: "SEC",
+        overallRating: 4.3,
+        reviewCount: 145,
+        sports: ["Baseball", "Basketball", "Football", "Tennis", "Golf"],
+        ratings: { culture: 4.4, academic: 4.8, burnout: 4.1, financial: 3.8, facilities: 4.0 },
+        sportData: {
+            "Baseball": { rating: 4.6, reviews: 67, culture: 4.5, academic: 4.7, burnout: 4.0, financial: 4.0, facilities: 4.2 },
+            "Basketball": { rating: 4.1, reviews: 45, culture: 4.3, academic: 4.8, burnout: 4.2, financial: 3.7, facilities: 3.9 },
+            "Tennis": { rating: 4.2, reviews: 23, culture: 4.4, academic: 4.9, burnout: 4.3, financial: 3.6, facilities: 3.9 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Partial"
+    },
+    {
+        id: 107,
+        name: "Boston College",
+        location: "Chestnut Hill, MA",
+        division: "D1",
+        conference: "ACC",
+        overallRating: 4.0,
+        reviewCount: 123,
+        sports: ["Football", "Basketball", "Hockey", "Soccer", "Lacrosse"],
+        ratings: { culture: 4.1, academic: 4.4, burnout: 3.9, financial: 3.7, facilities: 3.8 },
+        sportData: {
+            "Hockey": { rating: 4.3, reviews: 45, culture: 4.2, academic: 4.3, burnout: 3.8, financial: 3.8, facilities: 4.0 },
+            "Football": { rating: 3.8, reviews: 34, culture: 4.0, academic: 4.4, burnout: 3.7, financial: 3.7, facilities: 3.7 },
+            "Basketball": { rating: 3.9, reviews: 28, culture: 4.1, academic: 4.5, burnout: 4.0, financial: 3.6, facilities: 3.8 }
+        },
+        nilOpportunities: "Low",
+        scholarshipAvailability: "Partial"
+    },
+    {
+        id: 108,
+        name: "University of Miami",
+        location: "Coral Gables, FL",
+        division: "D1",
+        conference: "ACC",
+        overallRating: 4.2,
+        reviewCount: 156,
+        sports: ["Football", "Basketball", "Baseball", "Swimming", "Tennis"],
+        ratings: { culture: 4.0, academic: 4.2, burnout: 3.7, financial: 4.1, facilities: 4.3 },
+        sportData: {
+            "Football": { rating: 4.1, reviews: 67, culture: 3.9, academic: 4.1, burnout: 3.5, financial: 4.3, facilities: 4.4 },
+            "Baseball": { rating: 4.5, reviews: 45, culture: 4.2, academic: 4.3, burnout: 3.8, financial: 4.0, facilities: 4.5 },
+            "Swimming": { rating: 4.0, reviews: 28, culture: 4.0, academic: 4.2, burnout: 3.9, financial: 3.9, facilities: 4.2 }
+        },
+        nilOpportunities: "High",
+        scholarshipAvailability: "Full and Partial"
+    },
+    {
+        id: 109,
+        name: "University of Arizona",
+        location: "Tucson, AZ",
+        division: "D1",
+        conference: "Pac-12",
+        overallRating: 4.0,
+        reviewCount: 167,
+        sports: ["Basketball", "Football", "Baseball", "Golf", "Swimming"],
+        ratings: { culture: 3.9, academic: 3.8, burnout: 3.6, financial: 4.0, facilities: 4.1 },
+        sportData: {
+            "Basketball": { rating: 4.2, reviews: 78, culture: 4.0, academic: 3.7, burnout: 3.4, financial: 4.2, facilities: 4.3 },
+            "Baseball": { rating: 4.1, reviews: 45, culture: 3.9, academic: 3.8, burnout: 3.7, financial: 3.9, facilities: 4.0 },
+            "Golf": { rating: 4.0, reviews: 28, culture: 3.8, academic: 3.9, burnout: 3.9, financial: 3.8, facilities: 4.1 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Full and Partial"
+    },
+    // Swimming & Water Sports Programs
+    {
+        id: 110,
+        name: "University of California, Berkeley",
+        location: "Berkeley, CA",
+        division: "D1",
+        conference: "Pac-12",
+        overallRating: 4.4,
+        reviewCount: 134,
+        sports: ["Swimming", "Water Polo", "Diving"],
+        ratings: { culture: 4.3, academic: 4.7, burnout: 4.0, financial: 3.9, facilities: 4.5 },
+        sportData: {
+            "Swimming": { rating: 4.5, reviews: 67, culture: 4.4, academic: 4.8, burnout: 4.1, financial: 4.0, facilities: 4.6 },
+            "Water Polo": { rating: 4.3, reviews: 34, culture: 4.2, academic: 4.6, burnout: 3.9, financial: 3.8, facilities: 4.4 },
+            "Diving": { rating: 4.4, reviews: 23, culture: 4.3, academic: 4.7, burnout: 4.0, financial: 3.9, facilities: 4.5 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Partial"
+    },
+    {
+        id: 111,
+        name: "University of Texas",
+        location: "Austin, TX",
+        division: "D1",
+        conference: "Big 12",
+        overallRating: 4.3,
+        reviewCount: 145,
+        sports: ["Swimming", "Diving", "Water Polo"],
+        ratings: { culture: 4.2, academic: 4.0, burnout: 3.8, financial: 4.1, facilities: 4.4 },
+        sportData: {
+            "Swimming": { rating: 4.4, reviews: 78, culture: 4.3, academic: 4.0, burnout: 3.7, financial: 4.2, facilities: 4.5 },
+            "Diving": { rating: 4.2, reviews: 34, culture: 4.1, academic: 4.0, burnout: 3.9, financial: 4.0, facilities: 4.3 }
+        },
+        nilOpportunities: "High",
+        scholarshipAvailability: "Full and Partial"
+    },
+    // Tennis Programs
+    {
+        id: 112,
+        name: "Stanford University",
+        location: "Stanford, CA",
+        division: "D1",
+        conference: "Pac-12",
+        overallRating: 4.6,
+        reviewCount: 89,
+        sports: ["Tennis"],
+        ratings: { culture: 4.7, academic: 4.9, burnout: 4.2, financial: 3.8, facilities: 4.5 },
+        sportData: {
+            "Tennis": { rating: 4.7, reviews: 45, culture: 4.8, academic: 4.9, burnout: 4.3, financial: 3.9, facilities: 4.6 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Partial"
+    },
+    {
+        id: 113,
+        name: "University of Georgia",
+        location: "Athens, GA",
+        division: "D1",
+        conference: "SEC",
+        overallRating: 4.2,
+        reviewCount: 76,
+        sports: ["Tennis"],
+        ratings: { culture: 4.1, academic: 3.9, burnout: 3.8, financial: 4.0, facilities: 4.2 },
+        sportData: {
+            "Tennis": { rating: 4.3, reviews: 34, culture: 4.2, academic: 3.9, burnout: 3.9, financial: 4.1, facilities: 4.3 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Partial"
+    },
+    // Golf Programs
+    {
+        id: 114,
+        name: "Oklahoma State University",
+        location: "Stillwater, OK",
+        division: "D1",
+        conference: "Big 12",
+        overallRating: 4.4,
+        reviewCount: 67,
+        sports: ["Golf"],
+        ratings: { culture: 4.3, academic: 3.8, burnout: 4.1, financial: 4.0, facilities: 4.6 },
+        sportData: {
+            "Golf": { rating: 4.5, reviews: 34, culture: 4.4, academic: 3.8, burnout: 4.2, financial: 4.1, facilities: 4.7 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Full and Partial"
+    },
+    {
+        id: 115,
+        name: "University of Alabama",
+        location: "Tuscaloosa, AL",
+        division: "D1",
+        conference: "SEC",
+        overallRating: 4.3,
+        reviewCount: 56,
+        sports: ["Golf"],
+        ratings: { culture: 4.2, academic: 3.7, burnout: 3.9, financial: 4.2, facilities: 4.5 },
+        sportData: {
+            "Golf": { rating: 4.4, reviews: 28, culture: 4.3, academic: 3.7, burnout: 4.0, financial: 4.3, facilities: 4.6 }
+        },
+        nilOpportunities: "High",
+        scholarshipAvailability: "Full and Partial"
+    },
+    // Wrestling Programs
+    {
+        id: 116,
+        name: "Iowa State University",
+        location: "Ames, IA",
+        division: "D1",
+        conference: "Big 12",
+        overallRating: 4.5,
+        reviewCount: 89,
+        sports: ["Wrestling"],
+        ratings: { culture: 4.6, academic: 4.0, burnout: 4.1, financial: 4.0, facilities: 4.3 },
+        sportData: {
+            "Wrestling": { rating: 4.6, reviews: 56, culture: 4.7, academic: 4.0, burnout: 4.2, financial: 4.1, facilities: 4.4 }
+        },
+        nilOpportunities: "Low",
+        scholarshipAvailability: "Partial"
+    },
+    {
+        id: 117,
+        name: "Penn State University",
+        location: "University Park, PA",
+        division: "D1",
+        conference: "Big Ten",
+        overallRating: 4.7,
+        reviewCount: 78,
+        sports: ["Wrestling"],
+        ratings: { culture: 4.8, academic: 4.3, burnout: 4.2, financial: 4.1, facilities: 4.5 },
+        sportData: {
+            "Wrestling": { rating: 4.8, reviews: 45, culture: 4.9, academic: 4.3, burnout: 4.3, financial: 4.2, facilities: 4.6 }
+        },
+        nilOpportunities: "Low",
+        scholarshipAvailability: "Partial"
+    },
+    // Gymnastics Programs
+    {
+        id: 118,
+        name: "University of Oklahoma",
+        location: "Norman, OK",
+        division: "D1",
+        conference: "Big 12",
+        overallRating: 4.6,
+        reviewCount: 67,
+        sports: ["Gymnastics"],
+        ratings: { culture: 4.7, academic: 4.0, burnout: 4.0, financial: 4.2, facilities: 4.4 },
+        sportData: {
+            "Gymnastics": { rating: 4.7, reviews: 34, culture: 4.8, academic: 4.0, burnout: 4.1, financial: 4.3, facilities: 4.5 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Full and Partial"
+    },
+    {
+        id: 119,
+        name: "University of Utah",
+        location: "Salt Lake City, UT",
+        division: "D1",
+        conference: "Pac-12",
+        overallRating: 4.5,
+        reviewCount: 56,
+        sports: ["Gymnastics"],
+        ratings: { culture: 4.6, academic: 4.1, burnout: 4.1, financial: 4.0, facilities: 4.3 },
+        sportData: {
+            "Gymnastics": { rating: 4.6, reviews: 28, culture: 4.7, academic: 4.1, burnout: 4.2, financial: 4.1, facilities: 4.4 }
+        },
+        nilOpportunities: "Medium",
+        scholarshipAvailability: "Full and Partial"
+    },
+    // Track & Field Programs
+    {
+        id: 120,
+        name: "University of Oregon",
+        location: "Eugene, OR",
+        division: "D1",
+        conference: "Pac-12",
+        overallRating: 4.7,
+        reviewCount: 123,
+        sports: ["Track & Field", "Cross Country"],
+        ratings: { culture: 4.6, academic: 4.0, burnout: 4.2, financial: 4.3, facilities: 4.8 },
+        sportData: {
+            "Track & Field": { rating: 4.8, reviews: 78, culture: 4.7, academic: 4.0, burnout: 4.3, financial: 4.4, facilities: 4.9 },
+            "Cross Country": { rating: 4.6, reviews: 45, culture: 4.5, academic: 4.0, burnout: 4.1, financial: 4.2, facilities: 4.7 }
+        },
+        nilOpportunities: "High",
+        scholarshipAvailability: "Full and Partial"
+    },
     // American Athletic Conference
     {
         id: 46,

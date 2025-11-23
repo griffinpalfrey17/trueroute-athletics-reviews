@@ -1,16 +1,16 @@
 /* Modern Sports-Tech Platform Design - Hudl/ESPN Inspired */
 
-/* CSS Variables for Design System */
+/* CSS Variables for Design System - Enhanced Contrast */
 :root {
-    /* Colors */
-    --navy-primary: #0B1C2E;
-    --navy-dark: #081521;
-    --navy-darker: #05101A;
-    --text-white: #FFFFFF;
-    --text-light-gray: #B8C5D1;
-    --text-gray: #8B9AAB;
-    --accent-teal: #00B4FF;
-    --accent-teal-hover: #0099CC;
+    /* Colors - WCAG AA Compliant */
+    --navy-primary: #1A2B3C;
+    --navy-light: #243447;
+    --navy-lighter: #2E3E52;
+    --text-white: #F8FAFC;              /* Softer white for better balance */
+    --text-light-gray: #E2E8F0;        /* Much lighter for better contrast */
+    --text-gray: #CBD5E1;              /* Lighter gray for readability */
+    --accent-teal: #0EA5E9;            /* Adjusted for better contrast */
+    --accent-teal-hover: #0284C7;
     
     /* Typography */
     --font-primary: 'Montserrat', sans-serif;
@@ -44,7 +44,7 @@ body {
 
 /* Navigation */
 .navbar {
-    background: var(--navy-darker);
+    background: var(--navy-primary);
     padding: 20px 0;
     position: fixed;
     top: 0;
@@ -91,13 +91,14 @@ body {
 }
 
 .nav-link:hover {
-    color: var(--accent-teal);
+    color: var(--text-white);
 }
 
 .login-btn {
     background: var(--accent-teal);
     color: var(--text-white) !important;
     padding: 12px 24px;
+    border: 1px solid var(--accent-teal);
     border-radius: 8px;
     font-weight: 600;
     text-transform: uppercase;
@@ -111,7 +112,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--navy-primary) 0%, var(--navy-dark) 100%);
+    background: var(--navy-primary);
     padding: 140px 0 100px;
     text-align: center;
     position: relative;
@@ -249,7 +250,7 @@ body {
 }
 
 .section:nth-child(even) {
-    background: var(--navy-dark);
+    background: var(--navy-primary);
 }
 
 .section:nth-child(odd) {
@@ -268,7 +269,7 @@ body {
 
 /* Problem Section */
 .problem-section {
-    background: var(--navy-dark);
+    background: var(--navy-primary);
     padding: var(--section-padding);
 }
 
@@ -410,7 +411,7 @@ body {
 
 /* Transfer Stats */
 .transfer-stats-new {
-    background: var(--navy-dark);
+    background: var(--navy-primary);
     padding: var(--section-padding);
 }
 
@@ -576,7 +577,7 @@ body {
 
 /* Footer */
 .footer {
-    background: var(--navy-darker);
+    background: var(--navy-primary);
     padding: 60px 0 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }

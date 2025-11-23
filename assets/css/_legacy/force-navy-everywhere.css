@@ -1,0 +1,377 @@
+/* FORCE NAVY BACKGROUND EVERYWHERE - Ultimate Override */
+
+/* Force navy background on EVERYTHING */
+*,
+*::before,
+*::after,
+html,
+body,
+div,
+section,
+article,
+main,
+header,
+footer,
+nav,
+aside,
+.container,
+.section,
+.content,
+.page,
+.wrapper {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+/* Override ANY white backgrounds */
+[style*="background: white"],
+[style*="background-color: white"],
+[style*="background: #fff"],
+[style*="background-color: #fff"],
+[style*="background: #ffffff"],
+[style*="background-color: #ffffff"],
+[style*="background-color: rgb(255, 255, 255)"],
+[style*="background: rgb(255, 255, 255)"],
+.white,
+.bg-white,
+.background-white,
+.white-bg {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+}
+
+/* Force all cards, containers, and boxes to be glass-morphism */
+.card,
+.box,
+.container,
+.section,
+.panel,
+.widget,
+.module,
+.component,
+.item,
+.element,
+.block,
+.area,
+.zone,
+.region,
+.content,
+.wrapper,
+.holder,
+.frame,
+.border,
+.outline,
+div[class*="card"],
+div[class*="box"],
+div[class*="container"],
+div[class*="section"],
+div[class*="panel"],
+div[class*="widget"],
+div[class*="item"],
+div[class*="block"],
+/* Program specific */
+.category-card,
+.analytics-card,
+.stats-card,
+.metric-card,
+.data-card,
+.info-card,
+.review-card,
+.financial-card,
+.nil-card,
+.transfer-card,
+.portal-card,
+.overview-card,
+.summary-card,
+.detail-card,
+.form-card,
+.rating-card,
+/* Generic containers */
+.main-content,
+.page-content,
+.content-area,
+.content-section,
+.content-wrapper,
+.inner-content,
+.primary-content,
+.secondary-content,
+/* Layout elements */
+.grid,
+.grid-item,
+.flex,
+.flex-item,
+.row,
+.col,
+.column,
+.sidebar,
+.main,
+.header,
+.footer,
+.nav,
+.navigation,
+/* Form elements */
+.form,
+.form-group,
+.form-section,
+.form-container,
+.form-wrapper,
+.input-group,
+.field-group,
+/* Modal and overlay */
+.modal,
+.modal-content,
+.modal-body,
+.overlay,
+.popup,
+.dialog,
+/* Tables */
+.table,
+.table-container,
+.table-wrapper,
+.data-table,
+/* Lists */
+.list,
+.list-item,
+.menu,
+.menu-item,
+/* Tabs */
+.tab,
+.tab-content,
+.tab-panel,
+.tab-pane,
+/* Accordions */
+.accordion,
+.accordion-item,
+.accordion-content,
+/* Charts and graphs */
+.chart,
+.chart-container,
+.graph,
+.visualization,
+/* Buttons that might have backgrounds */
+.btn-group,
+.button-group,
+/* Any other common containers */
+.hero,
+.hero-section,
+.banner,
+.header-section,
+.footer-section,
+.sidebar-section {
+    background: rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    border-radius: 12px !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Hover effects for all containers */
+.card:hover,
+.box:hover,
+.container:hover,
+.section:hover,
+.panel:hover,
+.widget:hover,
+.module:hover,
+.component:hover,
+.item:hover,
+.element:hover,
+.block:hover,
+div[class*="card"]:hover,
+div[class*="box"]:hover,
+.category-card:hover,
+.analytics-card:hover,
+.stats-card:hover,
+.metric-card:hover,
+.data-card:hover,
+.info-card:hover,
+.review-card:hover,
+.financial-card:hover,
+.nil-card:hover,
+.transfer-card:hover,
+.portal-card:hover,
+.overview-card:hover,
+.summary-card:hover,
+.detail-card:hover,
+.form-card:hover,
+.rating-card:hover {
+    background: rgba(14, 165, 233, 0.15) !important;
+    background-color: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.5) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Force text colors */
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF !important;
+}
+
+p, span, div, a, label, li, td, th {
+    color: #E2E8F0 !important;
+}
+
+/* Override any gradient backgrounds */
+[style*="gradient"],
+.gradient,
+.bg-gradient {
+    background: #0B1C2E !important;
+    background-image: none !important;
+}
+
+/* Force forms to navy theme */
+input,
+textarea,
+select,
+button {
+    background: rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Force button styling */
+button,
+.btn,
+.button,
+input[type="submit"],
+input[type="button"] {
+    background: rgba(14, 165, 233, 0.8) !important;
+    background-color: rgba(14, 165, 233, 0.8) !important;
+    border: 1px solid rgba(14, 165, 233, 0.5) !important;
+    color: #FFFFFF !important;
+}
+
+button:hover,
+.btn:hover,
+.button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+    background: rgba(14, 165, 233, 1) !important;
+    background-color: rgba(14, 165, 233, 1) !important;
+}
+
+/* Override any CSS that tries to set white backgrounds */
+.white-background,
+.bg-light,
+.bg-white,
+.light-bg,
+.light-background,
+.white-bg,
+.background-light,
+.background-white {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+}
+
+/* Force table styling */
+table {
+    background: rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+th {
+    background: rgba(14, 165, 233, 0.2) !important;
+    background-color: rgba(14, 165, 233, 0.2) !important;
+    color: #FFFFFF !important;
+}
+
+td {
+    background: transparent !important;
+    background-color: transparent !important;
+    color: #E2E8F0 !important;
+}
+
+/* Override any specific problematic classes that might exist */
+.sports-tech-theme,
+.analytics-dashboard,
+.program-page,
+.review-page,
+.nil-page,
+.transfer-page,
+.financial-page {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+}
+
+/* Force any remaining elements */
+article,
+aside,
+details,
+figcaption,
+figure,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+/* Override Bootstrap or other framework classes */
+.container-fluid,
+.row,
+.col,
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+.col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
+.col-sm, .col-md, .col-lg, .col-xl,
+.card-body,
+.card-header,
+.card-footer,
+.list-group,
+.list-group-item,
+.nav-tabs,
+.nav-pills,
+.tab-content,
+.tab-pane {
+    background: rgba(255, 255, 255, 0.08) !important;
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+/* Make sure no element can override this */
+* {
+    box-sizing: border-box !important;
+}
+
+/* Final catch-all for any missed elements */
+*:not(input):not(textarea):not(select):not(button):not(a):not(img):not(svg):not(path):not(circle):not(rect):not(line):not(polygon) {
+    background-color: inherit !important;
+}
+
+/* Ensure body and html are navy */
+html {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+}
+
+body {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+/* Remove any background images that might interfere */
+* {
+    background-image: none !important;
+}
+
+/* Exception for actual images */
+img {
+    background: transparent !important;
+}

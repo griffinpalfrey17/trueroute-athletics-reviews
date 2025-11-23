@@ -1,0 +1,254 @@
+/* Write Review Scoped Styles - Preserve Design */
+.write-review .form-section {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    margin-bottom: 2rem !important;
+    padding: 1.5rem 0 !important;
+}
+
+.write-review .form-section:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Clean up rating categories */
+.rating-category {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 1rem 0 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.rating-category:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Form groups - minimal styling */
+.form-group {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: 1rem !important;
+}
+
+.form-group:hover {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Form inputs - subtle borders only */
+input,
+textarea,
+select {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 4px !important;
+    color: #FFFFFF !important;
+    padding: 0.75rem !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: none !important;
+    outline: none !important;
+    background: transparent !important;
+}
+
+input:hover,
+textarea:hover,
+select:hover {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    background: transparent !important;
+}
+
+/* Form labels */
+label {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
+}
+
+/* Star ratings - clean styling */
+.star-rating {
+    background: transparent !important;
+    border: none !important;
+    padding: 0.5rem 0 !important;
+}
+
+.star-rating .star {
+    color: rgba(255, 255, 255, 0.3) !important;
+    font-size: 1.5rem !important;
+    cursor: pointer !important;
+    margin-right: 0.25rem !important;
+    transition: color 0.2s ease !important;
+}
+
+.star-rating .star:hover,
+.star-rating .star.active {
+    color: #FCD34D !important;
+}
+
+/* Buttons - clean minimal design */
+.btn-primary,
+.btn-secondary {
+    background: transparent !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #FFFFFF !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.btn-primary {
+    border-color: rgba(14, 165, 233, 0.5) !important;
+    color: rgba(14, 165, 233, 0.9) !important;
+}
+
+.btn-primary:hover {
+    border-color: rgba(14, 165, 233, 0.8) !important;
+    background: transparent !important;
+}
+
+.btn-secondary:hover {
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    background: transparent !important;
+}
+
+/* Form actions */
+.form-actions {
+    background: transparent !important;
+    border: none !important;
+    padding: 2rem 0 !important;
+    display: flex !important;
+    gap: 1rem !important;
+    justify-content: flex-end !important;
+}
+
+/* Section headers */
+.form-section h2 {
+    color: #FFFFFF !important;
+    font-size: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 600 !important;
+}
+
+.form-section h3 {
+    color: #FFFFFF !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+    font-weight: 500 !important;
+}
+
+/* Category descriptions */
+.category-description,
+.section-description {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+    line-height: 1.4 !important;
+}
+
+/* Form grid */
+.form-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 1rem !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Review header section */
+.review-header {
+    background: transparent !important;
+    border: none !important;
+    padding: 2rem 0 !important;
+}
+
+.review-hero {
+    background: transparent !important;
+    border: none !important;
+    text-align: center !important;
+    padding: 2rem 0 !important;
+}
+
+.review-hero h1 {
+    color: #FFFFFF !important;
+    font-size: 2.5rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.review-hero p {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 2rem !important;
+}
+
+/* Requirements section */
+.review-requirements {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 2rem !important;
+    flex-wrap: wrap !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.requirement {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+.requirement i {
+    color: rgba(14, 165, 233, 0.8) !important;
+}
+
+/* Remove all box shadows and transforms within write-review */
+* {
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+/* Ensure consistent navy background */
+.review-form-section,
+.review-form {
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Placeholder text */
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Select dropdown styling */
+select option {
+    background: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+/* Rating input labels */
+.rating-input label {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+} /* End .write-review scope */

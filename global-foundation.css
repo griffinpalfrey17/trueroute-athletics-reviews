@@ -1,0 +1,196 @@
+/* GLOBAL FOUNDATION - Loads on every page */
+
+/* Core Colors */
+:root {
+    --navy-primary: #0B1C2E;
+    --text-white: #FFFFFF;
+    --text-light: #E2E8F0;
+    --text-muted: #94A3B8;
+    --accent-blue: #0EA5E9;
+    --border-subtle: rgba(255, 255, 255, 0.2);
+}
+
+/* Global Navy Background */
+html,
+body {
+    background: var(--navy-primary) !important;
+    color: var(--text-white) !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-white) !important;
+    font-weight: 600;
+}
+
+p, span, div, li {
+    color: var(--text-light) !important;
+}
+
+a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--text-white);
+}
+
+/* Navigation (Global) */
+.navbar {
+    background: rgba(5, 16, 26, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-white);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-white) !important;
+}
+
+/* Forms (Global) */
+input,
+textarea,
+select {
+    background: transparent !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 4px;
+    padding: 0.75rem;
+    color: var(--text-white) !important;
+    font-family: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--accent-blue) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-muted) !important;
+}
+
+label {
+    color: var(--text-white) !important;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Buttons (Global) */
+button,
+.btn {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-white) !important;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+button:hover,
+.btn:hover {
+    border-color: var(--accent-blue);
+}
+
+.btn-primary {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue) !important;
+}
+
+.btn-primary:hover {
+    background: rgba(14, 165, 233, 0.1);
+}
+
+/* Container (Global) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 3rem 0;
+}
+
+/* Footer (Global) */
+.footer {
+    background: rgba(5, 16, 26, 0.95);
+    border-top: 1px solid var(--border-subtle);
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-white);
+    font-weight: 600;
+}
+
+/* NO HOVER BACKGROUND CHANGES */
+* {
+    transition: none !important;
+}
+
+*:hover {
+    background: inherit !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Only allow border and color changes on hover */
+button:hover,
+.btn:hover,
+input:hover,
+textarea:hover,
+select:hover,
+a:hover,
+.nav-link:hover {
+    transition: border-color 0.2s ease, color 0.2s ease;
+}

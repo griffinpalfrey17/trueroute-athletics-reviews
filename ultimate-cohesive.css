@@ -1,0 +1,22 @@
+/* Copy what works from Modern Landscape - that's it */
+
+/* Modern Landscape background */
+html, body {
+    background: #0f172a !important;
+}
+
+/* Modern Landscape navigation */
+.navbar {
+    background: rgba(15, 23, 42, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* Fix titles tucked under navbar */
+.hero, .analytics-header, .programs-header {
+    padding-top: 120px !important;
+}
+
+/* Modern Landscape light blue numbers */
+.stat-number, .card-value {
+    color: #7DD3FC !important;
+}

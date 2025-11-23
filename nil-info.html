@@ -1,125 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NIL Info - TrueRoute</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <link rel="stylesheet" href="assets/css/core/design-system-enhanced.css">
+    <link rel="stylesheet" href="assets/css/_legacy/styles.css">
+    <link rel="stylesheet" href="assets/css/pages/homepage-sports-tech.css">
+    <link rel="stylesheet" href="navigation-fix.css">
+    <link rel="stylesheet" href="ui-enhancements.css">
+    <link rel="stylesheet" href="modern-landscape.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        /* Consistent Modern Landscape styling */
         .nil-hero {
-            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
-            color: white;
-            padding: 4rem 0;
+            padding: 140px 0 3rem;
             text-align: center;
         }
 
         .nil-hero h1 {
             font-size: 3rem;
+            font-weight: 800;
+            color: #FFFFFF !important;
             margin-bottom: 1rem;
-            font-weight: 700;
+            line-height: 1.2;
         }
 
         .nil-hero p {
             font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
         }
 
+        /* Homepage-style statistics */
+        .nil-hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .nil-hero-stat {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .nil-hero-stat:hover {
+            transform: translateY(-5px);
+            border-color: rgba(125, 211, 252, 0.5);
+            box-shadow: 0 10px 30px rgba(125, 211, 252, 0.1);
+        }
+
+        .nil-hero-stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #7DD3FC !important;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .nil-hero-stat-label, .nil-stat-label {
+            color: #ffffff !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+            display: block;
+            opacity: 0.9;
+        }
+
+        /* Homepage-style cards for nil-stats-grid */
         .nil-stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 3rem 0;
         }
 
         .nil-stat-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(125, 211, 252, 0.3);
             border-radius: 12px;
             padding: 2rem;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border: 1px solid #e1e8ed;
-            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
 
         .nil-stat-card:hover {
             transform: translateY(-5px);
+            border-color: rgba(125, 211, 252, 0.5);
+            box-shadow: 0 10px 30px rgba(125, 211, 252, 0.1);
         }
 
         .nil-stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #4A90E2;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #7DD3FC !important;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
             margin-bottom: 0.5rem;
+            display: block;
         }
 
-        .nil-stat-label {
-            font-size: 1rem;
-            color: #666;
-            font-weight: 500;
+        /* Major spacing between all segments */
+        .chart-section, .insights-section, .nil-contributors, .nil-revolution-section,
+        .real-stories-section, .market-analysis-section {
+            margin: 6rem 0;
+            padding: 4rem 0;
+            text-align: center;
         }
 
-        /* Header Styling */
-        .site-header {
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .nil-hero {
+            padding: 140px 0 6rem;
+            text-align: center;
         }
 
-        .site-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .chart-section {
+        /* Generous spacing between all major elements */
+        .nil-hero-stats {
+            margin: 6rem 0;
+        }
+
+        .nil-stats-grid {
+            margin: 6rem 0;
+        }
+
+        .insights-grid {
+            margin: 6rem 0;
+        }
+
+        /* Space between different content blocks */
+        .timeline-cards, .story-cards, .company-grid {
             margin: 4rem 0;
-            padding: 2rem 0;
         }
 
-        .chart-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: #333;
+        .chart-section h2, .insights-section h2 {
+            font-size: 2.5rem;
+            color: #ffffff !important;
             text-align: center;
-        }
-
-        .chart-section p {
-            text-align: center;
-            color: #666;
             margin-bottom: 2rem;
-            font-size: 1.1rem;
+            font-weight: 800;
         }
 
-        .insights-section {
-            margin: 4rem 0;
-            padding: 3rem 0;
-            background: #f8f9fa;
-        }
-
-        .insights-section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: #333;
+        .chart-section p, .insights-section p {
             text-align: center;
-        }
-
-        .insights-section p {
-            text-align: center;
-            color: #666;
+            color: #e2e8f0 !important;
             margin-bottom: 3rem;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Better spacing for NIL hero */
+        .nil-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff !important;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .nil-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8) !important;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
         }
 
         .chart-controls {
@@ -130,25 +193,28 @@
         .chart-dropdown {
             padding: 12px 20px;
             font-size: 1rem;
-            border: 2px solid #4A90E2;
+            border: 1px solid rgba(125, 211, 252, 0.3);
             border-radius: 8px;
-            background: white;
-            color: #333;
+            background: rgba(255, 255, 255, 0.05) !important;
+            color: #ffffff !important;
             cursor: pointer;
             min-width: 200px;
+            backdrop-filter: blur(10px);
         }
 
         .chart-dropdown:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+            border-color: #7DD3FC;
+            box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.2);
         }
 
         .chart-container {
-            background: white;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(125, 211, 252, 0.3);
             border-radius: 12px;
             padding: 2rem;
             margin: 2rem auto;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
             max-width: 1000px;
             min-height: 500px;
         }
@@ -167,22 +233,29 @@
         }
 
         .insight-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(125, 211, 252, 0.3);
             border-radius: 12px;
             padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            border-left: 4px solid #4A90E2;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(125, 211, 252, 0.5);
+            box-shadow: 0 10px 30px rgba(125, 211, 252, 0.1);
         }
 
         .insight-title {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #333;
+            color: #ffffff !important;
         }
 
         .insight-text {
-            color: #666;
+            color: #e2e8f0 !important;
             line-height: 1.6;
         }
 
@@ -192,10 +265,16 @@
             gap: 0.5rem;
             font-weight: 600;
             margin-top: 1rem;
+            color: #7DD3FC !important;
         }
 
         .trend-up {
-            color: #28a745;
+            color: #7DD3FC !important;
+        }
+
+        /* Force Modern Landscape background color everywhere */
+        body, html, main, section, .container, div {
+            background: #1A2B3C !important;
         }
 
         @media (max-width: 768px) {
@@ -220,24 +299,32 @@
         <div class="nav-container">
             <div class="nav-brand">
                 <div class="logo">
-                    <svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Athletic figure in motion -->
-                        <g transform="translate(10, 10)">
-                            <!-- Head -->
-                            <circle cx="25" cy="15" r="6" fill="#4A90E2"/>
+                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                        <!-- Realistic Football Player Running Route -->
+                        <g transform="translate(20,10)">
+                            <!-- Head/Helmet -->
+                            <circle cx="30" cy="15" r="7" fill="#2C5AA0"/>
+                            <path d="M25 12 L35 12 M27 15 L33 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
                             
-                            <!-- Body -->
-                            <rect x="22" y="21" width="6" height="15" rx="3" fill="#357ABD"/>
+                            <!-- Torso -->
+                            <path d="M30 22 L28 45 L32 45 Z" fill="#4A90E2"/>
+                            <rect x="26" y="25" width="8" height="15" rx="2" fill="#357ABD"/>
                             
-                            <!-- Arms (in running motion) -->
-                            <path d="M22 25 L16 22 L12 28" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
-                            <path d="M28 25 L34 28 L38 22" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            <!-- Left Arm (pumping back) -->
+                            <path d="M26 28 L18 32 L16 38" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Right Arm (forward with ball) -->
+                            <path d="M34 28 L42 25 L45 22" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Football in hand -->
+                            <ellipse cx="46" cy="20" rx="2.5" ry="4" fill="#8B4513" transform="rotate(25 46 20)"/>
+                            <path d="M44 20 L48 20" stroke="white" stroke-width="0.8"/>
                             
                             <!-- Left Leg (back, bent) -->
-                            <path d="M24 36 L20 45 L18 52 L22 65" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M28 45 L26 55 L24 65" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
                             
                             <!-- Right Leg (forward, extended) -->
-                            <path d="M26 36 L30 45 L34 52 L40 62" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            <path d="M32 45 L36 55 L40 62" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
                             
                             <!-- Cleats -->
                             <ellipse cx="23" cy="66" rx="3" ry="1.5" fill="#1a365d"/>
@@ -252,14 +339,16 @@
                         <path d="M15 45 L8 47 M12 50 L5 52 M18 55 L11 57" stroke="#4A90E2" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
                     </svg>
                 </div>
-                <span>TrueRoute</span>
+                <span class="brand-text">TrueRoute</span>
             </div>
-            <div class="nav-menu">
+            <nav class="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="nil-info.html" class="nav-link active">NIL Info</a>
+                <a href="nil-info.html" class="nav-link">NIL Info</a>
+                <a href="transfer-data.html" class="nav-link">Transfers</a>
+                <a href="modern-landscape.html" class="nav-link">Modern Landscape</a>
                 <a href="write-review.html" class="nav-link">Write Review</a>
                 <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
-            </div>
+            </nav>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -271,8 +360,97 @@
     <!-- Hero Section -->
     <section class="nil-hero section">
         <div class="container">
-            <h1>NIL Landscape Analysis</h1>
-            <p>Comprehensive insights into Name, Image, and Likeness deals across college athletics. Explore trends, top companies, and conference breakdowns based on disclosed data.</p>
+            <div class="transfer-header" style="margin-bottom: 2rem;">
+                <h1 style="margin-bottom: 0.5rem;">NIL Landscape Analysis</h1>
+                <p style="margin-bottom: 0;">Comprehensive insights into Name, Image, and Likeness deals across college athletics. Explore trends, top companies, and conference breakdowns based on disclosed data.</p>
+            </div>
+            
+            <!-- Hero Stats -->
+            <div class="nil-hero-stats">
+                <div class="nil-hero-stat">
+                    <div class="nil-hero-stat-number">$2.8M</div>
+                    <div class="nil-hero-stat-label">Total NIL Value</div>
+                </div>
+                <div class="nil-hero-stat">
+                    <div class="nil-hero-stat-number">1,247</div>
+                    <div class="nil-hero-stat-label">Active Deals</div>
+                </div>
+                <div class="nil-hero-stat">
+                    <div class="nil-hero-stat-number">89%</div>
+                    <div class="nil-hero-stat-label">Growth Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NIL Revolution Context -->
+    <section class="nil-context-section" style="background: rgba(255, 255, 255, 0.05); padding: 60px 0; margin: 40px 0; border-radius: 12px; border: 1px solid rgba(14, 165, 233, 0.3);">
+        <div class="container">
+            <h2 style="color: #FFFFFF; text-align: center; margin-bottom: 30px; font-size: 2.2rem;">The NIL Revolution: From Zero to $1.2 Billion</h2>
+            <div style="max-width: 800px; margin: 0 auto; color: #FFFFFF; opacity: 0.9; line-height: 1.6; margin-bottom: 40px;">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    <strong>June 30, 2021</strong> marked the most significant change in college sports history. After decades of prohibition, the NCAA finally allowed student-athletes to profit from their name, image, and likeness. What started as a trickle became a flood.
+                </p>
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    The catalyst was California's Fair Pay to Play Act in 2019, which forced the NCAA's hand. By 2021, with multiple states passing similar laws and a Supreme Court decision reinforcing antitrust concerns, the NCAA had no choice but to adopt an interim NIL policy.
+                </p>
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    <strong>The result?</strong> A complete transformation of college athletics. Athletes who once couldn't accept a free meal can now sign million-dollar deals. Programs compete not just with facilities and coaching, but with NIL collectives and earning potential.
+                </p>
+            </div>
+            
+            <div class="nil-timeline" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div class="timeline-card" style="background: rgba(14, 165, 233, 0.1); padding: 25px; border-radius: 8px; border-left: 4px solid #7DD3FC;">
+                    <h4 style="color: #7DD3FC; margin-bottom: 10px; font-size: 1.1rem;">2019: The Catalyst</h4>
+                    <p style="color: #FFFFFF; opacity: 0.9; font-size: 0.95rem;">California passes Fair Pay to Play Act, setting off a domino effect across the nation.</p>
+                </div>
+                <div class="timeline-card" style="background: rgba(14, 165, 233, 0.1); padding: 25px; border-radius: 8px; border-left: 4px solid #7DD3FC;">
+                    <h4 style="color: #7DD3FC; margin-bottom: 10px; font-size: 1.1rem;">2021: The Floodgates Open</h4>
+                    <p style="color: #FFFFFF; opacity: 0.9; font-size: 0.95rem;">NCAA adopts interim NIL policy. Within hours, athletes sign their first deals.</p>
+                </div>
+                <div class="timeline-card" style="background: rgba(14, 165, 233, 0.1); padding: 25px; border-radius: 8px; border-left: 4px solid #7DD3FC;">
+                    <h4 style="color: #7DD3FC; margin-bottom: 10px; font-size: 1.1rem;">2024: Market Maturity</h4>
+                    <p style="color: #FFFFFF; opacity: 0.9; font-size: 0.95rem;">$1.2B+ market with sophisticated collectives and professional management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Stories Section -->
+    <section class="nil-stories-section" style="padding: 60px 0; margin: 40px 0;">
+        <div class="container">
+            <h2 style="color: #FFFFFF; text-align: center; margin-bottom: 40px; font-size: 2.2rem;">Real Stories, Real Impact</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                <div class="story-card" style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 12px; border: 1px solid rgba(14, 165, 233, 0.3);">
+                    <div style="margin-bottom: 20px;">
+                        <span style="color: #7DD3FC; font-weight: 600; font-size: 0.9rem;">SEC QUARTERBACK</span>
+                    </div>
+                    <blockquote style="color: #FFFFFF; font-style: italic; margin-bottom: 15px; font-size: 1.05rem;">
+                        "My NIL deals are paying for my family's mortgage. I'm making more in college than I would in my first job after graduation. It's changed everything."
+                    </blockquote>
+                    <div style="color: #7DD3FC; font-size: 0.9rem; font-weight: 600;">$150,000+ in annual NIL earnings</div>
+                </div>
+                
+                <div class="story-card" style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 12px; border: 1px solid rgba(14, 165, 233, 0.3);">
+                    <div style="margin-bottom: 20px;">
+                        <span style="color: #7DD3FC; font-weight: 600; font-size: 0.9rem;">WOMEN'S BASKETBALL STAR</span>
+                    </div>
+                    <blockquote style="color: #FFFFFF; font-style: italic; margin-bottom: 15px; font-size: 1.05rem;">
+                        "Social media changed my life. My TikTok following led to brand partnerships I never imagined. Female athletes finally have a path to profit."
+                    </blockquote>
+                    <div style="color: #7DD3FC; font-size: 0.9rem; font-weight: 600;">$85,000 from social media partnerships</div>
+                </div>
+                
+                <div class="story-card" style="background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 12px; border: 1px solid rgba(14, 165, 233, 0.3);">
+                    <div style="margin-bottom: 20px;">
+                        <span style="color: #7DD3FC; font-weight: 600; font-size: 0.9rem;">BASEBALL PLAYER</span>
+                    </div>
+                    <blockquote style="color: #FFFFFF; font-style: italic; margin-bottom: 15px; font-size: 1.05rem;">
+                        "Local businesses in our college town love supporting athletes. My autograph sessions and appearances pay for my car and apartment."
+                    </blockquote>
+                    <div style="color: #7DD3FC; font-size: 0.9rem; font-weight: 600;">$12,000 from local partnerships</div>
+                </div>
+            </div>
         </div>
     </section>
 

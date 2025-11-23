@@ -1,0 +1,395 @@
+/* Program Analytics Pages - Navy Background Fix */
+
+/* Force navy background on all program pages */
+body,
+html,
+.analytics-dashboard,
+.tab-content,
+.overview-container,
+.section,
+.container {
+    background: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+/* Remove all white and colored backgrounds - Clean minimal approach */
+.category-card,
+.category-cards-grid .category-card,
+.tab-content .category-card,
+.overview-container .category-card,
+.card,
+.analytics-card,
+.metric-card,
+.stats-card,
+.review-card,
+.financial-card {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    color: #FFFFFF !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+    padding: 1.5rem !important;
+}
+
+/* Hover effects - subtle border highlight */
+.category-card:hover,
+.card:hover,
+.analytics-card:hover,
+.metric-card:hover,
+.stats-card:hover,
+.review-card:hover,
+.financial-card:hover {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Tab navigation */
+.tab-navigation {
+    background: #0B1C2E !important;
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+    transition: all 0.3s ease !important;
+}
+
+.tab-btn:hover,
+.tab-btn.active {
+    background: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.5) !important;
+    color: #FFFFFF !important;
+}
+
+/* Text elements */
+h1, h2, h3, h4, h5, h6,
+.card-header h3,
+.section-header h2,
+.section-header-centered h2,
+.metric-label,
+.metric-value,
+.card-score {
+    color: #FFFFFF !important;
+}
+
+p,
+.section-header p,
+.section-header-centered p {
+    color: #E2E8F0 !important;
+}
+
+/* Metric bars */
+.metric-bar {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 4px !important;
+}
+
+.metric-fill {
+    border-radius: 4px !important;
+}
+
+.metric-fill.green {
+    background: linear-gradient(90deg, #10B981, #059669) !important;
+}
+
+.metric-fill.yellow {
+    background: linear-gradient(90deg, #F59E0B, #D97706) !important;
+}
+
+.metric-fill.red {
+    background: linear-gradient(90deg, #EF4444, #DC2626) !important;
+}
+
+/* Stars rating */
+.stars i {
+    color: #FCD34D !important;
+}
+
+/* Program header section */
+.program-header,
+.hero-section {
+    background: #0B1C2E !important;
+}
+
+.program-info,
+.hero-content {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    border-radius: 12px !important;
+    color: #FFFFFF !important;
+}
+
+/* Financial breakdown specific */
+.financial-overview,
+.cost-breakdown,
+.scholarship-info {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    border-radius: 12px !important;
+    color: #FFFFFF !important;
+}
+
+.financial-overview:hover,
+.cost-breakdown:hover,
+.scholarship-info:hover {
+    background: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+/* Reviews specific */
+.review-post,
+.review-item {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    border-radius: 12px !important;
+    color: #FFFFFF !important;
+}
+
+.review-post:hover,
+.review-item:hover {
+    background: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+/* Charts and data visualization */
+.chart-container,
+.data-visualization {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    border-radius: 12px !important;
+}
+
+/* Tables */
+table,
+.table-container {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    border-radius: 12px !important;
+}
+
+th {
+    background: rgba(14, 165, 233, 0.2) !important;
+    color: #FFFFFF !important;
+}
+
+td {
+    background: transparent !important;
+    color: #E2E8F0 !important;
+    border-bottom: 1px solid rgba(14, 165, 233, 0.1) !important;
+}
+
+/* Buttons */
+button,
+.btn,
+.button {
+    background: rgba(14, 165, 233, 0.8) !important;
+    border: 1px solid rgba(14, 165, 233, 0.5) !important;
+    color: #FFFFFF !important;
+    transition: all 0.3s ease !important;
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+    background: rgba(14, 165, 233, 1) !important;
+    border-color: rgba(14, 165, 233, 0.8) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Forms */
+input,
+textarea,
+select {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: rgba(14, 165, 233, 0.8) !important;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
+}
+
+/* Modals */
+.modal-content {
+    background: rgba(11, 28, 46, 0.95) !important;
+    backdrop-filter: blur(30px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+/* Sidebar and navigation elements */
+.sidebar,
+.nav-menu,
+.navigation {
+    background: rgba(11, 28, 46, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+}
+
+/* Override any remaining white backgrounds */
+div[style*="background: white"],
+div[style*="background-color: white"],
+div[style*="background: #fff"],
+div[style*="background-color: #fff"],
+div[style*="background: #ffffff"],
+div[style*="background-color: #ffffff"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+/* Ensure all text is visible */
+* {
+    color: inherit !important;
+}
+
+/* Specific overrides for common problematic elements */
+.white-bg,
+.bg-white,
+.background-white {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+/* NIL Info Page Specific */
+.nil-hero,
+.nil-section,
+.nil-card,
+.opportunity-card,
+.earning-potential {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+.nil-hero:hover,
+.nil-section:hover,
+.nil-card:hover,
+.opportunity-card:hover,
+.earning-potential:hover {
+    background: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+/* Transfer Data Page Specific */
+.transfer-data-page,
+.transfer-section,
+.transfer-card,
+.portal-stats,
+.transfer-trends {
+    background: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+.transfer-card,
+.portal-stats,
+.transfer-trends,
+.data-card {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+.transfer-card:hover,
+.portal-stats:hover,
+.transfer-trends:hover,
+.data-card:hover {
+    background: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+/* Write Review Page Specific */
+.review-form,
+.form-section,
+.rating-section,
+.form-group,
+.review-container {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+.review-form:hover,
+.form-section:hover,
+.rating-section:hover,
+.form-group:hover {
+    background: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}
+
+/* Rating Stars */
+.star-rating .star {
+    color: rgba(255, 255, 255, 0.3) !important;
+    transition: color 0.2s ease !important;
+}
+
+.star-rating .star.filled,
+.star-rating .star:hover,
+.star-rating .star.active {
+    color: #FCD34D !important;
+}
+
+/* Form Labels */
+label {
+    color: #FFFFFF !important;
+    font-weight: 500 !important;
+}
+
+/* Override any hero sections */
+.hero,
+.hero-section,
+.page-header {
+    background: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+/* Content sections */
+.content-section,
+.main-content,
+.page-content {
+    background: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+/* Info boxes and alerts */
+.info-box,
+.alert,
+.notice,
+.warning {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(14, 165, 233, 0.3) !important;
+    color: #FFFFFF !important;
+}
+
+.info-box:hover,
+.alert:hover,
+.notice:hover,
+.warning:hover {
+    background: rgba(14, 165, 233, 0.15) !important;
+    border-color: rgba(14, 165, 233, 0.5) !important;
+}

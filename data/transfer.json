@@ -1,0 +1,37 @@
+{
+  "currentPortalActivity": {
+    "currentActive": 8247,
+    "thisWeek": 342,
+    "thisMonth": 1456,
+    "peakSeason": "March-May"
+  },
+  "bySport2024": {
+    "football": 3247,
+    "basketballMen": 1892,
+    "basketballWomen": 1456,
+    "baseball": 987
+  },
+  "transferSuccessRates": {
+    "findNewProgram": "73%",
+    "sameDivision": "45%",
+    "moveUpDivision": "28%",
+    "graduateTransfers": "89%"
+  },
+  "topReasonsForTransfer": {
+    "playingTime": "34%",
+    "coachingChange": "28%",
+    "academicFit": "18%",
+    "nilOpportunities": "12%"
+  },
+  "trends": {
+    "increaseSince2020": "255%",
+    "averageDaysInPortal": 45,
+    "underclassmenTransfers": "67%",
+    "averageNilValueTopTransfers": "$2.3M"
+  },
+  "metadata": {
+    "lastUpdated": "2024-10-05",
+    "dataSource": "Sample Data",
+    "isSampleData": true
+  }
+}

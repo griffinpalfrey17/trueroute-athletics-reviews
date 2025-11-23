@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Review - TrueRoute</title>
+    <link rel="stylesheet" href="assets/css/_legacy/styles.css">
+    <link rel="stylesheet" href="assets/css/pages/homepage-sports-tech.css">
+    <link rel="stylesheet" href="navigation-fix.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body class="sports-tech-theme">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 100 100" fill="none">
+                        <!-- Realistic Football Player Running Route -->
+                        <g transform="translate(20,10)">
+                            <!-- Head/Helmet -->
+                            <circle cx="30" cy="15" r="7" fill="#2C5AA0"/>
+                            <path d="M25 12 L35 12 M27 15 L33 15" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                            
+                            <!-- Torso -->
+                            <path d="M30 22 L28 45 L32 45 Z" fill="#4A90E2"/>
+                            <rect x="26" y="25" width="8" height="15" rx="2" fill="#357ABD"/>
+                            
+                            <!-- Left Arm (pumping back) -->
+                            <path d="M26 28 L18 32 L16 38" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Right Arm (forward with ball) -->
+                            <path d="M34 28 L42 25 L45 22" stroke="#2C5AA0" stroke-width="3" stroke-linecap="round"/>
+                            
+                            <!-- Football in hand -->
+                            <ellipse cx="46" cy="20" rx="2.5" ry="4" fill="#8B4513" transform="rotate(25 46 20)"/>
+                            <path d="M44 20 L48 20" stroke="white" stroke-width="0.8"/>
+                            
+                            <!-- Left Leg (back, bent) -->
+                            <path d="M28 45 L26 55 L24 65" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Right Leg (forward, extended) -->
+                            <path d="M32 45 L36 55 L40 62" stroke="#2C5AA0" stroke-width="4" stroke-linecap="round"/>
+                            
+                            <!-- Cleats -->
+                            <ellipse cx="23" cy="66" rx="3" ry="1.5" fill="#1a365d"/>
+                            <ellipse cx="41" cy="63" rx="3" ry="1.5" fill="#1a365d"/>
+                        </g>
+                        
+                        <!-- Route Path -->
+                        <path d="M10 80 Q30 70, 50 75 Q70 80, 90 65" stroke="#4A90E2" stroke-width="2.5" fill="none" opacity="0.7" stroke-dasharray="3,2"/>
+                        <circle cx="90" cy="65" r="3" fill="#F39C12" stroke="white" stroke-width="1"/>
+                        
+                        <!-- Speed lines -->
+                        <path d="M15 45 L8 47 M12 50 L5 52 M18 55 L11 57" stroke="#4A90E2" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="brand-text">TrueRoute</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="nil-info.html" class="nav-link">NIL Info</a>
+                <a href="transfer-data.html" class="nav-link">Transfers</a>
+                <a href="write-review.html" class="nav-link">Write Review</a>
+                <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Review Form Content -->
+    <main class="detailed-review">
+        <!-- Progress Header -->
+        <section class="progress-header">
+            <div class="container">
+                <div class="progress-info">
+                    <h1>Share Your Experience</h1>
+                    <p>Step 2 of 2: Detailed questions about your selected areas</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 50%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Form -->
+        <section class="review-form-section">
+            <div class="container">
+                <form id="detailedReviewForm" class="review-form">
+                    <!-- Basic Information -->
+                    <div class="form-section">
+                        <h2><i class="fas fa-info-circle"></i> Basic Information</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="school">School/University *</label>
+                                <select id="school" required>
+                                    <option value="">Select your school</option>
+                                    <option value="University of Alabama">University of Alabama</option>
+                                    <option value="University of Georgia">University of Georgia</option>
+                                    <option value="University of Michigan">University of Michigan</option>
+                                    <option value="University of Florida">University of Florida</option>
+                                    <option value="University of North Carolina">University of North Carolina</option>
+                                    <option value="University of Southern California">University of Southern California</option>
+                                    <option value="Penn State University">Penn State University</option>
+                                    <option value="Duke University">Duke University</option>
+                                    <option value="Stanford University">Stanford University</option>
+                                    <option value="Vanderbilt University">Vanderbilt University</option>
+                                    <option value="Louisiana State University">Louisiana State University</option>
+                                    <option value="University of Texas">University of Texas</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sport">Sport *</label>
+                                <select id="sport" required>
+                                    <option value="">Select your sport</option>
+                                    <option value="Football">Football</option>
+                                    <option value="Basketball">Basketball</option>
+                                    <option value="Baseball">Baseball</option>
+                                    <option value="Soccer">Soccer</option>
+                                    <option value="Swimming">Swimming</option>
+                                    <option value="Wrestling">Wrestling</option>
+                                    <option value="Tennis">Tennis</option>
+                                    <option value="Volleyball">Volleyball</option>
+                                    <option value="Track & Field">Track & Field</option>
+                                    <option value="Golf">Golf</option>
+                                    <option value="Gymnastics">Gymnastics</option>
+                                    <option value="Lacrosse">Lacrosse</option>
+                                    <option value="Field Hockey">Field Hockey</option>
+                                    <option value="Water Polo">Water Polo</option>
+                                    <option value="Hockey">Hockey</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="years">Years Played</label>
+                                <select id="years">
+                                    <option value="">Select years</option>
+                                    <option value="2020-2024">2020-2024</option>
+                                    <option value="2019-2023">2019-2023</option>
+                                    <option value="2018-2022">2018-2022</option>
+                                    <option value="2017-2021">2017-2021</option>
+                                    <option value="2016-2020">2016-2020</option>
+                                    <option value="2015-2019">2015-2019</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="position">Position/Role</label>
+                                <input type="text" id="position" placeholder="e.g., Quarterback, Point Guard, etc.">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Sections Based on Selection -->
+                    <div id="dynamicSections">
+                        <!-- Sections will be populated by JavaScript based on user selection -->
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="form-section">
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="window.history.back()">Back</button>
+                            <button type="submit" class="btn-primary">Submit Review</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <style>
+        /* Navy background theme */
+        html, body {
+            background: #0B1C2E !important;
+        }
+        
+        /* Progress Header */
+        .progress-header {
+            padding: 120px 0 2rem;
+            text-align: center;
+        }
+        
+        .progress-info h1 {
+            color: #FFFFFF;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress-info p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            max-width: 400px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #38BDF8;
+            transition: width 0.3s ease;
+        }
+        
+        /* Form Styling */
+        .review-form-section {
+            padding: 2rem 0 4rem;
+        }
+        
+        .review-form {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .form-section {
+            background: transparent;
+            border: 2px solid rgba(56, 189, 248, 0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .form-section h2 {
+            color: #38BDF8;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-section h3 {
+            color: #FFFFFF;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            color: rgba(255, 255, 255, 0.9);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem;
+            color: #FFFFFF;
+            font-size: 1rem;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #38BDF8;
+        }
+        
+        .question-group {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            text-align: center;
+        }
+        
+        .question-group h4 {
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .rating-scale {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding: 1rem 0;
+        }
+        
+        .rating-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            padding: 1rem;
+            border-radius: 12px;
+            border: 2px solid rgba(56, 189, 248, 0.3);
+            background: rgba(255, 255, 255, 0.02);
+            transition: all 0.3s ease;
+            min-width: 80px;
+            flex: 1;
+            max-width: 120px;
+        }
+        
+        .rating-option:hover {
+            border-color: rgba(56, 189, 248, 0.6);
+            background: rgba(56, 189, 248, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .rating-option.selected {
+            border-color: #38BDF8;
+            background: rgba(56, 189, 248, 0.2);
+        }
+        
+        .rating-option input[type="radio"] {
+            display: none;
+        }
+        
+        .rating-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #38BDF8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rating-option.selected .rating-number {
+            color: #FFFFFF;
+        }
+        
+        .rating-option label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+        
+        .rating-option.selected label {
+            color: #FFFFFF;
+        }
+        
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #38BDF8;
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: #0EA5E9;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="18" fill="#0f172a" stroke="#ffffff" stroke-width="2"/>
+                            <path d="M12 20 L18 14 L22 18 L28 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="18" cy="14" r="2" fill="white"/>
+                            <circle cx="22" cy="18" r="2" fill="white"/>
+                            <circle cx="28" cy="12" r="2" fill="white"/>
+                        </svg>
+                        <span>TrueRoute</span>
+                    </div>
+                    <p>Transparency in college athletics through honest athlete experiences.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TrueRoute. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="detailed-review.js"></script>
+</body>
+</html>

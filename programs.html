@@ -4,14 +4,241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programs - TrueRoute</title>
-    <link rel="stylesheet" href="styles.css?v=7">
-    <link rel="stylesheet" href="homepage-sports-tech.css">
-    <link rel="stylesheet" href="global-unify.css">
+    <link rel="stylesheet" href="assets/css/core/design-system-enhanced.css">
+    <link rel="stylesheet" href="assets/css/_legacy/styles.css">
+    <link rel="stylesheet" href="assets/css/pages/homepage-sports-tech.css">
+    <link rel="stylesheet" href="assets/css/pages/program-pages-fix.css">
+    <link rel="stylesheet" href="navigation-fix.css">
+    <link rel="stylesheet" href="ui-enhancements.css">
+    <link rel="stylesheet" href="modern-landscape.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <style>
+        /* FORCE HEADER FIXES - BYPASS CACHE */
+        .navbar {
+            background: rgba(5, 16, 26, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        }
+        .nav-brand {
+            color: #FFFFFF !important;
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+        }
+        .sport-header {
+            padding: 160px 0 40px !important;
+            margin-top: 0 !important;
+        }
+        .program-header,
+        .page-header,
+        .hero-section {
+            padding-top: 160px !important;
+            margin-top: 0 !important;
+        }
+        .filter-actions {
+            padding-top: 1.75rem !important;
+            align-items: end !important;
+        }
+
+        /* Simple, clean, readable styling */
+        .programs-main {
+            padding-top: 140px;
+        }
+
+        /* Make all text white and readable */
+        h1, h2, h3, h4, h5, h6, p, span, label, div, a {
+            color: #ffffff !important;
+        }
+
+        /* Ensure program cards have proper text styling */
+        .program-name {
+            color: #ffffff !important;
+            font-weight: 600;
+        }
+
+        .program-conference {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        /* Fix filter labels and buttons */
+        .filter-label, .back-btn {
+            color: #ffffff !important;
+        }
+
+        /* Ensure stat numbers are blue */
+        .stat-number {
+            color: #7DD3FC !important;
+            font-weight: 900;
+        }
+
+        /* Simple stat cards */
+        .stat-number {
+            font-size: 3.5rem !important;
+            font-weight: 900 !important;
+            color: #7DD3FC !important;
+        }
+
+        /* Clean form elements */
+        .filter-select {
+            background: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            color: #ffffff !important;
+            padding: 0.75rem;
+            border-radius: 6px;
+        }
+
+        /* Remove navy boxes from program elements */
+        .program-name-cell, .program-details, .program-logo-mini {
+            background: transparent !important;
+            border: none !important;
+        }
+
+        /* Force Modern Landscape background color everywhere - remove all competing backgrounds */
+        body, html, main, section, .container, div, .programs-main, .section, 
+        .filters-container, .programs-grid, .program-card, .stat-card {
+            background: #1A2B3C !important;
+        }
+
+        /* Fix navigation to match other pages */
+        .navbar {
+            background: rgba(26, 43, 60, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(125, 211, 252, 0.2);
+        }
+
+        /* Remove any section-specific backgrounds */
+        .section[style*="background"], div[style*="background"] {
+            background: #1A2B3C !important;
+        }
+
+        /* Simple navy boxes for program cards */
+        .program-card {
+            background: #0B1C2E !important;
+            border: none !important;
+            box-shadow: none !important;
+            transition: none !important;
+            backdrop-filter: none !important;
+        }
+
+        .program-card:hover {
+            background: #0B1C2E !important;
+            border: none !important;
+            box-shadow: none !important;
+            transform: none !important;
+        }
+
+        /* Fix program card header elements to be navy */
+        .program-title, .program-header, .program-badges,
+        .school-info, .location, .conference {
+            background: #0B1C2E !important;
+        }
+
+        /* Simple, consistent light blue background for feature boxes */
+        .rating-display, .rating-text, .rating-stars,
+        .nil-opportunities, .scholarship-info,
+        [class*="nil"], [class*="scholarship"], [class*="rating"] {
+            background: #7DD3FC !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Comparison view specific styling */
+        
+        /* Remove ALL highlights and make program/rank areas transparent */
+        .comparison-table td:first-child, .comparison-table td:nth-child(2),
+        .program-name, .rank-cell, .comparison-table th {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Remove mysterious letters completely */
+        .rank-letter, .program-letter, [class*="letter"],
+        .comparison-table td:first-child::before,
+        .comparison-table td:first-child > span:first-child,
+        .rank-indicator, .program-indicator {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        /* Consistent styling for ALL rating/status boxes */
+        .comparison-table td, .rating-badge, .nil-badge, .scholarship-badge,
+        [class*="badge"], [class*="pill"], [class*="tag"] {
+            padding: 0.5rem 1rem !important;
+            margin: 0.25rem !important;
+            border-radius: 4px !important;
+            text-align: center !important;
+            font-weight: 500 !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* Scholarship status color coding */
+        .scholarship-available, [data-scholarship="available"], 
+        .scholarship-badge[data-status="available"] {
+            background: rgba(34, 197, 94, 0.7) !important;
+        }
+
+        .scholarship-unavailable, [data-scholarship="unavailable"],
+        .scholarship-badge[data-status="unavailable"] {
+            background: rgba(239, 68, 68, 0.7) !important;
+        }
+
+        /* NIL level color coding */
+        .nil-high, [data-nil="high"], .nil-badge[data-level="high"] {
+            background: rgba(34, 197, 94, 0.7) !important;
+        }
+
+        .nil-medium, [data-nil="medium"], .nil-badge[data-level="medium"] {
+            background: rgba(234, 179, 8, 0.7) !important;
+        }
+
+        .nil-low, [data-nil="low"], .nil-badge[data-level="low"] {
+            background: rgba(239, 68, 68, 0.7) !important;
+        }
+
+        /* Rating number boxes - neutral styling */
+        .comparison-table td:not(:first-child):not(:last-child) {
+            background: rgba(255, 255, 255, 0.7) !important;
+            color: #000000 !important;
+        }
+
+        /* Button styling */
+        .view-btn, .btn-view {
+            background: rgba(255, 255, 255, 0.8) !important;
+            color: #000000 !important;
+            border: none !important;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+        }
+
+        .save-btn, .btn-save {
+            background: rgba(59, 130, 246, 0.8) !important;
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+        }
+
+        /* Remove hover effects */
+        .comparison-table tr:hover, .comparison-row:hover,
+        .program-row:hover {
+            background: transparent !important;
+            transform: none !important;
+        }
+
+        /* Fix any white or conflicting backgrounds */
+        * {
+            background-color: transparent !important;
+        }
+        
+        body, html {
+            background-color: #1A2B3C !important;
+        }
+    </style>
 </head>
 <body class="sports-tech-theme">
     <!-- Navigation -->
@@ -64,6 +291,8 @@
             <nav class="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="nil-info.html" class="nav-link">NIL Info</a>
+                <a href="transfer-data.html" class="nav-link">Transfers</a>
+                <a href="modern-landscape.html" class="nav-link">Modern Landscape</a>
                 <a href="write-review.html" class="nav-link">Write Review</a>
                 <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
             </nav>
@@ -188,10 +417,10 @@
 
                     <!-- Filter Actions -->
                     <div class="filter-actions">
-                        <button id="applyFilters" class="btn-primary" style="background: #4A90E2; color: white; border: 1px solid #357ABD; padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 14px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <button id="applyFilters" class="btn-primary">
                             <i class="fas fa-filter"></i> Apply
                         </button>
-                        <button id="clearFilters" class="btn-secondary" style="background: white; color: #666; border: 1px solid #ddd; padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 14px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <button id="clearFilters" class="btn-secondary">
                             <i class="fas fa-times"></i> Clear
                         </button>
                     </div>
@@ -313,6 +542,6 @@
         </div>
     </footer>
 
-    <script src="programs.js?v=11"></script>
+    <script src="assets/js/pages/programs.js?v=15&t=20241012-1101"></script>
 </body>
 </html>

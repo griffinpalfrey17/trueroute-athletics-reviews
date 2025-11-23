@@ -1,0 +1,162 @@
+/* TrueRoute Centralized Theme System */
+/* Single source of truth for all colors and backgrounds */
+
+:root {
+  /* === PAGE BACKGROUNDS === */
+  --bg-page: #4A90E2;                    /* Main page background - soft light blue */
+  --bg-surface: rgba(255, 255, 255, 0.95); /* Cards, panels, surfaces */
+  --bg-overlay: rgba(255, 255, 255, 0.08);  /* Glass-morphism overlays */
+  --bg-hover: rgba(255, 255, 255, 0.12);    /* Hover states */
+  
+  /* === TEXT COLORS === */
+  --text-primary: #1e293b;               /* Main text on light backgrounds */
+  --text-secondary: #64748b;             /* Secondary text */
+  --text-muted: #94a3b8;                 /* Muted text */
+  --text-on-dark: #ffffff;               /* Text on dark/colored backgrounds */
+  --text-on-surface: #1e293b;            /* Text on surface backgrounds */
+  
+  /* === ACCENT COLORS === */
+  --accent-primary: #2563eb;             /* Primary accent (buttons, links) */
+  --accent-hover: #1d4ed8;               /* Hover state for primary accent */
+  --accent-light: #3b82f6;               /* Lighter accent variant */
+  --accent-secondary: #7DD3FC;           /* Secondary accent (light blue) */
+  
+  /* === STATUS COLORS === */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: var(--accent-primary);
+  
+  /* === BORDERS === */
+  --border-light: rgba(255, 255, 255, 0.2);
+  --border-medium: rgba(255, 255, 255, 0.3);
+  --border-strong: rgba(255, 255, 255, 0.4);
+  --border-accent: var(--accent-secondary);
+  
+  /* === SHADOWS === */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* === GLOBAL BASE STYLES === */
+html,
+body {
+  background: var(--bg-page) !important;
+  color: var(--text-on-dark) !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* === SURFACE ELEMENTS === */
+.card,
+.surface,
+.panel,
+.modal-content,
+.dropdown-content {
+  background: var(--bg-surface) !important;
+  color: var(--text-on-surface) !important;
+  border: 1px solid var(--border-light) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* === GLASS-MORPHISM ELEMENTS === */
+.glass,
+.overlay,
+.hero-overlay {
+  background: var(--bg-overlay) !important;
+  color: var(--text-on-dark) !important;
+  border: 1px solid var(--border-light) !important;
+  backdrop-filter: blur(20px);
+}
+
+/* === INTERACTIVE ELEMENTS === */
+.btn-primary,
+.button-primary,
+.submit-btn {
+  background: var(--accent-primary) !important;
+  color: var(--text-on-dark) !important;
+  border: 1px solid var(--accent-primary) !important;
+}
+
+.btn-primary:hover,
+.button-primary:hover,
+.submit-btn:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+}
+
+.btn-secondary,
+.button-secondary {
+  background: var(--bg-surface) !important;
+  color: var(--text-on-surface) !important;
+  border: 1px solid var(--border-medium) !important;
+}
+
+.btn-secondary:hover,
+.button-secondary:hover {
+  background: var(--bg-hover) !important;
+}
+
+/* === FORM ELEMENTS === */
+input,
+textarea,
+select {
+  background: var(--bg-surface) !important;
+  color: var(--text-on-surface) !important;
+  border: 1px solid var(--border-medium) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--border-accent) !important;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.2);
+}
+
+/* === NAVIGATION === */
+.navbar,
+.nav,
+.navigation {
+  background: var(--bg-overlay) !important;
+  color: var(--text-on-dark) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  backdrop-filter: blur(20px);
+}
+
+/* === SECTIONS === */
+.section,
+.container,
+.content {
+  background: transparent !important;
+}
+
+/* === HOVER EFFECTS === */
+.card:hover,
+.surface:hover,
+.hover-lift:hover {
+  background: var(--bg-hover) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* === ACCESSIBILITY === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* === HIGH CONTRAST MODE === */
+@media (prefers-contrast: high) {
+  :root {
+    --bg-page: #ffffff;
+    --bg-surface: #ffffff;
+    --text-primary: #000000;
+    --text-on-dark: #000000;
+    --border-light: #000000;
+  }
+}

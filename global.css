@@ -1,0 +1,11 @@
+/* AI GUARDRAILS:
+ - Do NOT change the order of @import lines.
+ - Do NOT add global selectors like * here.
+ - This file is the single entry point for site-wide CSS.
+*/
+
+@import url("./design-system-enhanced.css");   /* tokens, variables */
+@import url("./global-unify.css");             /* base/normalize */
+@import url("./navy-cohesive-design.css");     /* brand theme */
+
+/* Optional: page CSS should be linked from the HTML after global.css */

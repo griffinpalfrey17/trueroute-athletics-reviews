@@ -1,12 +1,7 @@
-/* Global Design Unification - Forces Homepage Design Across All Pages */
+/* Global Unify CSS - Ensures consistent styling across all pages */
 
-/* CSS Variables - Match Homepage Exactly */
+/* CSS Variables */
 :root {
-    --navy-primary: #0B1C2E;
-    --navy-dark: #081521;
-    --navy-darker: #05101A;
-    --text-white: #FFFFFF;
-    --text-light-gray: #B8C5D1;
     --text-gray: #8B9AAB;
     --accent-teal: #00B4FF;
     --accent-teal-hover: #0099CC;
@@ -15,6 +10,7 @@
     --section-padding: 80px 0;
     --container-padding: 0 60px;
 }
+
 
 /* Force Global Styling */
 body,

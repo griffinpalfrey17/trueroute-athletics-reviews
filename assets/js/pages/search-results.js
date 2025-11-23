@@ -178,9 +178,6 @@ function createProgramCard(result) {
                     <span class="gender-badge">${gender === 'men' ? 'Men\'s' : 'Women\'s'}</span>
                 </div>
             </div>
-            <div class="match-indicator">
-                <span class="match-badge ${matchType}">${getMatchBadgeText(matchType)}</span>
-            </div>
         </div>
         
         <div class="program-details">

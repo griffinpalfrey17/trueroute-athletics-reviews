@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     initializeStarRatings();
     initializeFormValidation();
+    initializeAutoSave();
 });
 
 // Initialize star rating functionality
@@ -137,6 +138,9 @@ function submitReview() {
     // Simulate API call (replace with actual submission logic)
     setTimeout(() => {
         console.log('Review submitted:', formData);
+        
+        // Clear saved draft data
+        clearFormProgress();
         
         // Show success message
         showSuccessMessage();
@@ -287,6 +291,9 @@ function loadFormProgress() {
     if (savedData) {
         const formData = JSON.parse(savedData);
         
+        // Show toast message for restored draft
+        showToast('Draft restored from previous session', 'info');
+        
         // Restore basic fields
         if (formData.school) document.getElementById('school').value = formData.school;
         if (formData.sport) document.getElementById('sport').value = formData.sport;
@@ -330,5 +337,38 @@ function clearFormProgress() {
     localStorage.removeItem('reviewFormProgress');
 }
 
-// Initialize auto-save (uncomment if desired)
-// initializeAutoSave();
+// Show toast message
+function showToast(message, type = 'success') {
+    const toast = document.createElement('div');
+    toast.className = `toast toast-${type}`;
+    toast.innerHTML = `
+        <div style="position: fixed; top: 80px; right: 20px; background: ${type === 'success' ? 'rgba(34, 197, 94, 0.95)' : 'rgba(14, 165, 233, 0.95)'}; color: white; padding: 8px 16px; border-radius: 6px; font-size: 0.85rem; font-weight: 500; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.15); animation: slideIn 0.3s ease; backdrop-filter: blur(10px);">
+            ${message}
+        </div>
+    `;
+    
+    document.body.appendChild(toast);
+    
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.parentNode.removeChild(toast);
+            }
+        }, 300);
+    }, 3000);
+}
+
+// Add CSS for toast animation
+if (!document.querySelector('#toast-styles')) {
+    const style = document.createElement('style');
+    style.id = 'toast-styles';
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
+}

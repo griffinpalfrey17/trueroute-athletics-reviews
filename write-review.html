@@ -4,13 +4,286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write a Review - TrueRoute</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="homepage-sports-tech.css">
-    <link rel="stylesheet" href="global-unify.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/core/design-system-enhanced.css">
+    <link rel="stylesheet" href="assets/css/_legacy/styles.css">
+    <link rel="stylesheet" href="assets/css/pages/homepage-sports-tech.css">
+    <link rel="stylesheet" href="navigation-fix.css">
+    <link rel="stylesheet" href="ui-enhancements.css">
+    <link rel="stylesheet" href="modern-landscape.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Simple navy background - let the existing CSS work */
+        body, html {
+            background: #0B1C2E !important;
+        }
+
+        /* Fix navigation to match other pages */
+        .navbar {
+            background: rgba(11, 28, 46, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(125, 211, 252, 0.2);
+        }
+
+        /* Modern Landscape consistent styling */
+        .write-review {
+            padding-top: 140px;
+        }
+
+        .review-header {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        /* Ensure all text is readable */
+        h1, h2, h3, h4, h5, h6, p, span, label, div, a {
+            color: #ffffff !important;
+        }
+
+        /* Fix navigation text */
+        .nav-brand, .nav-links a {
+            color: #ffffff !important;
+        }
+
+        /* Ensure buttons are styled consistently */
+        .back-btn, .submit-btn {
+            background: rgba(125, 211, 252, 0.1) !important;
+            border: 1px solid rgba(125, 211, 252, 0.3) !important;
+            color: #ffffff !important;
+            border-radius: 8px;
+            padding: 0.75rem 1.5rem;
+        }
+
+        .back-btn:hover, .submit-btn:hover {
+            background: rgba(125, 211, 252, 0.2) !important;
+            border-color: rgba(125, 211, 252, 0.5) !important;
+        }
+
+        .review-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff !important;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .review-hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8) !important;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .review-requirements {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .requirement {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #7DD3FC !important;
+            font-weight: 500;
+        }
+
+        .requirement i {
+            color: #7DD3FC !important;
+        }
+
+        .section-selection {
+            padding: 3rem 0;
+            background: #0f172a !important;
+        }
+
+        .selection-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .selection-header h2 {
+            font-size: 2rem;
+            color: #ffffff !important;
+            margin-bottom: 1rem;
+        }
+
+        .selection-header p {
+            font-size: 1.1rem;
+            color: #e2e8f0 !important;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.05) !important;
+            border: 1px solid rgba(125, 211, 252, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(125, 211, 252, 0.5);
+            box-shadow: 0 10px 30px rgba(125, 211, 252, 0.1);
+        }
+
+        .section-card.selected {
+            border-color: #7DD3FC;
+            background: rgba(125, 211, 252, 0.1) !important;
+        }
+
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #7DD3FC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-icon i {
+            font-size: 1.5rem;
+            color: #ffffff;
+        }
+
+        .section-card h3 {
+            color: #ffffff !important;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-card p {
+            color: #e2e8f0 !important;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .selection-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(125, 211, 252, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .section-card.selected .selection-indicator {
+            background: #7DD3FC;
+            border-color: #7DD3FC;
+        }
+
+        .selection-check {
+            color: #ffffff;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .section-card.selected .selection-check {
+            opacity: 1;
+        }
+
+        /* Subtle, low-contrast cards */
+        .section-card {
+            background: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 12px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .section-card:hover {
+            background: rgba(255, 255, 255, 0.04) !important;
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .section-card.selected {
+            border-color: rgba(125, 211, 252, 0.4);
+            background: rgba(125, 211, 252, 0.05) !important;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(125, 211, 252, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon i {
+            font-size: 1.2rem;
+            color: rgba(125, 211, 252, 0.8);
+        }
+
+        .section-card h3 {
+            color: rgba(255, 255, 255, 0.9) !important;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-card p {
+            color: rgba(255, 255, 255, 0.6) !important;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .selection-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .selection-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff !important;
+            margin-bottom: 1rem;
+        }
+
+        .selection-header p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8) !important;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
-<body class="sports-tech-theme">
+<body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -61,6 +334,8 @@
             <nav class="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="nil-info.html" class="nav-link">NIL Info</a>
+                <a href="transfer-data.html" class="nav-link">Transfers</a>
+                <a href="modern-landscape.html" class="nav-link">Modern Landscape</a>
                 <a href="write-review.html" class="nav-link">Write Review</a>
                 <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
             </nav>
@@ -72,6 +347,8 @@
         </div>
     </nav>
 
+    <!-- Review Form Content -->
+    <main class="write-review">
     <!-- Review Form Header -->
     <section class="review-header section">
         <div class="container">
@@ -96,402 +373,260 @@
         </div>
     </section>
 
-    <!-- Review Form -->
-    <section class="review-form-section">
+    <!-- Section Selection -->
+    <section class="section-selection">
         <div class="container">
-            <form id="reviewForm" class="review-form">
-                <!-- Basic Information -->
-                <div class="form-section">
-                    <h2><i class="fas fa-info-circle"></i> Basic Information</h2>
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="school">School/University *</label>
-                            <select id="school" required>
-                                <option value="">Select your school</option>
-                                <option value="University of Alabama">University of Alabama</option>
-                                <option value="University of Georgia">University of Georgia</option>
-                                <option value="University of Michigan">University of Michigan</option>
-                                <option value="University of Florida">University of Florida</option>
-                                <option value="University of North Carolina">University of North Carolina</option>
-                                <option value="University of Southern California">University of Southern California</option>
-                                <option value="Penn State University">Penn State University</option>
-                                <option value="Duke University">Duke University</option>
-                                <option value="Stanford University">Stanford University</option>
-                                <option value="Vanderbilt University">Vanderbilt University</option>
-                                <option value="Louisiana State University">Louisiana State University</option>
-                                <option value="University of Texas">University of Texas</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="sport">Sport *</label>
-                            <select id="sport" required>
-                                <option value="">Select your sport</option>
-                                <option value="Football">Football</option>
-                                <option value="Basketball">Basketball</option>
-                                <option value="Baseball">Baseball</option>
-                                <option value="Soccer">Soccer</option>
-                                <option value="Swimming">Swimming</option>
-                                <option value="Wrestling">Wrestling</option>
-                                <option value="Tennis">Tennis</option>
-                                <option value="Volleyball">Volleyball</option>
-                                <option value="Track & Field">Track & Field</option>
-                                <option value="Golf">Golf</option>
-                                <option value="Gymnastics">Gymnastics</option>
-                                <option value="Lacrosse">Lacrosse</option>
-                                <option value="Field Hockey">Field Hockey</option>
-                                <option value="Water Polo">Water Polo</option>
-                                <option value="Hockey">Hockey</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="years">Years Played</label>
-                            <select id="years">
-                                <option value="">Select years</option>
-                                <option value="2020-2024">2020-2024</option>
-                                <option value="2019-2023">2019-2023</option>
-                                <option value="2018-2022">2018-2022</option>
-                                <option value="2017-2021">2017-2021</option>
-                                <option value="2016-2020">2016-2020</option>
-                                <option value="2015-2019">2015-2019</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="position">Position/Role</label>
-                            <input type="text" id="position" placeholder="e.g., Quarterback, Point Guard, etc.">
-                        </div>
+            <div class="selection-header">
+                <h2>Only Review What You're Comfortable With</h2>
+                <p>Select the areas of your athletic experience you'd like to share. You can choose as many or as few as you want.</p>
+            </div>
+
+            <div class="sections-grid">
+                <!-- Coaching & Player Development -->
+                <div class="section-card" data-section="coaching">
+                    <div class="section-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Coaching & Player Development</h3>
+                    <p>How well the coaching staff supports athletes both on and off the field — including strength and position-specific development, fairness in playing decisions, and clear communication about roles and expectations.</p>
+                    <div class="selection-indicator">
+                        <i class="fas fa-check selection-check"></i>
                     </div>
                 </div>
 
-                <!-- General Categories -->
-                <div class="form-section">
-                    <h2><i class="fas fa-university"></i> General Program Experience</h2>
-                    
-                    <!-- Academic Support -->
-                    <div class="rating-category">
-                        <h3>Athlete Academic Support</h3>
-                        <p class="category-description">Quality of tutors, advisors, class flexibility, and access to study halls and libraries</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="academic">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="academic" name="academic" value="">
-                        </div>
+                <!-- Team Culture & Environment -->
+                <div class="section-card" data-section="culture">
+                    <div class="section-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-
-                    <!-- General Facilities -->
-                    <div class="rating-category">
-                        <h3>Facilities (General)</h3>
-                        <p class="category-description">Access to weight rooms, training tables, medical centers, recovery spaces, and quality of shared athlete-only areas</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="facilities_general">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="facilities_general" name="facilities_general" value="">
-                        </div>
-                    </div>
-
-                    <!-- Culture & Community -->
-                    <div class="rating-category">
-                        <h3>Culture & Community</h3>
-                        <p class="category-description">Overall treatment of athletes on campus, community support for sports, diversity, inclusion, and mental health resources</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="culture_community">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="culture_community" name="culture_community" value="">
-                        </div>
-                    </div>
-
-                    <!-- Financial Support -->
-                    <div class="rating-category">
-                        <h3>Athlete Financial Support</h3>
-                        <p class="category-description">Scholarship reliability, cost of living assistance, stipends, and access to NIL resources and alumni support</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="financial_support">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="financial_support" name="financial_support" value="">
-                        </div>
-                    </div>
-
-                    <!-- Compliance & Administration -->
-                    <div class="rating-category">
-                        <h3>Compliance & Administration</h3>
-                        <p class="category-description">Trustworthiness and fairness of compliance office, transparency around transfer rules, medical redshirts, and eligibility</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="compliance">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="compliance" name="compliance" value="">
-                        </div>
-                    </div>
-
-                    <!-- Career & Life After Sport -->
-                    <div class="rating-category">
-                        <h3>Career & Life After Sport</h3>
-                        <p class="category-description">Alumni networking, job placement help, career services, support with internships, majors, and time management</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="career_support">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="career_support" name="career_support" value="">
-                        </div>
+                    <h3>Team Culture & Environment</h3>
+                    <p>What it feels like to be part of the team — including the overall vibe in the locker room, how players treat one another across classes, and the balance between a focused and social atmosphere.</p>
+                    <div class="selection-indicator">
+                        <i class="fas fa-check selection-check"></i>
                     </div>
                 </div>
 
-                <!-- Sport-Specific Categories -->
-                <div class="form-section">
-                    <h2><i class="fas fa-trophy"></i> Sport-Specific Experience</h2>
-                    
-                    <!-- Coaching Staff -->
-                    <div class="rating-category">
-                        <h3>Coaching Staff & Development</h3>
-                        <p class="category-description">Coaching quality, trust, fairness, player development, strength coach, position-specific coaching, communication and transparency</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="coaching">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="coaching" name="coaching" value="">
-                        </div>
+                <!-- Time Commitment & Training Load -->
+                <div class="section-card" data-section="training">
+                    <div class="section-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-
-                    <!-- Team Culture -->
-                    <div class="rating-category">
-                        <h3>Team Culture & Brotherhood/Sisterhood</h3>
-                        <p class="category-description">Locker room vibe, team unity, cliques, how upperclassmen treat younger players, party culture vs. focused atmosphere</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="team_culture">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="team_culture" name="team_culture" value="">
-                        </div>
-                    </div>
-
-                    <!-- Training Load -->
-                    <div class="rating-category">
-                        <h3>Training Load & Schedule</h3>
-                        <p class="category-description">In-season and off-season time commitments, balance between lifting, practice, film, recovery, and freedom outside your sport</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="training_load">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="training_load" name="training_load" value="">
-                        </div>
-                    </div>
-
-                    <!-- Sport-Specific Facilities -->
-                    <div class="rating-category">
-                        <h3>Facilities (Sport-Specific)</h3>
-                        <p class="category-description">Field, gym, locker room, film rooms quality and upkeep, travel comfort (buses, flights, hotels)</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="sport_facilities">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="sport_facilities" name="sport_facilities" value="">
-                        </div>
-                    </div>
-
-                    <!-- Playing Time -->
-                    <div class="rating-category">
-                        <h3>Playing Time & Opportunity</h3>
-                        <p class="category-description">Real chances to play early, coach favoritism vs. meritocracy, transfer politics and "promise" culture</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="playing_time">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="playing_time" name="playing_time" value="">
-                        </div>
-                    </div>
-
-                    <!-- Nutrition & Medical -->
-                    <div class="rating-category">
-                        <h3>Nutrition & Medical Support</h3>
-                        <p class="category-description">Sport-specific meals, snacks, supplements, injury prevention, rehab support, access to trainers</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="nutrition_medical">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="nutrition_medical" name="nutrition_medical" value="">
-                        </div>
-                    </div>
-
-                    <!-- NIL & Exposure -->
-                    <div class="rating-category">
-                        <h3>NIL & Exposure</h3>
-                        <p class="category-description">Visibility of the sport (media, fans, broadcasts), support from the program for branding, social media, NIL opportunities</p>
-                        <div class="rating-input">
-                            <label>Rate your experience (1-5):</label>
-                            <div class="star-rating" data-category="nil_exposure">
-                                <span class="star" data-value="1">☆</span>
-                                <span class="star" data-value="2">☆</span>
-                                <span class="star" data-value="3">☆</span>
-                                <span class="star" data-value="4">☆</span>
-                                <span class="star" data-value="5">☆</span>
-                            </div>
-                            <input type="hidden" id="nil_exposure" name="nil_exposure" value="">
-                        </div>
+                    <h3>Time Commitment & Training Load</h3>
+                    <p>How demanding the athletic schedule is during the season and offseason — including required workouts, meetings, and how much time athletes have to themselves outside of sports.</p>
+                    <div class="selection-indicator">
+                        <i class="fas fa-check selection-check"></i>
                     </div>
                 </div>
 
-                <!-- Financial Information -->
-                <div class="form-section">
-                    <h2><i class="fas fa-dollar-sign"></i> Financial Information</h2>
-                    <p class="section-description">This information helps future athletes understand the financial reality of your program. All information is anonymous and optional.</p>
-                    
-                    <div class="form-grid">
-                        <!-- NIL Information -->
-                        <div class="form-group">
-                            <label for="nil_amount">Total NIL Earnings (Annual)</label>
-                            <select id="nil_amount">
-                                <option value="">Select range</option>
-                                <option value="0">$0</option>
-                                <option value="1000">$1 - $1,000</option>
-                                <option value="5000">$1,001 - $5,000</option>
-                                <option value="10000">$5,001 - $10,000</option>
-                                <option value="25000">$10,001 - $25,000</option>
-                                <option value="50000">$25,001 - $50,000</option>
-                                <option value="100000">$50,001 - $100,000</option>
-                                <option value="100001">$100,000+</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="nil_companies">Primary NIL Partners</label>
-                            <input type="text" id="nil_companies" placeholder="e.g., Local restaurant, Nike, Adidas">
-                        </div>
-
-                        <!-- Scholarship Information -->
-                        <div class="form-group">
-                            <label for="scholarship_type">Scholarship Type</label>
-                            <select id="scholarship_type">
-                                <option value="">Select type</option>
-                                <option value="full">Full Scholarship</option>
-                                <option value="partial">Partial Scholarship</option>
-                                <option value="academic">Academic Scholarship</option>
-                                <option value="walk_on">Walk-on (No Athletic Scholarship)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="scholarship_percentage">Scholarship Percentage</label>
-                            <select id="scholarship_percentage">
-                                <option value="">Select percentage</option>
-                                <option value="0">0%</option>
-                                <option value="25">25%</option>
-                                <option value="50">50%</option>
-                                <option value="75">75%</option>
-                                <option value="100">100%</option>
-                            </select>
-                        </div>
-
-                        <!-- Financial Aid -->
-                        <div class="form-group">
-                            <label for="financial_aid_type">Additional Financial Aid</label>
-                            <select id="financial_aid_type">
-                                <option value="">Select type</option>
-                                <option value="need">Need-based Aid</option>
-                                <option value="merit">Merit-based Aid</option>
-                                <option value="federal">Federal Aid/Loans</option>
-                                <option value="none">None</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="financial_aid_amount">Financial Aid Amount (Annual)</label>
-                            <select id="financial_aid_amount">
-                                <option value="">Select range</option>
-                                <option value="0">$0</option>
-                                <option value="5000">$1 - $5,000</option>
-                                <option value="10000">$5,001 - $10,000</option>
-                                <option value="15000">$10,001 - $15,000</option>
-                                <option value="20000">$15,001 - $20,000</option>
-                                <option value="25000">$20,001 - $25,000</option>
-                                <option value="25001">$25,000+</option>
-                            </select>
-                        </div>
+                <!-- Facilities & Travel Experience -->
+                <div class="section-card" data-section="facilities">
+                    <div class="section-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3>Facilities & Travel Experience</h3>
+                    <p>The quality and upkeep of athletic spaces — including fields, locker rooms, gyms, and film rooms — along with how comfortable and professional team travel is for games and events.</p>
+                    <div class="selection-indicator">
+                        <i class="fas fa-check selection-check"></i>
                     </div>
                 </div>
 
-                <!-- Written Review -->
-                <div class="form-section">
-                    <h2><i class="fas fa-edit"></i> Your Experience</h2>
-                    <div class="form-group">
-                        <label for="written_review">Share anything else that stood out about your experience</label>
-                        <textarea id="written_review" rows="6" placeholder="Tell future athletes about your experience. What would you want them to know? What surprised you? What would you do differently?"></textarea>
+                <!-- Playing Time & Opportunity -->
+                <div class="section-card" data-section="playing-time">
+                    <div class="section-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Playing Time & Opportunity</h3>
+                    <p>Whether athletes are given real chances to earn playing time — including early opportunities, transparency in decision-making, and how often players transfer in or out of the program.</p>
+                    <div class="selection-indicator">
+                        <i class="fas fa-check selection-check"></i>
                     </div>
                 </div>
 
-                <!-- Submit -->
-                <div class="form-section">
-                    <div class="form-actions">
-                        <button type="button" class="btn-secondary" onclick="window.history.back()">Cancel</button>
-                        <button type="submit" class="btn-primary">Submit Review</button>
+                <!-- Nutrition & Medical Resources -->
+                <div class="section-card" data-section="medical">
+                    <div class="section-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Nutrition & Medical Resources</h3>
+                    <p>The level of care and support available to athletes — including access to sport-specific meals, snacks, supplements, athletic trainers, injury prevention, and rehab services.</p>
+                    <div class="selection-indicator">
+                        <i class="fas fa-check selection-check"></i>
                     </div>
                 </div>
-            </form>
+
+                <!-- Other Experience -->
+                <div class="section-card" data-section="other">
+                    <div class="section-icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>Other Experience</h3>
+                    <p>Any other aspects of your athletic experience that don't fit into the categories above — academic support, financial aid, social life, or anything else you'd like to share.</p>
+                    <div class="selection-indicator">
+                        <i class="fas fa-check selection-check"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="selection-actions">
+                <button type="button" class="btn-secondary" onclick="window.history.back()">Cancel</button>
+                <button type="button" class="btn-primary" id="continueBtn" onclick="proceedToReview()">Next: Basic Information</button>
+            </div>
         </div>
     </section>
+    </main>
+    
+    <style>
+        /* Navy background theme */
+        html, body {
+            background: #0B1C2E !important;
+        }
+        
+        /* Section Selection Styling */
+        .section-selection {
+            padding: 3rem 0;
+        }
+        
+        .selection-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .selection-header h2 {
+            color: #FFFFFF;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .selection-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .section-card {
+            background: transparent;
+            border: 2px solid rgba(56, 189, 248, 0.3);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .section-card:hover {
+            border-color: rgba(56, 189, 248, 0.6);
+            transform: translateY(-2px);
+        }
+        
+        .section-card.selected {
+            border-color: #38BDF8;
+            background: rgba(11, 28, 46, 0.8);
+        }
+        
+        .section-icon {
+            font-size: 3rem;
+            color: #38BDF8;
+            margin-bottom: 1rem;
+        }
+        
+        .section-card h3 {
+            color: #FFFFFF;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .section-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        
+        .selection-indicator {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(56, 189, 248, 0.2);
+            border: 2px solid rgba(56, 189, 248, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .section-card {
+            position: relative;
+        }
+        
+        .selection-check {
+            color: #38BDF8;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .section-card.selected .selection-indicator {
+            background: #38BDF8;
+            border-color: #38BDF8;
+        }
+        
+        .section-card.selected .selection-check {
+            opacity: 1;
+            color: white;
+        }
+        
+        .selection-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #38BDF8;
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: #0EA5E9;
+        }
+        
+        .btn-primary:disabled {
+            background: rgba(56, 189, 248, 0.3);
+            cursor: not-allowed;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
 
     <!-- Footer -->
     <footer class="footer">
@@ -517,6 +652,65 @@
         </div>
     </footer>
 
-    <script src="write-review.js"></script>
+    <script>
+        // Section selection functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            setupSectionSelection();
+            updateContinueButton();
+        });
+
+        function setupSectionSelection() {
+            const sectionCards = document.querySelectorAll('.section-card');
+
+            // Add click handlers to section cards
+            sectionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const isSelected = card.classList.contains('selected');
+                    updateCardSelection(card, !isSelected);
+                    updateContinueButton();
+                });
+            });
+        }
+
+        function updateCardSelection(card, isSelected) {
+            if (isSelected) {
+                card.classList.add('selected');
+            } else {
+                card.classList.remove('selected');
+            }
+        }
+
+        function updateContinueButton() {
+            const continueBtn = document.getElementById('continueBtn');
+            const selectedCards = document.querySelectorAll('.section-card.selected');
+            
+            if (selectedCards.length > 0) {
+                continueBtn.disabled = false;
+                continueBtn.textContent = `Next: Review ${selectedCards.length} Section${selectedCards.length > 1 ? 's' : ''}`;
+            } else {
+                continueBtn.disabled = true;
+                continueBtn.textContent = 'Select at least one section';
+            }
+        }
+
+        function proceedToReview() {
+            const selectedSections = [];
+            const selectedCards = document.querySelectorAll('.section-card.selected');
+            
+            selectedCards.forEach(card => {
+                const sectionKey = card.getAttribute('data-section');
+                selectedSections.push(sectionKey);
+            });
+            
+            if (selectedSections.length === 0) {
+                alert('Please select at least one section to review.');
+                return;
+            }
+            
+            // Store selected sections and navigate to detailed form
+            localStorage.setItem('selectedSections', JSON.stringify(selectedSections));
+            window.location.href = `detailed-review.html?sections=${selectedSections.join(',')}`;
+        }
+    </script>
 </body>
 </html>

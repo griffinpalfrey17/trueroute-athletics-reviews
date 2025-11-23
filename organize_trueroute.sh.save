@@ -1,0 +1,118 @@
+#!/usr/bin/env bash
+set -e
+
+# TrueRoute project organizer for macOS/Linux
+
+# Choose the right sed -i syntax (GNU vs macOS BSD)
+if sed --version >/dev/null 2>&1; then
+  SED="sed -i"
+else
+  SED="sed -i ''"
+fi
+
+mkdir -p assets/css/core assets/css/theme assets/css/pages assets/css/components assets/css/_legacy
+mkdir -p assets/js/core assets/js/pages assets/js/_legacy
+mkdir -p assets/img docs archives data
+
+move_if_exists () {
+  local src="$1"
+  local dst="$2"
+  if [ -f "$src" ]; then
+    mkdir -p "$(dirname "$dst")"
+    echo "Moving $src -> $dst"
+    mv -f "$src" "$dst"
+  fi
+}
+
+# ---------- CSS ----------
+move_if_exists "global.css"                         "assets/css/global.css"
+move_if_exists "design-system-enhanced.css"        "assets/css/core/design-system-enhanced.css"
+move_if_exists "global-unify.css"                  "assets/css/core/global-unify.css"
+move_if_exists "global-foundation.css"             "assets/css/core/global-foundation.css"
+move_if_exists "navy-cohesive-design.css"          "assets/css/theme/navy-cohesive-design.css"
+move_if_exists "program-pages-fix.css"             "assets/css/pages/program-pages-fix.css"
+move_if_exists "homepage-sports-tech.css"          "assets/css/pages/homepage-sports-tech.css"
+move_if_exists "homepage.css"                      "assets/css/pages/homepage.css"
+move_if_exists "homepage-modern.css"               "assets/css/pages/homepage-modern.css"
+move_if_exists "enhanced-cards.css"                "assets/css/components/enhanced-cards.css"
+move_if_exists "auth.css"                          "assets/css/pages/auth.css"
+move_if_exists "write-review-clean.scoped.css"     "assets/css/pages/write-review-clean.scoped.css"
+# legacy / risky styles (kept but not auto-linked)
+move_if_exists "styles.css"                        "assets/css/_legacy/styles.css"
+move_if_exists "final-navy-override.css"           "assets/css/_legacy/final-navy-override.css"
+move_if_exists "force-navy-everywhere.css"         "assets/css/_legacy/force-navy-everywhere.css"
+move_if_exists "homepage-redesign.css"             "assets/css/_legacy/homepage-redesign.css"
+
+# ---------- JS ----------
+move_if_exists "user-manager.js"                   "assets/js/core/user-manager.js"
+move_if_exists "email-service.js"                  "assets/js/core/email-service.js"
+move_if_exists "auth.js"                           "assets/js/pages/auth.js"
+move_if_exists "analytics.js"                      "assets/js/pages/analytics.js"
+move_if_exists "cost-chart.js"                     "assets/js/pages/cost-chart.js"
+move_if_exists "program-analytics.js"              "assets/js/pages/program-analytics.js"
+move_if_exists "program-analytics-new.js"          "assets/js/pages/program-analytics-new.js"
+move_if_exists "program-financials.js"             "assets/js/pages/program-financials.js"
+move_if_exists "program-reviews.js"                "assets/js/pages/program-reviews.js"
+move_if_exists "programs.js"                       "assets/js/pages/programs.js"
+move_if_exists "reviews.js"                        "assets/js/pages/reviews.js"
+move_if_exists "script.js"                         "assets/js/_legacy/script.js"
+move_if_exists "search-results.js"                 "assets/js/pages/search-results.js"
+move_if_exists "sport-page.js"                     "assets/js/pages/sport-page.js"
+move_if_exists "sport-selection.js"                "assets/js/pages/sport-selection.js"
+move_if_exists "transfer-data.loader.js"           "assets/js/pages/transfer-data.loader.js"
+
+# ---------- Docs / Archives ----------
+move_if_exists "README.md"                         "docs/README.md"
+move_if_exists "GITHUB_UPLOAD_GUIDE.md"            "docs/GITHUB_UPLOAD_GUIDE.md"
+move_if_exists "trueroute-github.zip"              "archives/trueroute-github.zip"
+move_if_exists "trueroute-site.zip"                "archives/trueroute-site.zip"
+# netlify.toml stays in root
+
+echo "Rewriting HTML paths..."
+for f in *.html; do
+  [ -f "$f" ] || continue
+  echo "  Updating $f"
+
+  # CSS
+  $SED 's|href="global\.css"|href="assets/css/global.css"|g' "$f"
+  $SED 's|href="design-system-enhanced\.css"|href="assets/css/core/design-system-enhanced.css"|g' "$f"
+  $SED 's|href="global-unify\.css"|href="assets/css/core/global-unify.css"|g' "$f"
+  $SED 's|href="navy-cohesive-design\.css"|href="assets/css/theme/navy-cohesive-design.css"|g' "$f"
+  $SED 's|href="program-pages-fix\.css"|href="assets/css/pages/program-pages-fix.css"|g' "$f"
+  $SED 's|href="homepage-sports-tech\.css"|href="assets/css/pages/homepage-sports-tech.css"|g' "$f"
+  $SED 's|href="homepage\.css"|href="assets/css/pages/homepage.css"|g' "$f"
+  $SED 's|href="homepage-modern\.css"|href="assets/css/pages/homepage-modern.css"|g' "$f"
+  $SED 's|href="enhanced-cards\.css"|href="assets/css/components/enhanced-cards.css"|g' "$f"
+  $SED 's|href="auth\.css"|href="assets/css/pages/auth.css"|g' "$f"
+  $SED 's|href="write-review-clean\.scoped\.css"|href="assets/css/pages/write-review-clean.scoped.css"|g' "$f"
+  # legacy
+  $SED 's|href="styles\.css"|href="assets/css/_legacy/styles.css"|g' "$f"
+  $SED 's|href="final-navy-override\.css"|href="assets/css/_legacy/final-navy-override.css"|g' "$f"
+  $SED 's|href="force-navy-everywhere\.css"|href="assets/css/_legacy/force-navy-everywhere.css"|g' "$f"
+
+  # JS
+  $SED 's|src="user-manager\.js"|src="assets/js/core/user-manager.js"|g' "$f"
+  $SED 's|src="email-service\.js"|src="assets/js/core/email-service.js"|g' "$f"
+  $SED 's|src="auth\.js"|src="assets/js/pages/auth.js"|g' "$f"
+  $SED 's|src="analytics\.js"|src="assets/js/pages/analytics.js"|g' "$f"
+  $SED 's|src="cost-chart\.js"|src="assets/js/pages/cost-chart.js"|g' "$f"
+  $SED 's|src="program-analytics-new\.js"|src="assets/js/pages/program-analytics-new.js"|g' "$f"
+  $SED 's|src="program-analytics\.js"|src="assets/js/pages/program-analytics.js"|g' "$f"
+  $SED 's|src="program-financials\.js"|src="assets/js/pages/program-financials.js"|g' "$f"
+  $SED 's|src="program-reviews\.js"|src="assets/js/pages/program-reviews.js"|g' "$f"
+  $SED 's|src="programs\.js"|src="assets/js/pages/programs.js"|g' "$f"
+  $SED 's|src="reviews\.js"|src="assets/js/pages/reviews.js"|g' "$f"
+  $SED 's|src="script\.js"|src="assets/js/_legacy/script.js"|g' "$f"
+  $SED 's|src="search-results\.js"|src="assets/js/pages/search-results.js"|g' "$f"
+  $SED 's|src="sport-page\.js"|src="assets/js/pages/sport-page.js"|g' "$f"
+  $SED 's|src="sport-selection\.js"|src="assets/js/pages/sport-selection.js"|g' "$f"
+  $SED 's|src="transfer-data\.loader\.js"|src="assets/js/pages/transfer-data.loader.js"|g' "$f"
+done
+
+echo "✅ Done. Open index.html to verify."
+
+
+cd /Users/gpalfrey/CascadeProjects/trueroute-athletics-reviews
+
+
+

@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Debug - TrueRoute</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/core/design-system-enhanced.css">
+    <link rel="stylesheet" href="assets/css/theme/navy-cohesive-design.css">
+    <link rel="stylesheet" href="assets/css/_legacy/styles.css">
     <style>
         .debug-container {
             max-width: 800px;
             margin: 2rem auto;
             padding: 2rem;
-            background: white;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            color: #FFFFFF;
         }
         .debug-section {
             margin-bottom: 2rem;
@@ -86,7 +91,7 @@
         </div>
     </div>
 
-    <script src="user-manager.js"></script>
+    <script src="assets/js/core/user-manager.js"></script>
     <script>
         function showAllUsers() {
             const users = window.userManager.getAllUsers();

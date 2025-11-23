@@ -1,0 +1,361 @@
+/* Simplify Design - Remove All White Boxes and Excessive Borders */
+
+/* Force navy background on ALL elements that might have white backgrounds */
+*,
+*::before,
+*::after {
+    background-color: inherit !important;
+}
+
+/* Ensure body and html are navy */
+html,
+body {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+    color: #FFFFFF !important;
+}
+
+/* Remove ALL white backgrounds from any element */
+[style*="background: white"],
+[style*="background-color: white"],
+[style*="background: #fff"],
+[style*="background-color: #fff"],
+[style*="background: #ffffff"],
+[style*="background-color: #ffffff"],
+[style*="background-color: rgb(255, 255, 255)"],
+[style*="background: rgb(255, 255, 255)"] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Charts and graphs - force transparent backgrounds */
+canvas,
+.chart,
+.chart-container,
+.graph,
+.graph-container,
+.visualization,
+.data-visualization,
+.chart-wrapper,
+.graph-wrapper {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* All containers, cards, sections - transparent with minimal or no borders */
+.container,
+.section,
+.card,
+.box,
+.panel,
+.widget,
+.item,
+.element,
+.block,
+.area,
+.zone,
+.region,
+.content,
+.wrapper,
+.holder,
+.frame,
+div[class*="card"],
+div[class*="box"],
+div[class*="container"],
+div[class*="section"],
+div[class*="panel"],
+div[class*="widget"],
+div[class*="item"],
+div[class*="block"],
+/* Program specific */
+.category-card,
+.analytics-card,
+.stats-card,
+.metric-card,
+.data-card,
+.info-card,
+.review-card,
+.financial-card,
+.nil-card,
+.transfer-card,
+.portal-card,
+.overview-card,
+.summary-card,
+.detail-card,
+.form-card,
+.rating-card,
+/* Financial page specific */
+.financial-overview,
+.cost-breakdown,
+.scholarship-info,
+.financial-section,
+.breakdown-section,
+/* Review page specific */
+.review-container,
+.review-section,
+.review-item,
+.review-post,
+/* Write review specific */
+.form-section,
+.rating-section,
+.form-group,
+.review-form {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Remove borders from ALL elements to simplify */
+.category-card,
+.analytics-card,
+.stats-card,
+.metric-card,
+.data-card,
+.info-card,
+.review-card,
+.financial-card,
+.nil-card,
+.transfer-card,
+.school-card,
+.sport-card,
+.gender-btn,
+.browse-card,
+.review-container,
+.review-section,
+.review-item,
+.review-post,
+.form-section,
+.rating-section,
+.form-group,
+.review-form,
+.financial-overview,
+.cost-breakdown,
+.scholarship-info,
+.nil-section,
+.opportunity-card,
+.earning-potential,
+.transfer-section,
+.portal-stats,
+.transfer-trends,
+.data-card {
+    border: none !important;
+}
+
+/* Keep minimal borders only for inputs - make them even more subtle */
+.search-input-group {
+    border: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+input,
+textarea,
+select {
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+button {
+    border: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Tables - transparent backgrounds */
+table,
+.table,
+.table-container,
+.data-table,
+thead,
+tbody,
+tr,
+th,
+td {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+}
+
+/* Only keep minimal borders for table headers */
+th {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Forms - minimal styling */
+.form-group,
+.form-section,
+.input-group,
+.field-group {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Modals - solid navy background */
+.modal,
+.modal-content,
+.modal-body,
+.overlay,
+.popup,
+.dialog {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+}
+
+/* Navigation - clean */
+.navbar,
+.nav,
+.navigation,
+.tab-navigation,
+.tab-btn {
+    background: #0B1C2E !important;
+    background-color: #0B1C2E !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Tab buttons - no borders */
+.tab-btn {
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    border: none !important;
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Remove ALL hover effects - keep everything static */
+*:hover {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+    border-color: inherit !important;
+}
+
+/* No hover effects at all - keep it completely static */
+input:hover,
+textarea:hover,
+select:hover,
+button:hover,
+.btn:hover,
+.tab-btn:hover,
+.category-card:hover,
+.analytics-card:hover,
+.review-card:hover,
+.nil-card:hover {
+    border-color: inherit !important;
+    background: transparent !important;
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF !important;
+}
+
+p, span, div, a, label, li {
+    color: #E2E8F0 !important;
+}
+
+/* Ensure all text is visible */
+* {
+    color: inherit !important;
+}
+
+/* Remove any remaining visual clutter */
+.shadow,
+.box-shadow,
+.drop-shadow {
+    box-shadow: none !important;
+}
+
+.blur,
+.backdrop-blur {
+    backdrop-filter: none !important;
+}
+
+/* Charts - ensure they inherit navy background */
+.chartjs-render-monitor {
+    background: transparent !important;
+}
+
+/* Override any CSS framework defaults */
+.bg-white,
+.bg-light,
+.bg-secondary,
+.bg-info,
+.bg-warning,
+.bg-success,
+.bg-danger {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Ultra-simple buttons - no borders */
+button,
+.btn,
+.button {
+    background: transparent !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    border-radius: 0 !important;
+    padding: 0.5rem 1rem !important;
+    text-decoration: underline !important;
+}
+
+button:hover,
+.btn:hover,
+.button:hover {
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Primary buttons - just different text color */
+.btn-primary,
+.primary-btn,
+button[type="submit"] {
+    color: rgba(14, 165, 233, 0.8) !important;
+}
+
+.btn-primary:hover,
+.primary-btn:hover,
+button[type="submit"]:hover {
+    color: rgba(14, 165, 233, 1) !important;
+}
+
+/* Remove any gradient backgrounds */
+* {
+    background-image: none !important;
+}
+
+/* Ensure consistent spacing without visual clutter */
+.card,
+.section,
+.container {
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Remove rounded corners that create visual noise */
+* {
+    border-radius: 0 !important;
+}
+
+/* Only keep minimal border radius for inputs and buttons */
+input,
+textarea,
+select,
+button,
+.btn {
+    border-radius: 4px !important;
+}

@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TrueRoute - Sport Programs</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="homepage-sports-tech.css">
+    <link rel="stylesheet" href="assets/css/core/design-system-enhanced.css">
+    <link rel="stylesheet" href="assets/css/_legacy/styles.css">
+    <link rel="stylesheet" href="assets/css/pages/homepage-sports-tech.css">
+    <link rel="stylesheet" href="navigation-fix.css">
+    <link rel="stylesheet" href="ui-enhancements.css">
+    <link rel="stylesheet" href="modern-landscape.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Force Modern Landscape background color everywhere */
+        body, html, main, section, .container, div {
+            background: #1A2B3C !important;
+        }
+    </style>
 </head>
 <body class="sports-tech-theme">
     <!-- Navigation -->
@@ -25,7 +35,8 @@
             </div>
             <div class="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
-                <a href="#browse" class="nav-link">Browse Sports</a>
+                <a href="nil-info.html" class="nav-link">NIL Info</a>
+                <a href="transfer-data.html" class="nav-link">Transfers</a>
                 <a href="write-review.html" class="nav-link">Write Review</a>
                 <a href="sign-in.html" class="nav-link login-btn">Sign In</a>
             </div>
@@ -268,7 +279,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="sport-page.js"></script>
+    <script src="assets/js/_legacy/script.js"></script>
+    <script src="assets/js/pages/sport-page.js"></script>
 </body>
 </html>

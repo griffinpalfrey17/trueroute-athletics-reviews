@@ -1,7 +1,5 @@
-// Patched UserManager for TrueRoute (non-breaking)
-// - Fixes resendVerificationCode() to call sendVerificationEmail()
-// - Normalizes all email keys to lowercase on read/write
-// Drop-in replacement for user-manager.js if needed.
+// User Management System for TrueRoute
+// This simulates a backend user management system using localStorage
 
 class UserManager {
     constructor() {
@@ -55,8 +53,7 @@ class UserManager {
 
     // Create new user account
     async createAccount(userData) {
-        let { email, password, firstName, lastName, userType } = userData;
-        email = (email || '').toLowerCase();
+        const { email, password, firstName, lastName, userType } = userData;
 
         // Check if user already exists
         if (this.users[email]) {
@@ -65,18 +62,18 @@ class UserManager {
 
         // Validate .edu email only for current and former athletes
         const requiresEduEmail = ['current-athlete', 'former-athlete'].includes(userType);
-        if (requiresEduEmail && !email.endsWith('.edu')) {
+        if (requiresEduEmail && !email.toLowerCase().endsWith('.edu')) {
             throw new Error('Current and former student-athletes must use a valid .edu email address');
         }
 
         // Create user object
         const user = {
             id: this.generateUserId(),
-            email,
+            email: email.toLowerCase(),
             firstName,
             lastName,
             userType,
-            password: this.hashPassword(password),
+            password: this.hashPassword(password), // In real app, use proper hashing
             createdAt: new Date().toISOString(),
             emailVerified: false,
             manualVerified: false,
@@ -91,19 +88,20 @@ class UserManager {
 
         // Generate verification code
         const verificationCode = this.generateVerificationCode();
-        this.verificationCodes[email] = {
+        this.verificationCodes[email.toLowerCase()] = {
             code: verificationCode,
-            expiresAt: new Date(Date.now() + 30 * 60 * 1000).toISOString(),
+            expiresAt: new Date(Date.now() + 30 * 60 * 1000).toISOString(), // 30 minutes
             type: 'email_verification'
         };
 
         // Save user
-        this.users[email] = user;
+        this.users[email.toLowerCase()] = user;
         this.saveUsers();
         this.saveVerificationCodes();
 
         // Send verification email using EmailService
-        await this.sendVerificationEmail(email, verificationCode, { firstName, lastName, userType });
+        console.log('About to send verification email for:', email, 'with code:', verificationCode);
+        this.sendVerificationEmail(email, verificationCode, { firstName, lastName, userType });
 
         return {
             success: true,
@@ -114,16 +112,26 @@ class UserManager {
 
     // Send verification email using EmailService
     async sendVerificationEmail(email, code, userInfo) {
-        email = (email || '').toLowerCase();
+        console.log(`📧 Email Verification for ${email}`);
+        console.log(`Verification Code: ${code}`);
+        console.log(`This code expires in 30 minutes.`);
+        
+        // Store for fallback access
+        window.lastVerificationCode = code;
+        window.lastVerificationEmail = email;
+        
         try {
             // Use EmailService if available
             if (window.emailService) {
-                const result = await window.emailService.sendVerificationEmail(email, code, userInfo || {});
+                const result = await window.emailService.sendVerificationEmail(email, code, userInfo);
+                console.log('Email service result:', result);
                 return result;
             } else {
+                // Fallback to alert if EmailService not loaded
                 throw new Error('EmailService not available');
             }
         } catch (error) {
+            console.error('Email service failed, using fallback:', error);
             // Fallback alert
             alert(`📧 Verification Email Sent!\n\nTo: ${email}\nVerification Code: ${code}\n\n(In production, this would be sent via email)`);
             return { success: true, method: 'Fallback Alert' };
@@ -132,25 +140,24 @@ class UserManager {
 
     // Verify email with code
     async verifyEmail(email, code) {
-        email = (email || '').toLowerCase();
-        const storedCode = this.verificationCodes[email];
+        const storedCode = this.verificationCodes[email.toLowerCase()];
         
         if (!storedCode) {
             throw new Error('No verification code found for this email');
         }
 
         if (new Date() > new Date(storedCode.expiresAt)) {
-            delete this.verificationCodes[email];
+            delete this.verificationCodes[email.toLowerCase()];
             this.saveVerificationCodes();
             throw new Error('Verification code has expired');
         }
 
-        if (storedCode.code !== String(code || '').toUpperCase()) {
+        if (storedCode.code !== code.toUpperCase()) {
             throw new Error('Invalid verification code');
         }
 
         // Mark email as verified
-        const user = this.users[email];
+        const user = this.users[email.toLowerCase()];
         if (user) {
             user.emailVerified = true;
             user.verificationStatus = this.needsManualVerification(user.userType) ? 'pending_manual' : 'verified';
@@ -158,7 +165,7 @@ class UserManager {
         }
 
         // Clean up verification code
-        delete this.verificationCodes[email];
+        delete this.verificationCodes[email.toLowerCase()];
         this.saveVerificationCodes();
 
         return {
@@ -176,8 +183,7 @@ class UserManager {
 
     // Sign in user
     async signIn(email, password) {
-        email = (email || '').toLowerCase();
-        const user = this.users[email];
+        const user = this.users[email.toLowerCase()];
         
         if (!user) {
             throw new Error('No account found with this email address');
@@ -217,10 +223,9 @@ class UserManager {
         return this.currentUser !== null;
     }
 
-    // Resend verification code (PATCHED)
+    // Resend verification code
     async resendVerificationCode(email) {
-        email = (email || '').toLowerCase();
-        const user = this.users[email];
+        const user = this.users[email.toLowerCase()];
         
         if (!user) {
             throw new Error('No account found with this email address');
@@ -232,20 +237,14 @@ class UserManager {
 
         // Generate new verification code
         const verificationCode = this.generateVerificationCode();
-        this.verificationCodes[email] = {
+        this.verificationCodes[email.toLowerCase()] = {
             code: verificationCode,
             expiresAt: new Date(Date.now() + 30 * 60 * 1000).toISOString(),
             type: 'email_verification'
         };
 
         this.saveVerificationCodes();
-
-        // PATCH: use the real email sender instead of a missing simulate function
-        await this.sendVerificationEmail(email, verificationCode, {
-            firstName: user.firstName || "",
-            lastName: user.lastName || "",
-            userType: user.userType || ""
-        });
+        this.sendVerificationEmail(email.toLowerCase(), verificationCode, { firstName: user.firstName, lastName: user.lastName, userType: user.userType });
 
         return {
             success: true,
@@ -259,7 +258,8 @@ class UserManager {
     }
 
     hashPassword(password) {
-        return btoa(String(password || '') + 'trueroute_salt');
+        // Simple hash for demo - use proper hashing in production (bcrypt, etc.)
+        return btoa(password + 'trueroute_salt');
     }
 
     verifyPassword(password, hash) {
@@ -267,7 +267,6 @@ class UserManager {
     }
 
     sanitizeUser(user) {
-        if (!user) return null;
         const { password, ...sanitizedUser } = user;
         return sanitizedUser;
     }
@@ -279,8 +278,7 @@ class UserManager {
 
     // Update user profile
     async updateProfile(email, profileData) {
-        email = (email || '').toLowerCase();
-        const user = this.users[email];
+        const user = this.users[email.toLowerCase()];
         
         if (!user) {
             throw new Error('User not found');
@@ -289,6 +287,7 @@ class UserManager {
         user.profile = { ...user.profile, ...profileData };
         this.saveUsers();
 
+        // Update current user session if it's the same user
         if (this.currentUser && this.currentUser.email === email) {
             this.saveCurrentUser(this.sanitizeUser(user));
         }
@@ -304,7 +303,7 @@ class UserManager {
 // Create global instance
 window.userManager = new UserManager();
 
-// Export for use in other files (optional)
+// Export for use in other files
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = UserManager;
 }
